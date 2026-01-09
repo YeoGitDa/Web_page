@@ -27,7 +27,7 @@ const ServiceSections = () => {
           <div className="flex items-center gap-12 md:gap-20 flex-wrap">
             <div className="flex-1 min-w-[320px] rounded-[2rem] overflow-hidden min-h-[450px] flex items-center justify-center relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:shadow-[0_8px_32px_rgba(6,95,70,0.2)] hover:-translate-y-1 hover:border-emerald-800/50 hover:bg-emerald-900/5">
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/10 to-transparent"></div>
-              <img src="/chatbot_image.jpg" alt="백봇이 Chat Bot" className="w-full h-full object-cover relative z-10" />
+              <img src="/backend/image/chatbot_image.jpg" alt="백봇이 Chat Bot" className="w-full h-full object-cover relative z-10" />
             </div>
             <div className="flex-1 min-w-[320px] p-10 md:p-14 rounded-[2rem] relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:bg-emerald-900/5 hover:shadow-[0_8px_32px_rgba(6,95,70,0.2)] hover:-translate-y-1 hover:border-emerald-800/50">
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent rounded-[2rem]"></div>
@@ -105,7 +105,7 @@ const ServiceSections = () => {
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-700 to-emerald-800 scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></div>
 
               <div className="w-24 h-24 flex items-center justify-center mb-8 bg-emerald-800/30 rounded-3xl text-emerald-800 transition-all duration-500 group-hover:bg-emerald-800/40 group-hover:scale-110 group-hover:rotate-3 relative z-10">
-                <img src="/AI.png" alt="LAB 1" className="w-12 h-12 object-contain" />
+                <img src="/backend/image/AI.png" alt="LAB 1" className="w-12 h-12 object-contain" />
               </div>
 
               <h3 className="text-3xl md:text-4xl font-bold mb-5 text-gray-800 tracking-tight relative z-10">LAB 1</h3>
@@ -120,7 +120,7 @@ const ServiceSections = () => {
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-700 to-emerald-800 scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></div>
 
               <div className="w-24 h-24 flex items-center justify-center mb-8 bg-emerald-800/30 rounded-3xl text-emerald-800 transition-all duration-500 group-hover:bg-emerald-800/40 group-hover:scale-110 group-hover:rotate-3 relative z-10">
-                <img src="/Archive.png" alt="LAB 2" className="w-12 h-12 object-contain" />
+                <img src="/backend/image/Archive.png" alt="LAB 2" className="w-12 h-12 object-contain" />
               </div>
 
 
@@ -136,7 +136,7 @@ const ServiceSections = () => {
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-700 to-emerald-800 scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></div>
               
               <div className="w-24 h-24 flex items-center justify-center mb-8 bg-emerald-800/30 rounded-3xl text-emerald-800 transition-all duration-500 group-hover:bg-emerald-800/40 group-hover:scale-110 group-hover:rotate-3 relative z-10">
-                <img src="/Curation.png" alt="LAB 3" className="w-12 h-12 object-contain" />
+                <img src="/backend/image/Curation.png" alt="LAB 3" className="w-12 h-12 object-contain" />
               </div>
 
               <h3 className="text-3xl md:text-4xl font-bold mb-5 text-gray-800 tracking-tight relative z-10">LAB 3</h3>
@@ -151,7 +151,7 @@ const ServiceSections = () => {
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-700 to-emerald-800 scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></div>
 
               <div className="w-24 h-24 flex items-center justify-center mb-8 bg-emerald-800/30 rounded-3xl text-emerald-800 transition-all duration-500 group-hover:bg-emerald-800/40 group-hover:scale-110 group-hover:rotate-3 relative z-10">
-                <img src="/Infra.png" alt="LAB 4" className="w-12 h-12 object-contain" />
+                <img src="/backend/image/Infra.png" alt="LAB 4" className="w-12 h-12 object-contain" />
               </div>
 
               <h3 className="text-3xl md:text-4xl font-bold mb-5 text-gray-800 tracking-tight relative z-10">LAB 4</h3>
@@ -166,7 +166,7 @@ const ServiceSections = () => {
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-700 to-emerald-800 scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></div>
 
               <div className="w-24 h-24 flex items-center justify-center mb-8 bg-emerald-800/30 rounded-3xl text-emerald-800 transition-all duration-500 group-hover:bg-emerald-800/40 group-hover:scale-110 group-hover:rotate-3 relative z-10">
-                <img src="/Compition.png" alt="LAB 5" className="w-12 h-12 object-contain" />
+                <img src="/backend/image/Compition.png" alt="LAB 5" className="w-12 h-12 object-contain" />
               </div>
 
               <h3 className="text-3xl md:text-4xl font-bold mb-5 text-gray-800 tracking-tight relative z-10">LAB  5</h3>

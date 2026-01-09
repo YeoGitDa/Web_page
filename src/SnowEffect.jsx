@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-const SN1 = "/SN1.png";
-const SN2 = "/SN2.png";
+const SN1 = "/backend/image/SN1.png";
+const SN2 = "/backend/image/SN2.png";
 
 function SnowEffect({ count = 50 }) {
   const [snowflakes, setSnowflakes] = useState([]);

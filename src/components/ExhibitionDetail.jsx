@@ -9,7 +9,7 @@ const ExhibitionDetail = () => {
       {/* Navigation */}
       <nav className="sticky top-0 z-20 flex justify-between items-center px-4 py-4 md:px-16 bg-emerald-900/90 backdrop-blur-xl border-b border-white/10">
         <div className="flex items-center gap-5 text-white text-xl md:text-2xl font-semibold">
-          <img src="/logo.png" alt="Yeobaek Logo" className="h-8" />
+          <img src="/backend/image/logo.png" alt="Yeobaek Logo" className="h-8" />
           Yeobaek
         </div>
         <button
@@ -24,7 +24,7 @@ const ExhibitionDetail = () => {
       <div className="flex items-center justify-center min-h-[calc(100vh-80px)] py-20 px-5">
         <div className="text-center">
           <img
-            src="/wait.png"
+            src="/backend/image/wait.png"
             alt="Coming Soon"
             className="mx-auto max-w-md w-full h-auto"
           />

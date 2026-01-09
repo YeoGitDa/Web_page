@@ -1,5 +1,5 @@
 // src/components/Chatbot/Chatbot.jsx
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "./Chatbot.module.css";
 
 // 타임아웃을 포함한 fetch 함수

@@ -10,7 +10,7 @@ function Contact() {
           {/* Map Section */}
           <div className="flex justify-center items-center">
             <img
-              src="/map.png"
+              src="/backend/image/map.png"
               alt="Location Map"
               className="w-80 h-80 object-cover rounded-lg shadow-lg"
             />
@@ -51,7 +51,7 @@ function Contact() {
                   </svg>
                   <div>
                     <p className="font-semibold text-gray-700">이메일</p>
-                    <p className="text-gray-600">yeobaek001@gmail.com</p>
+                    <p className="text-gray-600">lisyeobaek@gmail.com</p>
                   </div>
                 </div>
               </div>

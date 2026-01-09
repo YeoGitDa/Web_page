@@ -34,7 +34,7 @@ function HomePage() {
     <div className="w-screen min-h-screen bg-gray-50 m-0 p-0 overflow-x-hidden">
       {/* Background Music */}
       <audio ref={audioRef} loop>
-        <source src="/musicchristmas.mp3" type="audio/mpeg" />
+        <source src="/backend/image/musicchristmas.mp3" type="audio/mpeg" />
       </audio>
 
       {/* Hero Section with Image Background */}
@@ -43,7 +43,7 @@ function HomePage() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url(/gomdol.jpg)',
+            backgroundImage: 'url(/backend/image/gomdol.jpg)',
             filter: 'brightness(0.95)',
           }}
         />
@@ -57,7 +57,7 @@ function HomePage() {
         {/* Navigation */}
         <nav className="absolute top-0 left-0 right-0 z-50 flex justify-between items-center px-8 py-12 md:px-8 md:py-8 bg-emerald-800/40 backdrop-blur-xl border-b border-white/10">
           <div className="flex items-center gap-5 text-white text-xl md:text-2xl font-bold">
-            <img src="/logo.png" alt="Yeobaek Logo" className="h-5" />
+            <img src="/backend/image/logo.png" alt="Yeobaek Logo" className="h-5" />
             Yeobaek
           </div>
           <div className="flex-1 flex justify-center gap-4 md:gap-8 text-white text-xl md:text-2xl">
