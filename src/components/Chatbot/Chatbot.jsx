@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import styles from "./Chatbot.module.css";
 
 // 타임아웃을 포함한 fetch 함수
-async function fetchWithTimeout(url, options = {}, timeout = 30000) {
+async function fetchWithTimeout(url, options = {}, timeout = 60000) {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), timeout);
 
@@ -26,8 +26,8 @@ async function fetchWithRetry(url, options = {}, maxRetries = 2) {
 
   for (let attempt = 0; attempt <= maxRetries; attempt++) {
     try {
-      // 타임아웃 30초로 설정
-      const response = await fetchWithTimeout(url, options, 30000);
+      // 타임아웃 60초로 설정 (Render 무료 플랜의 콜드 스타트 대응)
+      const response = await fetchWithTimeout(url, options, 60000);
       return response;
     } catch (error) {
       lastError = error;
