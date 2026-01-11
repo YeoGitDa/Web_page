@@ -27,11 +27,6 @@
 - 데이터를 기반으로 한 DACON/Kaggle/Solution Challenge 등 외부 대회 준비  
 - 모델 개발, 데이터 전처리, 시각화, 보고서 자동화 연구
 
-## 📌 Yeobaek HUB 목표
-- React + Firebase 기반 Web 플랫폼
-- 챗봇, 연구실 소개, 실험 결과, 문서 아카이브 통합
-- 장기적으로 “문헌정보 기반 AI 에이전트 플랫폼”을 구축하는 것을 목표로 한다.
-
 ---
 
-마지막 업데이트: 2025-11-17 / Yeobaek Automation Lab
+마지막 업데이트: 2026 - 01 -11 / Yeobaek Automation Lab
