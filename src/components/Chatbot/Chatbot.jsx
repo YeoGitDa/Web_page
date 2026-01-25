@@ -104,8 +104,8 @@ async function backendGetReply(userText) {
 }
 
 export default function Chatbot({
-  title = "Yeobaek Chat-bot",
-  subtitle = "실험용 UI v1 (RAG)",
+  title = "여불이",
+  subtitle = "여백의 챗봇입니다",
   getReply = backendGetReply,
 }) {
   
@@ -117,7 +117,7 @@ export default function Chatbot({
       text:
         "안녕하세요! 😊\n" +
         "저는 여백의 작은AI 백봇이에요.\n" +
-        "여백, LIS 관련 질문을 해 주세요!.",
+        "여백 및 동아리에 관한 질문을 해 주세요!.",
     },
   ]);
   const [input, setInput] = useState("");
@@ -185,7 +185,7 @@ export default function Chatbot({
               <span className={styles.titleSub}>{subtitle}</span>
               {/* 상태 뱃지(1119 신규) */} 
               <span className={styles.statusBadge}>
-                {isSending ? "답변 생성 중..." : "온라인 · OpenAI"}
+                {isSending ? "답변 생성 중..." : "RAG · OpenAI"}
               </span>
             </div>
         

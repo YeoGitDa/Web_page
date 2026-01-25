@@ -33,8 +33,8 @@ const About = () => {
       name: "박다정",
       role: ["운영", "LAB 2"],
       email: "yeobaek3@example.com",
-      image: "public/backend/image/duzzonku.png"
-      
+      image: "/backend/image/duzzonku.png"
+
     },{
       name: "방규리",
       role: ["운영" ,"기획", "LAB 1" , "LAB 3" , "Frontend"],
