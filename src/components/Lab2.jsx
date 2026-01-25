@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const LabDetail = () => {
@@ -36,25 +36,12 @@ const LabDetail = () => {
     }
   ];
 
-  // 최신 자료 목록 (예시 데이터)
-  const recentPosts = [
-    { id: 1, category: '전체보기', title: '디지털 아카이빙 가이드', date: '2025-03-15' },
-    { id: 2, category: '해외여행', title: '일본 도쿄 여행기', date: '2025-03-14' },
-    { id: 3, category: '해외여행', title: '중국 베이징 탐방', date: '2025-03-13' },
-    { id: 4, category: '강아지동반 여행', title: '서울 반려견 카페', date: '2025-03-12' },
-    { id: 5, category: '전체보기', title: '메타데이터 관리 노하우', date: '2025-03-11' }
-  ];
-
   const toggleCategory = (categoryName) => {
     setExpandedCategories(prev => ({
       ...prev,
       [categoryName]: !prev[categoryName]
     }));
   };
-
-  const filteredPosts = selectedCategory === '전체보기'
-    ? recentPosts
-    : recentPosts.filter(post => post.category === selectedCategory);
 
   // LAB2 상세 데이터
   const labData = {
@@ -128,7 +115,7 @@ const LabDetail = () => {
       {/* Navigation */}
       <nav className="sticky top-0 z-20 flex justify-between items-center px-4 py-4 md:px-16 bg-emerald-800/40 backdrop-blur-xl border-b border-white/10">
         <div className="flex items-center gap-5 text-white text-xl md:text-2xl font-semibold">
-          <img src="/logo.png" alt="Yeobaek Logo" className="h-8" />
+          <img src="/backend/image/logo.png" alt="Yeobaek Logo" className="h-8" />
           Yeobaek
         </div>
         <button

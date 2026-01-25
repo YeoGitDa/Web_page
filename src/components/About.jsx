@@ -7,27 +7,27 @@ const About = () => {
       name: "김미승",
       role: [ "LAB 2"],
       email: "yeobaek1@example.com",
-      image: "/team/member1.jpg"
+      image: "/backend/image/duzzonku.png"
     },
     {
       name: "김서희",
       role: ["LAB 2"],
       email: "yeobaek2@example.com",
-      image: "/team/member2.jpg"
+      image: "/backend/image/duzzonku.png"
     },
     {
       name: "김명주",
       role: ["운영 지원" , "기획 지원"],
       email: "yeobaek3@example.com",
-      image: "/team/member3.jpg"
-      
+      image: "/backend/image/mj_logo.png"
+
     },
     {
       name: "김찬슬",
       role: ["디자인"],
       email: "yeobaek3@example.com",
-      image: "/team/member3.jpg"
-      
+      image: "/backend/image/duzzonku.png"
+
     },
     {
       name: "박다정",
@@ -39,21 +39,21 @@ const About = () => {
       name: "방규리",
       role: ["운영" ,"기획", "LAB 1" , "LAB 3" , "Frontend"],
       email: "yeobaek3@example.com",
-      image: "/team/member3.jpg"
-      
+      image: "/backend/image/yuja.png"
+
     },{
       name: "양승빈",
       role: ["회장" ,"Backend", "운영"],
       email: "yeobaek3@example.com",
-      image: "/team/member3.jpg"
-      
+      image: "/backend/image/duzzonku.png"
+
     },
     
     {
       name: "Coming Soon",
       role: ["여백의 신입부원 당신을 기다립니다"],
       email: "많관부 많사부",
-      image: "/team/member4.jpg"
+      image: "/backend/image/duzzonku.png"
     }
   ];
 
@@ -92,17 +92,18 @@ const About = () => {
             {teamMembers.map((member, index) => (
               <div
                 key={index}
-                className="p-8 md:p-10 rounded-[2rem] relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-500/30 shadow-[0_8px_32px_rgba(0,0,0,0.08)] flex flex-col items-center text-center transition-all duration-500 hover:bg-emerald-50/30 hover:shadow-[0_8px_32px_rgba(16,185,129,0.15)] hover:-translate-y-3 hover:border-emerald-500/50 overflow-hidden group"
+                className="p-8 md:p-10 rounded-[2rem] relative bg-gray-100 backdrop-blur-3xl border-2 border-emerald-500/30 shadow-[0_8px_32px_rgba(0,0,0,0.08)] flex flex-col items-center text-center transition-all duration-500 hover:bg-emerald-50/30 hover:shadow-[0_8px_32px_rgba(16,185,129,0.15)] hover:-translate-y-3 hover:border-emerald-500/50 overflow-hidden group"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent"></div>
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 to-emerald-500 scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></div>
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#345441] to-emerald-500 scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></div>
 
                 {/* Member Image */}
-                <div className="w-32 h-32 rounded-full overflow-hidden mb-6 bg-emerald-500/15 flex items-center justify-center relative z-10 ring-4 ring-emerald-400/25 transition-all duration-500 group-hover:ring-emerald-500/40 group-hover:scale-105">
-                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-emerald-600">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                    <circle cx="12" cy="7" r="4"/>
-                  </svg>
+                <div className="w-32 h-32 rounded-full overflow-hidden mb-6 bg-white flex items-center justify-center relative z-10 ring-4 ring-[#587650] transition-all duration-500 group-hover:ring-emerald-500/40 group-hover:scale-105">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
                 {/* Member Info */}
@@ -112,7 +113,7 @@ const About = () => {
                   {member.role.map((r, idx) => (
                     <span
                       key={idx}
-                      className="inline-block bg-emerald-500/15 text-emerald-700 px-4 py-1.5 rounded-full text-sm font-medium mx-1 mb-2"
+                      className="inline-block bg-emerald-500/15 text-gray-900 px-4 py-1.5 rounded-full text-sm font-medium mx-1 mb-2"
                     >
                       {r}
                     </span>
