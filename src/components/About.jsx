@@ -4,29 +4,55 @@ import { Link } from 'react-router-dom';
 const About = () => {
   const teamMembers = [
     {
-      name: "김여백",
-      role: ["프론트엔드", "기획"],
+      name: "김미승",
+      role: [ "LAB 2"],
       email: "yeobaek1@example.com",
       image: "/team/member1.jpg"
     },
     {
-      name: "이여백",
-      role: ["백엔드", "DB"],
+      name: "김서희",
+      role: ["LAB 2"],
       email: "yeobaek2@example.com",
       image: "/team/member2.jpg"
     },
     {
-      name: "박여백",
-      role: ["프론트엔드", "운영"],
+      name: "김명주",
+      role: ["운영 지원" , "기획 지원"],
+      email: "yeobaek3@example.com",
+      image: "/team/member3.jpg"
+      
+    },
+    {
+      name: "김찬슬",
+      role: ["디자인"],
+      email: "yeobaek3@example.com",
+      image: "/team/member3.jpg"
+      
+    },
+    {
+      name: "박다정",
+      role: ["운영", "LAB 2"],
+      email: "yeobaek3@example.com",
+      image: "public/backend/image/duzzonku.png"
+      
+    },{
+      name: "방규리",
+      role: ["운영" ,"기획", "LAB 1" , "LAB 3" , "Frontend"],
+      email: "yeobaek3@example.com",
+      image: "/team/member3.jpg"
+      
+    },{
+      name: "양승빈",
+      role: ["회장" ,"Backend", "운영"],
       email: "yeobaek3@example.com",
       image: "/team/member3.jpg"
       
     },
     
     {
-      name: "최여백",
-      role: ["백엔드", "기획"],
-      email: "yeobaek4@example.com",
+      name: "Coming Soon",
+      role: ["여백의 신입부원 당신을 기다립니다"],
+      email: "많관부 많사부",
       image: "/team/member4.jpg"
     }
   ];
@@ -58,8 +84,8 @@ const About = () => {
       <section className="py-28 md:py-40 px-5 md:px-10 bg-gray-50/50 relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20 md:mb-28">
-            <h2 className="text-5xl md:text-7xl font-bold mb-6 text-gray-800 tracking-tight">Meet Our Team</h2>
-            <p className="text-xl md:text-2xl text-gray-500 font-light">Yeobaek을 만들어가는 사람들</p>
+            <h2 className="text-5xl md:text-7xl font-bold mb-6 text-gray-800 tracking-tight">Team Yeobaek</h2>
+            <p className="text-xl md:text-2xl text-gray-500 font-light">여백 의 기획, 운영, 개발을 담당하는 구성원들</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">

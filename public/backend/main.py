@@ -135,7 +135,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
-    allow_methods=["GET", "POST", "OPTIONS"],  # OPTIONS 추가 (CORS preflight)
+    allow_methods=["GET", "POST"],  # 필요한 메서드만 허용
     allow_headers=["Content-Type", "Authorization"],  # 필요한 헤더만 허용
 )
 
