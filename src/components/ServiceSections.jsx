@@ -50,7 +50,7 @@ const ServiceSections = () => {
           <div className="flex items-center gap-12 md:gap-20 flex-wrap md:flex-row-reverse">
             <div className="flex-1 min-w-[320px] rounded-[2rem] overflow-hidden min-h-[450px] flex items-center justify-center relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:shadow-[0_8px_32px_rgba(6,95,70,0.2)] hover:-translate-y-1 hover:border-emerald-800/50 hover:bg-emerald-900/5">
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/10 to-transparent"></div>
-              <img src="/Ar.png" alt="디지털 아카이빙" className="w-full h-full object-cover relative z-10" />
+              <img src="/backend/image/digitalA.png" alt="디지털 아카이빙" className="w-full h-full object-cover relative z-10" />
             </div>
             <div className="flex-1 min-w-[320px] p-10 md:p-14 rounded-[2rem] relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:bg-emerald-900/5 hover:shadow-[0_8px_32px_rgba(6,95,70,0.2)] hover:-translate-y-1 hover:border-emerald-800/50">
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent rounded-[2rem]"></div>
@@ -72,7 +72,7 @@ const ServiceSections = () => {
           <div className="flex items-center gap-12 md:gap-20 flex-wrap">
             <div className="flex-1 min-w-[320px] rounded-[2rem] overflow-hidden min-h-[450px] flex items-center justify-center relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:shadow-[0_8px_32px_rgba(6,95,70,0.2)] hover:-translate-y-1 hover:border-emerald-800/50 hover:bg-emerald-900/5">
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/10 to-transparent"></div>
-              <img src="/digicu.png" alt="동아리 산출물 전시" className="w-full h-full object-cover relative z-10" />
+              <img src="/backend/image/exhibition_image.jpg" alt="동아리 산출물 전시" className="w-full h-full object-cover relative z-10" />
             </div>
             <div className="flex-1 min-w-[320px] p-10 md:p-14 rounded-[2rem] relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:bg-emerald-900/5 hover:shadow-[0_8px_32px_rgba(6,95,70,0.2)] hover:-translate-y-1 hover:border-emerald-800/50">
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent rounded-[2rem]"></div>
@@ -83,6 +83,104 @@ const ServiceSections = () => {
               <button onClick={() => navigate('/exhibition')} className="inline-flex items-center gap-2 text-emerald-700 text-lg font-medium no-underline transition-all hover:gap-3 hover:text-emerald-800 relative z-10 bg-transparent border-none cursor-pointer">
                 Learn More →
               </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+      {/* 동아리 소식 & 공지 Section */}
+      <section className="py-28 md:py-40 px-5 md:px-10 bg-white" id="club-news">
+        <div className="max-w-5xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-7xl font-bold mb-6 text-gray-800 tracking-tight">동아리 소식 & 공지</h2>
+            <p className="text-xl md:text-2xl text-gray-500 font-light">여백의 최신 소식과 공지사항을 확인하세요</p>
+          </div>
+
+
+          {/* Club Card */}
+          <div className="rounded-[1.5rem] border-2 border-emerald-600 overflow-hidden bg-white shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
+            {/* Green top border */}
+            <div className="h-1.5 bg-gradient-to-r from-green-200 to-emerald-500"></div>
+
+            <div className="flex flex-col lg:flex-row">
+              {/* Left Info Panel */}
+              <div className="lg:w-[480px] bg-white px-8 md:px-10 py-10 md:py-14 flex flex-col items-center text-center border-b lg:border-b-0 lg:border-r border-emerald-200/50">
+                <img src="/backend/image/YB_logo.png" alt="여백" className="w-60 h-60 object-contain mb-6" />
+                <h4 className="text-xl font-bold text-gray-800 mb-4">문헌정보학과 전공동아리 여백</h4>
+                <p className="text-gray-600 mb-6">여백은 박종도 교수님 산하의 정보학 기반 동아리 입니다. <br/> 정보학을 바탕으로 실제 서비스와 시스템을 기획, 설계, 개발해 이용자에게 적합한 정보서비스를 제공합니다.</p>
+                <p className="text-gray-900 text-sm">DB, Data Science, AI</p>
+              </div>
+
+              {/* Right Content */}
+              <div className="flex-1 p-8 md:p-10">
+              {/* Club Header */}
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-14 h-14 rounded-2xl bg-emerald-500 flex items-center justify-center flex-shrink-0">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                  </svg>
+                </div>
+                <div>
+                  <div className="flex items-center gap-3 flex-wrap">
+                    <h4 className="text-2xl md:text-3xl font-bold text-gray-800">여백 (Yeobaek)</h4>
+                    <span className="inline-flex items-center px-3 py-1 bg-[#74A874] text-white text-xs font-bold rounded-full">DB,DS,AI</span>
+                  </div>
+                  <p className="text-gray-500 text-sm mt-1">문헌정보학과 대표 전공동아리</p>
+                </div>
+              </div>
+
+              {/* Meta Info */}
+              <div className="flex items-center gap-4 text-gray-400 text-sm mb-6">
+                <div className="flex items-center gap-1.5">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                  <span className="font-medium">7명</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-gray-300">&lt;&gt;</span>
+                  <span className="font-medium">문헌정보학과, 소셜데이터사이언스 연계전공</span>
+                </div>
+              </div>
+
+              {/* Post Content */}
+              <div className="mb-8">
+                <div className="flex items-center gap-2 text-gray-400 text-sm mb-3">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                  </svg>
+                  <span>Since 2022. 03 ~</span>
+                </div>
+                <h5 className="text-xl font-bold text-gray-800 mb-2">2026-1학기 신입회원 모집</h5>
+                <p className="text-gray-500 text-base leading-relaxed">
+                  여백에서 신입회원을 모집합니다! DB, Data Science, AI 등 다양한 분야의 프로젝트와 스터디에 참여하세요.
+                </p>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex items-center gap-4">
+                <button
+                  onClick={() => navigate('/about')}
+                  className="flex-1 py-3.5 bg-[#74A874] hover:bg-emerald-600 text-white font-semibold rounded-xl transition-colors cursor-pointer border-none text-base"
+                >
+                  자세히 보기
+                </button>
+                <button
+                  className="flex-1 py-3.5 border-2 border-[#74A874] text-emerald-600 font-semibold rounded-xl hover:bg-emerald-50 transition-colors cursor-pointer bg-transparent text-base">
+                  가입 신청
+                </button>
+              </div>
+            </div>
             </div>
           </div>
         </div>
