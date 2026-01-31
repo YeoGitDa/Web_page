@@ -62,7 +62,7 @@ const About = () => {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-8 py-6 bg-emerald-800/40 backdrop-blur-xl border-b border-white/10">
         <Link to="/" className="flex items-center gap-3 text-white text-xl md:text-2xl font-bold no-underline">
-          <img src="/logo.png" alt="Yeobaek Logo" className="h-5" />
+          <img src="/backend/image/logo.png" alt="Yeobaek Logo" className="h-5" />
           Yeobaek
         </Link>
         <div className="flex gap-6 text-white text-lg md:text-xl">
