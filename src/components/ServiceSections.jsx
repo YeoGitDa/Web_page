@@ -17,13 +17,13 @@ const services = [
     link: '/archiving',
   },
   {
-    image: '/backend/image/exhibition_image.jpg',
+    image: '/backend/image/digicu.png',
     imageAlt: '동아리 산출물 전시',
     title: '동아리 산출물 전시',
     description: '개인 맞춤형 정보자료 추천 및 yeobaek 의 산출물 전시 기능!',
     link: '/exhibition',
   },
-];
+];  
 
 const ServiceSection = () => {
   const navigate = useNavigate();
