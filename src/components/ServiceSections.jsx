@@ -341,53 +341,46 @@ const ServiceSections = () => {
 
 
       {/* Our Core Values Section */}
-      <section className="py-28 md:py-40 px-5 md:px-10 bg-white">
+      <section className="py-28 md:py-40 px-5 md:px-10 bg-white relative" id="core-values">
         <div className="z-[9999]">
           <div className="text-center mb-20 md:mb-28">
             <h2 className="text-5xl md:text-7xl font-bold mb-8 text-gray-800 tracking-tight"> 여백의 가치 </h2>
             <p className="text-xl md:text-2xl text-gray-500 font-light">여백은 이런 가치를 지향하고 있어요</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {/* Precision */}
-            <div className="p-10 md:p-12 rounded-[2rem] relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] text-center transition-all duration-500 hover:bg-emerald-900/5 hover:shadow-[0_8px_32px_rgba(6,95,70,0.2)] hover:-translate-y-2 hover:border-emerald-800/50 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent"></div>
-              
-              <h3 className="text-3xl md:text-4xl font-bold mb-5 text-gray-800 tracking-tight relative z-10">밤티 NO!</h3>
-              <p className="text-base md:text-lg text-gray-600 leading-relaxed font-light relative z-10">
-                데이터 기반으로 사용자의 불편함을 정확하게 파악하고, 이를 해결할 수 있는 서비스를 기획합니다.
-              </p>
-            </div>
-            
+          <div className="max-w-4xl mx-auto border-2 border-green-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              {/* Precision */}
+              <div className="p-10 md:p-14 text-center border-b border-green-800/30 md:border-r shadow-inner hover:bg-green-600/30 hover:scale-80 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                <h3 className="text-2xl md:text-3xl font-bold mb-5 text-gray-800 tracking-tight">밤티 NO!</h3>
+                <p className="text-base md:text-lg text-gray-700 leading-relaxed font-light">
+                  데이터 기반으로 사용자의 불편함을 정확하게 파악하고, 이를 해결할 수 있는 서비스를 기획합니다.
+                </p>
+              </div>
 
-            {/* Innovation */}
-            <div className="p-10 md:p-12 rounded-[2rem] relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] text-center transition-all duration-500 hover:bg-emerald-900/5 hover:shadow-[0_8px_32px_rgba(6,95,70,0.2)] hover:-translate-y-2 hover:border-emerald-800/50 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent"></div>
-             
-              <h3 className="text-3xl md:text-4xl font-bold mb-5 text-gray-800 tracking-tight relative z-10">내손내만 서비스</h3>
-              <p className="text-base md:text-lg text-gray-600 leading-relaxed font-light relative z-10">
-                내가 원하는 서비스는 직접 기획, 개발, 배포하며 활용하고 고도화 시킵니다. <br/> 언제든지 사용 가능하게 공개하여 사용자 피드백을 통해 서비스를 개선합니다.
-              </p>
-            </div>
+              {/* Innovation */}
+              <div className="p-10 md:p-14 text-center border-b border-green-800/30 shadow-inner hover:bg-green-600/30 hover:scale-80 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                <h3 className="text-2xl md:text-3xl font-bold mb-5 text-gray-800 tracking-tight">내손내만 서비스</h3>
+                <p className="text-base md:text-lg text-gray-500 leading-relaxed font-light">
+                  내가 원하는 서비스는 직접 기획, 개발, 배포하며 활용하고 고도화 시킵니다. 언제든지 사용 가능하게 공개하여 사용자 피드백을 통해 서비스를 개선합니다.
+                </p>
+              </div>
 
-            {/* Collaboration */}
-            <div className="p-10 md:p-12 rounded-[2rem] relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] text-center transition-all duration-500 hover:bg-emerald-900/5 hover:shadow-[0_8px_32px_rgba(6,95,70,0.2)] hover:-translate-y-2 hover:border-emerald-800/50 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent"></div>
-                
-              <h3 className="text-3xl md:text-4xl font-bold mb-5 text-gray-800 tracking-tight relative z-10">팀 프로젝트 경험</h3>
-              <p className="text-base md:text-lg text-gray-600 leading-relaxed font-light relative z-10">
-                문헌정보학과 내 여러 동아리와 협업해 기술과 경험를 공유하고, 협업 경험을 쌓아갑니다.
-              </p>
-            </div>
+              {/* Collaboration */}
+              <div className="p-10 md:p-14 text-center md:border-r border-green-800/30 border-b md:border-b-0 shadow-inner hover:bg-green-600/30 hover:scale-80 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                <h3 className="text-2xl md:text-3xl font-bold mb-5 text-gray-800 tracking-tight">팀 프로젝트 경험</h3>
+                <p className="text-base md:text-lg text-gray-500 leading-relaxed font-light">
+                  문헌정보학과 내 여러 동아리와 협업해 기술과 경험를 공유하고, 협업 경험을 쌓아갑니다.
+                </p>
+              </div>
 
-            {/* Integrity */}
-            <div className="p-10 md:p-12 rounded-[2rem] relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] text-center transition-all duration-500 hover:bg-emerald-900/5 hover:shadow-[0_8px_32px_rgba(6,95,70,0.2)] hover:-translate-y-2 hover:border-emerald-800/50 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent"></div>
-              
-              <h3 className="text-3xl md:text-4xl font-bold mb-5 text-gray-800 tracking-tight relative z-10">통합 개발 경험</h3>
-              <p className="text-base md:text-lg text-gray-600 leading-relaxed font-light relative z-10">
-                기획부터 개발, 큐레이션과 고도화 기능까지 제공하며 all in one 의 완전한 서비스를 제공합니다.
-              </p>
+              {/* Integrity */}
+              <div className="p-10 md:p-14 text-center shadow-inner hover:bg-green-600/30 hover:scale-80 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                <h3 className="text-2xl md:text-3xl font-bold mb-5 text-gray-800 tracking-tight">통합 개발 경험</h3>
+                <p className="text-base md:text-lg text-gray-500 leading-relaxed font-light">
+                  기획부터 개발, 큐레이션과 고도화 기능까지 제공하며 all in one 의 완전한 서비스를 제공합니다.
+                </p>
+              </div>
             </div>
           </div>
         </div>
