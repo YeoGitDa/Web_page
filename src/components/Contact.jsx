@@ -31,7 +31,7 @@ function Contact() {
                   </svg>
                   <div>
                     <p className="font-semibold text-gray-700">위치</p>
-                    <p className="text-gray-600">인천대학교 사회과학대학(13호관) 2층 문헌정보학과</p>
+                    <p className="text-gray-600"> 인천대학교 문헌정보학과 어딘가</p>
                   </div>
                 </div>
 
@@ -41,7 +41,7 @@ function Contact() {
                   </svg>
                   <div>
                     <p className="font-semibold text-gray-700">전화</p>
-                    <p className="text-gray-600">+82) 032-832-8750</p>
+                    <p className="text-gray-600">이메일로 연락 주세요 ~!</p>
                   </div>
                 </div>
 

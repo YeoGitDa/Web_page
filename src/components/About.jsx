@@ -32,7 +32,7 @@ const About = () => {
     {
       name: "박다정",
       role: ["운영", "LAB 2"],
-      email: "yeobaek3@example.com",
+      email: "whatkindof@inu.ac.kr",
       image: "/backend/image/duzzonku.png"
 
     },{
