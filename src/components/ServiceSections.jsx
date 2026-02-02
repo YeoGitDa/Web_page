@@ -1,5 +1,116 @@
-import React from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+const services = [
+  {
+    image: '/backend/image/chatbot_image.jpg',
+    imageAlt: '백봇이 Chat Bot',
+    title: "Chat Bot : '여불이'",
+    description: '챗봇을 통해 질문하고, 원하는 정보를 찾을 수 있어요',
+    link: '/chatbot',
+  },
+  {
+    image: '/backend/image/digitalA.png',
+    imageAlt: '디지털 아카이빙',
+    title: '디지털 아카이빙',
+    description: 'yeobaek 및 전공 동아리들의 활동 산출물과 문서들을 체계적으로 아카이빙하고, 검색 및 활용을 위한 서비스!',
+    link: '/archiving',
+  },
+  {
+    image: '/backend/image/exhibition_image.jpg',
+    imageAlt: '동아리 산출물 전시',
+    title: '동아리 산출물 전시',
+    description: '개인 맞춤형 정보자료 추천 및 yeobaek 의 산출물 전시 기능!',
+    link: '/exhibition',
+  },
+];
+
+const ServiceSection = () => {
+  const navigate = useNavigate();
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const goTo = (index) => setCurrentIndex(index);
+  const goPrev = () => setCurrentIndex((prev) => (prev - 1 + services.length) % services.length);
+  const goNext = () => setCurrentIndex((prev) => (prev + 1) % services.length);
+
+  return (
+    <section className="py-24 md:py-32 px-5 md:px-10 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto w-full relative">
+        <div className="flex items-center gap-12 md:gap-20 flex-wrap">
+          {/* Image - horizontal slide */}
+          <div className="flex-1 min-w-[320px] rounded-[2rem] overflow-hidden h-[450px] relative bg-white border-2 border-emerald-700/40 shadow-lg">
+            {services.map((service, i) => (
+              <img
+                key={i}
+                src={service.image}
+                alt={service.imageAlt}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-in-out"
+                style={{
+                  transform: `translateX(${(i - currentIndex) * 100}%)`,
+                }}
+              />
+            ))}
+          </div>
+
+          {/* Text - slide with fade */}
+          <div className="flex-1 min-w-[320px] rounded-[2rem] bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-lg relative h-[450px] overflow-hidden">
+            {services.map((service, i) => (
+              <div
+                key={i}
+                className="absolute inset-0 p-10 md:p-14 flex flex-col justify-center transition-all duration-700 ease-in-out"
+                style={{
+                  opacity: currentIndex === i ? 1 : 0,
+                  transform: `translateX(${(i - currentIndex) * 100}%)`,
+                  pointerEvents: currentIndex === i ? 'auto' : 'none',
+                }}
+              >
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800 tracking-tight">{service.title}</h2>
+                <p className="text-lg md:text-xl leading-relaxed text-gray-600 mb-8 font-light">{service.description}</p>
+                <button
+                  onClick={() => navigate(service.link)}
+                  className="inline-flex items-center gap-2 text-emerald-700 text-lg font-medium hover:gap-3 transition-all bg-transparent border-none cursor-pointer"
+                >
+                  Learn More →
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Prev / Next arrows */}
+        <button
+          onClick={goPrev}
+          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-6 w-12 h-12 rounded-full bg-white border-2 border-emerald-700/40 shadow-lg flex items-center justify-center cursor-pointer hover:bg-emerald-50 transition-colors"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#047857" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+        <button
+          onClick={goNext}
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-6 w-12 h-12 rounded-full bg-white border-2 border-emerald-700/40 shadow-lg flex items-center justify-center cursor-pointer hover:bg-emerald-50 transition-colors"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#047857" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+
+        {/* Dot indicators */}
+        <div className="flex justify-center gap-3 mt-8">
+          {services.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(i)}
+              className={`h-2 rounded-full transition-all duration-500 cursor-pointer border-none p-0 ${
+                currentIndex === i ? 'bg-emerald-700 w-8' : 'bg-gray-300 w-2 hover:bg-gray-400'
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const ServiceSections = () => {
   const navigate = useNavigate();
@@ -20,76 +131,7 @@ const ServiceSections = () => {
         </div>
       </section>
 
-      
-      {/* Service 1 Section */}
-      <section className="py-24 md:py-32 px-5 md:px-10 relative overflow-hidden" id="service1">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-12 md:gap-20 flex-wrap">
-            <div className="flex-1 min-w-[320px] rounded-[2rem] overflow-hidden min-h-[450px] flex items-center justify-center relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:shadow-[0_8px_32px_rgba(6,95,70,0.2)] hover:-translate-y-1 hover:border-emerald-800/50 hover:bg-emerald-900/5">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/10 to-transparent"></div>
-              <img src="/backend/image/chatbot_image.jpg" alt="백봇이 Chat Bot" className="w-full h-full object-cover relative z-10" />
-            </div>
-            <div className="flex-1 min-w-[320px] p-10 md:p-14 rounded-[2rem] relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:bg-emerald-900/5 hover:shadow-[0_8px_32px_rgba(6,95,70,0.2)] hover:-translate-y-1 hover:border-emerald-800/50">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent rounded-[2rem]"></div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800 tracking-tight relative z-10">Chat Bot : '여불이'
-              </h2>
-              <p className="text-lg md:text-xl leading-relaxed text-gray-600 mb-8 font-light relative z-10">
-               챗봇을 통해 질문하고, 원하는 정보를 찾을 수 있어요
-              </p>
-              <button onClick={() => navigate('/chatbot')} className="inline-flex items-center gap-2 text-emerald-700 text-lg font-medium no-underline transition-all hover:gap-3 hover:text-emerald-800 relative z-10 bg-transparent border-none cursor-pointer">
-                Learn More →
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Service 2 Section - Reverse */}
-      <section className="py-24 md:py-32 px-5 md:px-10 relative overflow-hidden bg-gray-50/50" id="service2">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-12 md:gap-20 flex-wrap md:flex-row-reverse">
-            <div className="flex-1 min-w-[320px] rounded-[2rem] overflow-hidden min-h-[450px] flex items-center justify-center relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:shadow-[0_8px_32px_rgba(6,95,70,0.2)] hover:-translate-y-1 hover:border-emerald-800/50 hover:bg-emerald-900/5">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/10 to-transparent"></div>
-              <img src="/backend/image/digitalA.png" alt="디지털 아카이빙" className="w-full h-full object-cover relative z-10" />
-            </div>
-            <div className="flex-1 min-w-[320px] p-10 md:p-14 rounded-[2rem] relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:bg-emerald-900/5 hover:shadow-[0_8px_32px_rgba(6,95,70,0.2)] hover:-translate-y-1 hover:border-emerald-800/50">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent rounded-[2rem]"></div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800 tracking-tight relative z-10">디지털 아카이빙</h2>
-              <p className="text-lg md:text-xl leading-relaxed text-gray-600 mb-8 font-light relative z-10">
-                yeobaek 및 전공 동아리들의 활동 산출물과 문서들을 체계적으로 아카이빙하고, 검색 및 활용을 위한 서비스!
-              </p>
-              <button onClick={() => navigate('/archiving')} className="inline-flex items-center gap-2 text-emerald-700 text-lg font-medium no-underline transition-all hover:gap-3 hover:text-emerald-800 relative z-10 bg-transparent border-none cursor-pointer">
-                Learn More →
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Service 3 Section */}
-      <section className="py-24 md:py-32 px-5 md:px-10 relative overflow-hidden" id="service3">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-12 md:gap-20 flex-wrap">
-            <div className="flex-1 min-w-[320px] rounded-[2rem] overflow-hidden min-h-[450px] flex items-center justify-center relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:shadow-[0_8px_32px_rgba(6,95,70,0.2)] hover:-translate-y-1 hover:border-emerald-800/50 hover:bg-emerald-900/5">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/10 to-transparent"></div>
-              <img src="/backend/image/exhibition_image.jpg" alt="동아리 산출물 전시" className="w-full h-full object-cover relative z-10" />
-            </div>
-            <div className="flex-1 min-w-[320px] p-10 md:p-14 rounded-[2rem] relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:bg-emerald-900/5 hover:shadow-[0_8px_32px_rgba(6,95,70,0.2)] hover:-translate-y-1 hover:border-emerald-800/50">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent rounded-[2rem]"></div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800 tracking-tight relative z-10">동아리 산출물 전시</h2>
-              <p className="text-lg md:text-xl leading-relaxed text-gray-600 mb-8 font-light relative z-10">
-                개인 맞춤형 정보자료 추천 및 yeobaek 의 산출물 전시 기능!
-              </p>
-              <button onClick={() => navigate('/exhibition')} className="inline-flex items-center gap-2 text-emerald-700 text-lg font-medium no-underline transition-all hover:gap-3 hover:text-emerald-800 relative z-10 bg-transparent border-none cursor-pointer">
-                Learn More →
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-
+      <ServiceSection />
 
       {/* 동아리 소식 & 공지 Section */}
       <section className="py-28 md:py-40 px-5 md:px-10 bg-white" id="club-news">
@@ -297,83 +339,6 @@ const ServiceSections = () => {
       </section>
 
 
-      {/* Our History Section */}
-      <section className="py-28 md:py-40 px-5 md:px-10 bg-gray-50/50 relative">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-20 md:mb-28">
-            <h2 className="text-5xl md:text-7xl font-bold mb-8 text-gray-800 tracking-tight ">여백의 역사</h2>
-            <p className="text-xl md:text-2xl text-gray-500 font-light">여백의 시작부터 현재까지의 발전</p>
-          </div>
-
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-emerald-800/50 via-emerald-800 to-emerald-800/50 -translate-x-1/2 hidden md:block"></div>
-
-            {/* Timeline Items */}
-            <div className="space-y-20 md:space-y-28">
-              {/* 2022 */}
-              <div className="flex flex-col md:flex-row items-center gap-10">
-                <div className="flex-1 text-right pr-0 md:pr-16 p-8 rounded-3xl bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:bg-emerald-900/5 hover:border-emerald-800/50 relative overflow-hidden z-[5]">
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent"></div>
-                  <h3 className="text-4xl md:text-5xl font-bold text-emerald-800 mb-5 tracking-tight relative z-10">2022</h3>
-                  <p className="text-gray-600 text-lg md:text-xl font-light relative z-10">
-                    DB 프로그래밍 소모임 창설 "0과 1사이의 여백을 채우다"라는 의미
-                  </p>
-                </div>
-                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-emerald-800 flex items-center justify-center shadow-lg shadow-emerald-800/50 ring-4 ring-white relative z-20 md:absolute md:left-1/2 md:-translate-x-1/2">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                    <line x1="16" y1="2" x2="16" y2="6"/>
-                    <line x1="8" y1="2" x2="8" y2="6"/>
-                    <line x1="3" y1="10" x2="21" y2="10"/>
-                  </svg>
-                </div>
-                <div className="flex-1 pl-0 md:pl-16"></div>
-              </div>
-
-              {/* 2023 */}
-              <div className="flex flex-col md:flex-row items-center gap-10">
-                <div className="flex-1 text-left md:text-right pr-0 md:pr-16 order-2 md:order-1"></div>
-                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-emerald-800 flex items-center justify-center shadow-lg shadow-emerald-800/50 ring-4 ring-white relative z-20 md:absolute md:left-1/2 md:-translate-x-1/2">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                    <line x1="16" y1="2" x2="16" y2="6"/>
-                    <line x1="8" y1="2" x2="8" y2="6"/>
-                    <line x1="3" y1="10" x2="21" y2="10"/>
-                  </svg>
-                </div>
-                <div className="flex-1 text-left pl-0 md:pl-16 order-3 p-8 rounded-3xl bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:bg-emerald-900/5 hover:border-emerald-800/50 relative overflow-hidden z-[5]">
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent"></div>
-                  <h3 className="text-4xl md:text-5xl font-bold text-emerald-800 mb-5 tracking-tight relative z-10">2023</h3>
-                  <p className="text-gray-600 text-lg md:text-xl font-light relative z-10">
-                    Python 기반 시각화, 데이터 분석 심화
-                  </p>
-                </div>
-              </div>
-
-              {/* 2025 */}
-              <div className="flex flex-col md:flex-row items-center gap-10">
-                <div className="flex-1 text-right pr-0 md:pr-16 p-8 rounded-3xl bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:bg-emerald-900/5 hover:border-emerald-800/50 relative overflow-hidden z-[5]">
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent"></div>
-                  <h3 className="text-4xl md:text-5xl font-bold text-emerald-800 mb-5 tracking-tight relative z-10">2025</h3>
-                  <p className="text-gray-600 text-lg md:text-xl font-light relative z-10">
-                    데이터 기반 서비스 기획, LLM활용 마이크로 서비스 개발
-                  </p>
-                </div>
-                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-emerald-800 flex items-center justify-center shadow-lg shadow-emerald-800/50 ring-4 ring-white relative z-20 md:absolute md:left-1/2 md:-translate-x-1/2">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                    <line x1="16" y1="2" x2="16" y2="6"/>
-                    <line x1="8" y1="2" x2="8" y2="6"/>
-                    <line x1="3" y1="10" x2="21" y2="10"/>
-                  </svg>
-                </div>
-                <div className="flex-1 pl-0 md:pl-16"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Our Core Values Section */}
       <section className="py-28 md:py-40 px-5 md:px-10 bg-white">
@@ -387,61 +352,39 @@ const ServiceSections = () => {
             {/* Precision */}
             <div className="p-10 md:p-12 rounded-[2rem] relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] text-center transition-all duration-500 hover:bg-emerald-900/5 hover:shadow-[0_8px_32px_rgba(6,95,70,0.2)] hover:-translate-y-2 hover:border-emerald-800/50 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent"></div>
-              <div className="w-24 h-24 rounded-3xl bg-emerald-800/30 flex items-center justify-center mx-auto mb-8 text-emerald-800 relative z-10">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <circle cx="12" cy="12" r="10"/>
-                  <circle cx="12" cy="12" r="6"/>
-                  <circle cx="12" cy="12" r="2"/>
-                </svg>
-              </div>
-              <h3 className="text-3xl md:text-4xl font-bold mb-5 text-gray-800 tracking-tight relative z-10">정확</h3>
+              
+              <h3 className="text-3xl md:text-4xl font-bold mb-5 text-gray-800 tracking-tight relative z-10">밤티 NO!</h3>
               <p className="text-base md:text-lg text-gray-600 leading-relaxed font-light relative z-10">
                 데이터 기반으로 사용자의 불편함을 정확하게 파악하고, 이를 해결할 수 있는 서비스를 기획합니다.
               </p>
             </div>
+            
 
             {/* Innovation */}
             <div className="p-10 md:p-12 rounded-[2rem] relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] text-center transition-all duration-500 hover:bg-emerald-900/5 hover:shadow-[0_8px_32px_rgba(6,95,70,0.2)] hover:-translate-y-2 hover:border-emerald-800/50 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent"></div>
-              <div className="w-24 h-24 rounded-3xl bg-emerald-800/30 flex items-center justify-center mx-auto mb-8 text-emerald-800 relative z-10">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                </svg>
-              </div>
-              <h3 className="text-3xl md:text-4xl font-bold mb-5 text-gray-800 tracking-tight relative z-10">현실</h3>
+             
+              <h3 className="text-3xl md:text-4xl font-bold mb-5 text-gray-800 tracking-tight relative z-10">내손내만 서비스</h3>
               <p className="text-base md:text-lg text-gray-600 leading-relaxed font-light relative z-10">
-                서비스를 개발, 배포하며 실제 이용자의 요구를 만족시킵니다. 언제든지 사용 가능하며 피드백을 통해 서비스를 개선합니다.
+                내가 원하는 서비스는 직접 기획, 개발, 배포하며 활용하고 고도화 시킵니다. <br/> 언제든지 사용 가능하게 공개하여 사용자 피드백을 통해 서비스를 개선합니다.
               </p>
             </div>
 
             {/* Collaboration */}
             <div className="p-10 md:p-12 rounded-[2rem] relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] text-center transition-all duration-500 hover:bg-emerald-900/5 hover:shadow-[0_8px_32px_rgba(6,95,70,0.2)] hover:-translate-y-2 hover:border-emerald-800/50 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent"></div>
-              <div className="w-24 h-24 rounded-3xl bg-emerald-800/30 flex items-center justify-center mx-auto mb-8 text-emerald-800 relative z-10">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                  <circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                </svg>
-              </div>
-              <h3 className="text-3xl md:text-4xl font-bold mb-5 text-gray-800 tracking-tight relative z-10">협업</h3>
+                
+              <h3 className="text-3xl md:text-4xl font-bold mb-5 text-gray-800 tracking-tight relative z-10">팀 프로젝트 경험</h3>
               <p className="text-base md:text-lg text-gray-600 leading-relaxed font-light relative z-10">
-                문헌정보학과 내 여러 동아리와 협업해 정보를 공유하고, 함께 성장합니다.
+                문헌정보학과 내 여러 동아리와 협업해 기술과 경험를 공유하고, 협업 경험을 쌓아갑니다.
               </p>
             </div>
 
             {/* Integrity */}
             <div className="p-10 md:p-12 rounded-[2rem] relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] text-center transition-all duration-500 hover:bg-emerald-900/5 hover:shadow-[0_8px_32px_rgba(6,95,70,0.2)] hover:-translate-y-2 hover:border-emerald-800/50 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent"></div>
-              <div className="w-24 h-24 rounded-3xl bg-emerald-800/30 flex items-center justify-center mx-auto mb-8 text-emerald-800 relative z-10">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <rect x="3" y="8" width="18" height="13" rx="2"/>
-                  <path d="M12 8V4H8L4 8"/>
-                  <path d="M16 8V4h4l-4 4"/>
-                </svg>
-              </div>
-              <h3 className="text-3xl md:text-4xl font-bold mb-5 text-gray-800 tracking-tight relative z-10">완전</h3>
+              
+              <h3 className="text-3xl md:text-4xl font-bold mb-5 text-gray-800 tracking-tight relative z-10">통합 개발 경험</h3>
               <p className="text-base md:text-lg text-gray-600 leading-relaxed font-light relative z-10">
                 기획부터 개발, 큐레이션과 고도화 기능까지 제공하며 all in one 의 완전한 서비스를 제공합니다.
               </p>

@@ -80,6 +80,84 @@ const About = () => {
         </p>
       </section>
 
+      {/* Our History Section */}
+      <section className="py-28 md:py-40 px-5 md:px-10 bg-gray-50/50 relative">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-20 md:mb-28">
+            <h2 className="text-5xl md:text-7xl font-bold mb-8 text-gray-800 tracking-tight">여백의 역사</h2>
+            <p className="text-xl md:text-2xl text-gray-500 font-light">여백의 시작부터 현재까지의 발전</p>
+          </div>
+
+          <div className="relative">
+            {/* Timeline Line */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-emerald-800/50 via-emerald-800 to-emerald-800/50 -translate-x-1/2 hidden md:block"></div>
+
+            {/* Timeline Items */}
+            <div className="space-y-20 md:space-y-28">
+              {/* 2022 */}
+              <div className="flex flex-col md:flex-row items-center gap-10">
+                <div className="flex-1 text-right pr-0 md:pr-16 p-8 rounded-3xl bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:bg-emerald-900/5 hover:border-emerald-800/50 relative overflow-hidden z-[5]">
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent"></div>
+                  <h3 className="text-4xl md:text-5xl font-bold text-emerald-800 mb-5 tracking-tight relative z-10">2022</h3>
+                  <p className="text-gray-600 text-lg md:text-xl font-light relative z-10">
+                    DB 프로그래밍 소모임 창설 "0과 1사이의 여백을 채우다"라는 의미
+                  </p>
+                </div>
+                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-emerald-800 flex items-center justify-center shadow-lg shadow-emerald-800/50 ring-4 ring-white relative z-20 md:absolute md:left-1/2 md:-translate-x-1/2">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                  </svg>
+                </div>
+                <div className="flex-1 pl-0 md:pl-16"></div>
+              </div>
+
+              {/* 2023 */}
+              <div className="flex flex-col md:flex-row items-center gap-10">
+                <div className="flex-1 text-left md:text-right pr-0 md:pr-16 order-2 md:order-1"></div>
+                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-emerald-800 flex items-center justify-center shadow-lg shadow-emerald-800/50 ring-4 ring-white relative z-20 md:absolute md:left-1/2 md:-translate-x-1/2">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                  </svg>
+                </div>
+                <div className="flex-1 text-left pl-0 md:pl-16 order-3 p-8 rounded-3xl bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:bg-emerald-900/5 hover:border-emerald-800/50 relative overflow-hidden z-[5]">
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent"></div>
+                  <h3 className="text-4xl md:text-5xl font-bold text-emerald-800 mb-5 tracking-tight relative z-10">2023</h3>
+                  <p className="text-gray-600 text-lg md:text-xl font-light relative z-10">
+                    Python 기반 시각화, 데이터 분석 심화
+                  </p>
+                </div>
+              </div>
+
+              {/* 2025 */}
+              <div className="flex flex-col md:flex-row items-center gap-10">
+                <div className="flex-1 text-right pr-0 md:pr-16 p-8 rounded-3xl bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:bg-emerald-900/5 hover:border-emerald-800/50 relative overflow-hidden z-[5]">
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent"></div>
+                  <h3 className="text-4xl md:text-5xl font-bold text-emerald-800 mb-5 tracking-tight relative z-10">2025</h3>
+                  <p className="text-gray-600 text-lg md:text-xl font-light relative z-10">
+                    데이터 기반 서비스 기획, LLM활용 마이크로 서비스 개발
+                  </p>
+                </div>
+                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-emerald-800 flex items-center justify-center shadow-lg shadow-emerald-800/50 ring-4 ring-white relative z-20 md:absolute md:left-1/2 md:-translate-x-1/2">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                  </svg>
+                </div>
+                <div className="flex-1 pl-0 md:pl-16"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Meet Our Team Section */}
       <section className="py-28 md:py-40 px-5 md:px-10 bg-gray-50/50 relative">
         <div className="max-w-7xl mx-auto">
