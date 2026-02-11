@@ -36,28 +36,29 @@ const ServiceSection = () => {
   return (
     <section className="py-24 md:py-32 px-5 md:px-10 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto w-full relative">
-        <div className="flex items-center gap-12 md:gap-20 flex-wrap">
-          {/* Image - horizontal slide */}
-          <div className="flex-1 min-w-[320px] rounded-[2rem] overflow-hidden h-[450px] relative bg-white border-2 border-emerald-700/40 shadow-lg">
+        <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
+          {/* Image - left half */}
+          <div className="w-full md:w-1/2 h-[500px] rounded-[2rem] overflow-hidden bg-white border-2 border-emerald-700/40 shadow-lg grid p-6">
             {services.map((service, i) => (
               <img
                 key={i}
                 src={service.image}
                 alt={service.imageAlt}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-in-out"
+                className="col-start-1 row-start-1 w-full h-full object-contain transition-all duration-700 ease-in-out"
                 style={{
+                  opacity: currentIndex === i ? 1 : 0,
                   transform: `translateX(${(i - currentIndex) * 100}%)`,
                 }}
               />
             ))}
           </div>
 
-          {/* Text - slide with fade */}
-          <div className="flex-1 min-w-[320px] rounded-[2rem] bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-lg relative h-[450px] overflow-hidden">
+          {/* Text - right half */}
+          <div className="w-full md:w-auto md:max-w-[45%] rounded-[2rem] bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-lg grid overflow-hidden">
             {services.map((service, i) => (
               <div
                 key={i}
-                className="absolute inset-0 p-10 md:p-14 flex flex-col justify-center transition-all duration-700 ease-in-out"
+                className="col-start-1 row-start-1 p-10 md:p-14 flex flex-col justify-center transition-all duration-700 ease-in-out"
                 style={{
                   opacity: currentIndex === i ? 1 : 0,
                   transform: `translateX(${(i - currentIndex) * 100}%)`,
@@ -135,7 +136,7 @@ const ServiceSections = () => {
 
       {/* 동아리 소식 & 공지 Section */}
       <section className="py-28 md:py-40 px-5 md:px-10 bg-white" id="club-news">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-7xl font-bold mb-6 text-gray-800 tracking-tight">동아리 소식 & 공지</h2>
@@ -273,7 +274,7 @@ const ServiceSections = () => {
             </div>
 
             {/* Service 3 Card */}
-            <div onClick={() => navigate('/lab/3')} className="p-10 md:p-12 rounded-[2rem] relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] flex flex-col items-center text-center cursor-pointer transition-all duration-500 hover:bg-emerald-900/5 hover:shadow-[0_8px_32px_rgba(6,95,70,0.2)] hover:-translate-y-2 hover:border-emerald-800/50 overflow-hidden group">
+            <div onClick={() => navigate('/exhibition')} className="p-10 md:p-12 rounded-[2rem] relative bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] flex flex-col items-center text-center cursor-pointer transition-all duration-500 hover:bg-emerald-900/5 hover:shadow-[0_8px_32px_rgba(6,95,70,0.2)] hover:-translate-y-2 hover:border-emerald-800/50 overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent"></div>
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-700 to-emerald-800 scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></div>
               
@@ -359,7 +360,7 @@ const ServiceSections = () => {
               </div>
 
               {/* Innovation */}
-              <div className="p-10 md:p-14 text-center border-b border-green-800/30 shadow-inner hover:bg-green-600/30 hover:scale-80 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+              <div className="p-10 md:p-14 text-center border-b border-green-800/30 shadow-inner hover:bg-green-600/30 hover:scale-80 hover:shadow-xl hover:-translate-y-1 transition-all duration-00 cursor-pointer">
                 <h3 className="text-2xl md:text-3xl font-bold mb-5 text-gray-800 tracking-tight">내손내만 서비스</h3>
                 <p className="text-base md:text-lg text-gray-500 leading-relaxed font-light">
                   내가 원하는 서비스는 직접 기획, 개발, 배포하며 활용하고 고도화 시킵니다. 언제든지 사용 가능하게 공개하여 사용자 피드백을 통해 서비스를 개선합니다.

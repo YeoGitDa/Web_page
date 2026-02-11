@@ -1,12 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const LabDetail = () => {
   const navigate = useNavigate();
   const { labNumber } = useParams();
   const [selectedCategory, setSelectedCategory] = useState('전체보기');
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [expandedCategories, setExpandedCategories] = useState({
-    '웹딩': true,
+    '여백': true,
     '해외여행': true,
     '강아지동반 여행': true
   });
@@ -15,24 +19,13 @@ const LabDetail = () => {
   const categories = [
     {
       name: '전체보기',
-      count: 530,
+      count: 0,
       subcategories: []
     },
     {
       name: '여백',
       count: 0,
       subcategories: ['LAB1', 'LAB2', 'LAB3', 'LAB3' , 'LAB4' , 'LAB5' , 'LAB6']
-    },
-    
-    {
-      name: 'PAGE',
-      count: 2,
-      subcategories: ['봉사' , '교육' , '활동']
-    },
-    {
-      name: 'D.A.A.L',
-      count: 0,
-      subcategories: ['데이터 분석' , '데이터 시각화' ]
     }
   ];
 
@@ -83,14 +76,14 @@ const LabDetail = () => {
     return (
       <div className="min-h-screen bg-white">
         {/* Navigation */}
-        <nav className="sticky top-0 z-20 flex justify-between items-center px-4 py-4 md:px-16 bg-emerald-800/40 backdrop-blur-xl border-b border-white/10">
+        <nav className="sticky top-0 z-20 flex items-center px-4 py-4 md:px-16 bg-emerald-800/40 backdrop-blur-xl border-b border-white/10">
           <div className="flex items-center gap-5 text-white text-xl md:text-2xl font-semibold">
             <img src="/backend/image/logo.png" alt="Yeobaek Logo" className="h-8" />
             Yeobaek
           </div>
           <button
             onClick={() => navigate('/')}
-            className="text-white no-underline opacity-90 hover:opacity-100 transition-opacity"
+            className="ml-6 text-white text-sm no-underline opacity-90 hover:opacity-100 transition-opacity bg-transparent border-none cursor-pointer"
           >
             ← Back to Home
           </button>
@@ -113,14 +106,14 @@ const LabDetail = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="sticky top-0 z-20 flex justify-between items-center px-4 py-4 md:px-16 bg-emerald-800/40 backdrop-blur-xl border-b border-white/10">
+      <nav className="sticky top-0 z-20 flex items-center px-4 py-4 md:px-16 bg-emerald-800/40 backdrop-blur-xl border-b border-white/10">
         <div className="flex items-center gap-5 text-white text-xl md:text-2xl font-semibold">
           <img src="/backend/image/logo.png" alt="Yeobaek Logo" className="h-8" />
           Yeobaek
         </div>
         <button
           onClick={() => navigate('/')}
-          className="text-white text-lg no-underline opacity-90 hover:opacity-100 transition-opacity bg-transparent border-none cursor-pointer"
+          className="ml-6 text-white text-sm no-underline opacity-90 hover:opacity-100 transition-opacity bg-transparent border-none cursor-pointer"
         >
           ← Back to Home
         </button>

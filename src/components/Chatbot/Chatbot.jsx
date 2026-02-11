@@ -209,7 +209,7 @@ export default function Chatbot({
               {/* Bot일 때만 아바타 표시 */}
               {m.role === "bot" && (
                 <img
-                  src="/mascot_chatbot.png"
+                  src="/backend/image/mascot_chatbot.png"
                   alt="Bot Avatar"
                   className={styles.chatAvatar}
                 />

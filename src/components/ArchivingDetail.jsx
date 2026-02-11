@@ -35,3 +35,5 @@ const ArchivingDetail = () => {
 };
 
 export default ArchivingDetail;
+
+

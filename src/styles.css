@@ -130,3 +130,113 @@ section {
   animation-name: snowfall-3;
 }
 
+/* page-flip library required styles */
+.stf__parent {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  transform: translateZ(0);
+  overflow: hidden;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+}
+
+.stf__wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.stf__block {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  perspective: 2000px;
+}
+
+.stf__item {
+  display: none;
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.stf__outerShadow,
+.stf__innerShadow,
+.stf__hardShadow,
+.stf__hardInnerShadow {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Book page styles */
+.page {
+  background-color: white;
+  overflow: hidden;
+  border: 1px solid #d1d5db;
+  box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.page-cover {
+  background: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%);
+  border: 1px solid #064e3b;
+}
+
+.exhibition-book {
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.25));
+  border-radius: 4px;
+}
+
+/* Page edge / thickness effect */
+.exhibition-book .stf__block {
+  border-radius: 2px;
+}
+
+.stf__item {
+  box-shadow:
+    -1px 0 1px rgba(0, 0, 0, 0.03),
+    -3px 0 3px rgba(0, 0, 0, 0.02);
+}
+
+/* Spine shadow in the center */
+.exhibition-book::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.05) 30%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.05) 70%,
+    rgba(0, 0, 0, 0.15)
+  );
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Page stack edges (right side of left pages, left side of right pages) */
+.exhibition-book::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  right: -3px;
+  width: 4px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #e5e7eb 0px,
+    #f3f4f6 1px,
+    #e5e7eb 2px
+  );
+  border-radius: 0 2px 2px 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
