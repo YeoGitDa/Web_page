@@ -38,13 +38,13 @@ const About = () => {
     },{
       name: "방규리",
       role: ["운영" ,"기획", "LAB 1" , "LAB 3" , "Frontend"],
-      email: "yeobaek3@example.com",
+      email: "minyul0804@gmail.com",
       image: "/backend/image/yuja.png"
 
     },{
       name: "양승빈",
       role: ["회장" ,"Backend", "운영"],
-      email: "yeobaek3@example.com",
+      email: "lisyeobaek@gmail.com",
       image: "/backend/image/duzzonku.png"
 
     },

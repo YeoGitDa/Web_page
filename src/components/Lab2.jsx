@@ -17,11 +17,7 @@ const LabDetail = () => {
 
   // 카테고리 데이터
   const categories = [
-    {
-      name: '전체보기',
-      count: 0,
-      subcategories: []
-    },
+    
     {
       name: '여백',
       count: 0,
@@ -42,23 +38,21 @@ const LabDetail = () => {
       title: 'LAB 2 - 디지털 아카이빙',
       subtitle: 'yeobaek 및 전공 동아리들의 활동 산출물과 문서들을 체계적으로 아카이빙',
       info: {
-        사업명: 'yeobaek 디지털 아카이빙 시스템',
-        기간: '2025/03/01 → 진행중',
-        주체: '문헌정보학과 동아리',
+        이름: 'yeobaek 디지털 아카이빙 시스템',
+        기간: '2025/03/01 ~ 진행중',
+        주체: '문헌정보학과 동아리 여백',
         성격: '학술 아카이브',
         기술스택: 'SQL',
-        서비스: 'DB, Data Ar'
+        서비스: 'DB, Data, 기록관리'
       },
-      description: `yeobaek과 문헌정보학과 전공 동아리들의 활동 기록과 산출물을 체계적으로 보존하고 공유하기 위한 디지털 아카이빙 시스템입니다.
-
+      description: `yeobaek 동아리의 프로젝트 결과물, 활동 기록을 보존하고 여러 사람과 공유하기 위한 디지털 아카이빙 시스템입니다.
 문서, 기획서, 프로젝트 결과물 등 다양한 형태의 자료를 수집하고 정리하여, 동아리 구성원들이 쉽게 검색하고 활용할 수 있도록 합니다.`,
       features: [
         '체계적인 메타데이터 관리',
-        '강력한 검색 및 필터링 기능',
+        '정확한 검색 및 필터링 기능',
         '카테고리별 분류 및 태깅',
         '시간순 타임라인 뷰',
-        '파일 업로드 및 다운로드',
-        '권한별 접근 제어'
+  
       ],
       goals: [
         '동아리 활동 기록의 체계적 보존',
@@ -256,10 +250,10 @@ const LabDetail = () => {
         {/* CTA Section */}
         <div className="mt-20 p-10 bg-gradient-to-br from-emerald-50/70 to-emerald-100/40 rounded-2xl border border-emerald-200/60 text-center">
           <h3 className="text-2xl md:text-3xl font-bold text-emerald-700 mb-4">
-            LAB 2 프로젝트에 참여하고 싶으신가요?
+            LAB 2 프로젝트에 관심 있으신가요?
           </h3>
           <p className="text-gray-700 mb-8 text-lg">
-            yeobaek과 함께 디지털 아카이빙의 미래를 만들어갑니다
+            yeobaek은 정보의 공유와 재활용, 협업을 지향합니다.
           </p>
           <button
             onClick={() => navigate('/')}
