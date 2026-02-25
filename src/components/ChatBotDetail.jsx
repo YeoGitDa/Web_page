@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const ChatBotDetail = () => {
   const navigate = useNavigate();
+
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([
     {
@@ -42,10 +43,13 @@ const ChatBotDetail = () => {
     <div className="min-h-screen bg-white font-sans">
       {/* Navigation */}
       <nav className="sticky top-0 z-20 flex justify-between items-center px-6 py-4 md:px-16 bg-emerald-900/90 backdrop-blur-xl border-b border-white/10">
-        <div className="flex items-center gap-3 text-white text-xl md:text-2xl font-semibold">
+        <button
+          onClick={() => navigate('/')}
+          className="flex items-center gap-3 text-white text-xl md:text-2xl font-semibold cursor-pointer hover:opacity-80 transition-opacity"
+        >
           <img src="/backend/image/logo.png" alt="Yeobaek Logo" className="h-8" />
           Yeobaek
-        </div>
+        </button>
         <button
           onClick={() => navigate('/')}
           className="text-white opacity-80 hover:opacity-100 transition-opacity text-sm"
@@ -285,12 +289,12 @@ const ChatBotDetail = () => {
           <p className="text-lg font-bold text-gray-800 mb-8">
             챗봇과 자동화시스템, DB에 관심 있다면, 연락 주세요 !
           </p>
-          <button
-            onClick={() => navigate('/#contact')}
-            className="bg-emerald-700 text-white font-semibold px-10 py-3 rounded-full hover:bg-emerald-800 transition-colors shadow-md"
+          <a
+            href="mailto:lisyeobaek@gmail.com"
+            className="inline-block bg-emerald-700 text-white font-semibold px-10 py-3 rounded-full hover:bg-emerald-800 transition-colors shadow-md"
           >
-            문의하기
-          </button>
+        메일로 문의하기 
+          </a> 
         </div>
       </section>
     </div>
