@@ -27,6 +27,19 @@ dist-ssr
 .env
 .env.local
 .env.*.local
+.env.development
+.env.production
+.env.staging
+**/.env
+**/.env.local
+**/.env.*.local
+
+# API keys and secrets
+**/secrets/
+*.pem
+*.key
+*.p12
+*.pfx
 
 # Python
 __pycache__/
