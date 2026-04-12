@@ -43,7 +43,7 @@ function HomePage() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url(/backend/image/gomdol.jpg)',
+            backgroundImage: 'url(public/backend/image/Spring_Main_IMG.png)',
             filter: 'brightness(0.95)',
           }}
         />
