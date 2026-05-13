@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>내 계정 — Yeobaek UI 시안 (v3 셸)</title>
+  <link rel="stylesheet" href="/mockup-shared.css" />
+  <link rel="stylesheet" href="/mockup-shell-v3.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .me-bar { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 1.25rem 1.25rem; }
+    .me-bar-inner { max-width: 64rem; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; justify-content: space-between; }
+    .avatar { width: 3.5rem; height: 3.5rem; border-radius: 999px; background: #d1fae5; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #065f46; }
+    .me-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .me-two { display: grid; gap: 1.25rem; margin-top: 1.25rem; grid-template-columns: 1fr; }
+    @media (min-width: 640px) {
+      .me-two { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body class="v3-shell">
+  <a class="skip" href="#main">본문으로</a>
+  <a class="v3-float" href="/ui-mockup-main-v3.html#inquiry">문의</a>
+
+  <header class="v3-head">
+    <div class="v3-head-inner">
+      <a class="v3-brand" href="/">
+        <img src="/backend/image/logo.png" alt="" />
+        <span class="v3-brand-title">YEOBAEK<span class="v3-brand-pipe">| Me</span></span>
+      </a>
+      <nav class="v3-head-nav" aria-label="주요 메뉴">
+        <a class="v3-pill" href="/ui-mockup-main-v3.html#main">홈</a>
+        <a class="v3-pill" href="/ui-mockup-main-v3.html#services">서비스</a>
+        <a class="v3-pill" href="/ui-mockup-about.html">소개</a>
+        <a class="v3-pill" href="/recruit">모집</a>
+        <a class="v3-pill v3-pill--active" href="/ui-mockup-login.html">로그인</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="me-bar">
+    <div class="me-bar-inner">
+      <div style="display:flex;align-items:center;gap:1rem">
+        <div class="avatar" aria-hidden="true">U</div>
+        <div>
+          <h1 class="v3-h1" style="font-size:1.25rem">내 계정</h1>
+          <p style="margin:0.2rem 0 0;color:#64748b;font-size:0.85rem">일반 사용자 세션 (시안)</p>
+        </div>
+      </div>
+      <div class="me-actions">
+        <a class="mock-btn mock-btn--ghost" href="/ui-mockup-main-v3.html">메인 시안</a>
+        <button type="button" class="mock-btn" style="background:#0f172a;color:#fff;border:none">로그아웃</button>
+      </div>
+    </div>
+  </div>
+
+  <main id="main" class="v3-section v3-band-slate">
+    <div class="mock-card" style="background:#fff;border:1px solid #e2e8f0;border-radius:1rem;padding:1.25rem;box-shadow:0 4px 20px rgba(15,23,42,0.04)">
+      <h2 style="margin:0 0 0.5rem;font-size:1.05rem">알림</h2>
+      <p style="margin:0;color:#64748b;line-height:1.65;font-size:0.95rem">프로필·알림 설정은 추후 이 영역에 배치할 수 있습니다.</p>
+    </div>
+    <div class="me-two">
+      <div class="mock-card" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:1rem;padding:1.25rem">
+        <h3 style="margin:0 0 0.35rem;font-size:1rem">최근 활동</h3>
+        <p style="margin:0;font-size:0.85rem;color:#64748b">표시할 항목이 없습니다.</p>
+      </div>
+      <div class="mock-card" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:1rem;padding:1.25rem">
+        <h3 style="margin:0 0 0.35rem;font-size:1rem">바로가기</h3>
+        <p style="margin:0;font-size:0.85rem;color:#64748b">모집 · 챗봇 링크를 모을 수 있습니다.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="mock-footer">
+    시안 v3 셸 · <a href="/ui-mockup-index.html">목록</a> · <a href="/me">실제 /me</a>
+  </footer>
+</body>
+</html>

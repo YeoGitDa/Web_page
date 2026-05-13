@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>소개 — Yeobaek UI 시안 (v3 셸)</title>
+  <link rel="stylesheet" href="/mockup-shared.css" />
+  <link rel="stylesheet" href="/mockup-shell-v3.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .timeline { position: relative; max-width: 48rem; margin: 0 auto; padding: 0 0 2rem; }
+    .timeline::before {
+      content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px;
+      background: linear-gradient(#059669, #d1fae5); transform: translateX(-50%); display: none;
+    }
+    @media (min-width: 768px) { .timeline::before { display: block; } }
+    .tl-row { display: grid; gap: 1rem; margin-bottom: 2rem; }
+    @media (min-width: 768px) { .tl-row { grid-template-columns: 1fr 1fr; align-items: center; } }
+    .tl-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 1.25rem; box-shadow: 0 4px 20px rgba(15,23,42,0.06); }
+    .tl-year { font-size: 1.35rem; font-weight: 800; color: #065f46; margin: 0 0 0.35rem; }
+    .team-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+    @media (min-width: 640px) { .team-grid { grid-template-columns: repeat(3, 1fr); } }
+    .team-card { text-align: center; padding: 1.25rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 1rem; }
+    .team-card img { width: 5.5rem; height: 5.5rem; border-radius: 999px; object-fit: cover; margin-bottom: 0.75rem; border: 3px solid #d1fae5; }
+    .team-card h3 { margin: 0; font-size: 1.05rem; }
+    .team-card p { margin: 0.35rem 0 0; font-size: 0.85rem; color: #64748b; }
+  </style>
+</head>
+<body class="v3-shell">
+  <a class="skip" href="#main">본문으로</a>
+  <a class="v3-float" href="/ui-mockup-main-v3.html#inquiry">문의</a>
+
+  <header class="v3-head">
+    <div class="v3-head-inner">
+      <a class="v3-brand" href="/">
+        <img src="/backend/image/logo.png" alt="" />
+        <span class="v3-brand-title">YEOBAEK<span class="v3-brand-pipe">| About</span></span>
+      </a>
+      <nav class="v3-head-nav" aria-label="주요 메뉴">
+        <a class="v3-pill" href="/ui-mockup-main-v3.html#main">홈</a>
+        <a class="v3-pill" href="/ui-mockup-main-v3.html#services">서비스</a>
+        <a class="v3-pill v3-pill--active" href="/ui-mockup-about.html">소개</a>
+        <a class="v3-pill" href="/recruit">모집</a>
+        <a class="v3-pill" href="/login">로그인</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="v3-pagehead">
+    <div class="v3-pagehead-inner">
+      <p class="v3-eyebrow" style="margin-bottom:0.35rem">About</p>
+      <h1 class="v3-h1">동아리 여백을 소개합니다</h1>
+      <p class="v3-page-lead">문헌정보학을 기반으로 학과의 소통과 정보 공유를 위해 만들어진 동아리입니다.</p>
+    </div>
+  </div>
+
+  <main id="main" class="v3-section v3-band-slate" style="padding-top:2rem">
+    <h2 class="v3-h2" style="text-align:center">연혁</h2>
+    <p class="v3-lead" style="margin:0 auto 2rem;text-align:center">중요한 해를 카드로 나누어 스캔하기 쉽게.</p>
+    <div class="timeline">
+      <div class="tl-row">
+        <div class="tl-card">
+          <p class="tl-year">2022</p>
+          <p style="margin:0;color:#475569">여백 창립, 학과 내 정보 공유 취지로 출발.</p>
+        </div>
+        <div></div>
+      </div>
+      <div class="tl-row">
+        <div></div>
+        <div class="tl-card">
+          <p class="tl-year">2025</p>
+          <p style="margin:0;color:#475569">웹·챗봇·아카이빙 등 디지털 서비스 확장.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="v3-h2" style="text-align:center;margin-top:2.5rem">운영진</h2>
+    <p class="v3-lead" style="margin:0 auto 2rem;text-align:center">역할 태그로 구분.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="/backend/image/yuja.png" alt="" />
+        <h3>방규리</h3>
+        <p>운영 · 기획 · 프론트</p>
+      </div>
+      <div class="team-card">
+        <img src="/backend/image/mj_logo.png" alt="" />
+        <h3>김명주</h3>
+        <p>운영 지원 · 기획</p>
+      </div>
+      <div class="team-card">
+        <img src="/backend/image/duzzonku.png" alt="" />
+        <h3>Coming Soon</h3>
+        <p>신입 부원</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="mock-footer">
+    시안 v3 셸 · <a href="/ui-mockup-index.html">목록</a> · <a href="/ui-mockup-main-v3.html">메인 v3</a> · <a href="/about">실제 About</a>
+  </footer>
+</body>
+</html>

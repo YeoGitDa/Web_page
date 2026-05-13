@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>산출물 전시 — Yeobaek UI 시안 (v3 셸)</title>
+  <link rel="stylesheet" href="/mockup-shared.css" />
+  <link rel="stylesheet" href="/mockup-shell-v3.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .cover { background: linear-gradient(145deg, #064e3b, #0f3d2e); color: #fff; border-radius: 1rem; padding: 2rem; text-align: center; margin-bottom: 1.5rem; box-shadow: 0 8px 30px rgba(6,78,59,0.2); }
+    .cover img { height: 3rem; margin-bottom: 1rem; }
+    .lab-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+    @media (min-width: 560px) { .lab-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 900px) { .lab-grid { grid-template-columns: repeat(3, 1fr); } }
+    .lab-tile { background: #fff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 1.15rem; box-shadow: 0 4px 20px rgba(15,23,42,0.04); transition: border-color 0.15s; }
+    .lab-tile:hover { border-color: #059669; }
+    .lab-tile .tag { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.08em; color: #047857; text-transform: uppercase; margin-bottom: 0.35rem; }
+    .lab-tile h3 { margin: 0 0 0.5rem; font-size: 1.05rem; }
+    .lab-tile p { margin: 0; font-size: 0.85rem; color: #64748b; line-height: 1.5; }
+    .kw { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.75rem; }
+    .kw span { font-size: 0.65rem; padding: 0.2rem 0.45rem; background: #f1f5f9; border-radius: 999px; color: #475569; }
+  </style>
+</head>
+<body class="v3-shell">
+  <a class="skip" href="#main">본문으로</a>
+  <a class="v3-float" href="/ui-mockup-main-v3.html#inquiry">문의</a>
+
+  <header class="v3-head">
+    <div class="v3-head-inner">
+      <a class="v3-brand" href="/">
+        <img src="/backend/image/logo.png" alt="" />
+        <span class="v3-brand-title">YEOBAEK<span class="v3-brand-pipe">| Exhibition</span></span>
+      </a>
+      <nav class="v3-head-nav" aria-label="주요 메뉴">
+        <a class="v3-pill" href="/ui-mockup-main-v3.html#main">홈</a>
+        <a class="v3-pill v3-pill--active" href="/ui-mockup-main-v3.html#services">서비스</a>
+        <a class="v3-pill" href="/ui-mockup-about.html">소개</a>
+        <a class="v3-pill" href="/recruit">모집</a>
+        <a class="v3-pill" href="/login">로그인</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="v3-pagehead">
+    <div class="v3-pagehead-inner">
+      <p class="v3-eyebrow" style="margin-bottom:0.35rem">Exhibition</p>
+      <h1 class="v3-h1">동아리 산출물 전시</h1>
+      <p class="v3-page-lead">표지 + LAB 그리드 카드 레이아웃입니다.</p>
+    </div>
+  </div>
+
+  <main id="main" class="v3-section v3-band-white">
+    <div class="cover">
+      <img src="/backend/image/logo.png" alt="" />
+      <h2 style="margin:0;font-size:1.65rem">Yeobaek Digital Archive</h2>
+      <p style="margin:0.5rem 0 0;opacity:0.85;font-size:0.9rem">LAB 카탈로그</p>
+    </div>
+    <div class="lab-grid">
+      <article class="lab-tile">
+        <p class="tag">LAB 1</p>
+        <h3>AI 어시스턴트 &amp; 챗봇</h3>
+        <p>자료 검색·응답 자동화.</p>
+        <div class="kw"><span>NLP</span><span>RAG</span></div>
+      </article>
+      <article class="lab-tile">
+        <p class="tag">LAB 2</p>
+        <h3>디지털 아카이빙</h3>
+        <p>문서·회의록 체계적 저장.</p>
+        <div class="kw"><span>Metadata</span></div>
+      </article>
+      <article class="lab-tile">
+        <p class="tag">LAB 3</p>
+        <h3>큐레이션 &amp; 추천</h3>
+        <p>맞춤형 도서·산출물 큐레이션.</p>
+        <div class="kw"><span>Recommendation</span></div>
+      </article>
+      <article class="lab-tile">
+        <p class="tag">LAB 4</p>
+        <h3>인프라 &amp; DevOps</h3>
+        <p>Git, CI/CD, 배포 실습.</p>
+        <div class="kw"><span>Git</span><span>CI/CD</span></div>
+      </article>
+      <article class="lab-tile">
+        <p class="tag">LAB 5</p>
+        <h3>프로젝트 고도화</h3>
+        <p>성능·UX 개선.</p>
+        <div class="kw"><span>Performance</span></div>
+      </article>
+      <article class="lab-tile">
+        <p class="tag">LAB 6</p>
+        <h3>아이디어 랩</h3>
+        <p>브레인스토밍부터 실현까지.</p>
+        <div class="kw"><span>Ideation</span></div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="mock-footer">
+    시안 v3 셸 · <a href="/ui-mockup-index.html">목록</a> · <a href="/ui-mockup-main-v3.html">메인 v3</a> · <a href="/exhibition">실제 전시</a>
+  </footer>
+</body>
+</html>

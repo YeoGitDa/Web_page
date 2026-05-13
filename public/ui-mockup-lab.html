@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LAB — Yeobaek UI 시안 (v3 셸)</title>
+  <link rel="stylesheet" href="/mockup-shared.css" />
+  <link rel="stylesheet" href="/mockup-shell-v3.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .lab-layout { display: grid; gap: 1.5rem; }
+    @media (min-width: 900px) { .lab-layout { grid-template-columns: 14rem 1fr; } }
+    .lab-side { background: #fff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 1rem; height: fit-content; position: sticky; top: 4.5rem; }
+    .lab-side h2 { margin: 0 0 0.75rem; font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.06em; }
+    .lab-side a { display: block; padding: 0.45rem 0.5rem; border-radius: 0.375rem; color: #1e293b; text-decoration: none; font-weight: 500; font-size: 0.9rem; }
+    .lab-side a:hover, .lab-side a[aria-current="page"] { background: #ecfdf5; color: #064e3b; }
+    .meta-grid { display: grid; gap: 0.65rem; grid-template-columns: 1fr; }
+    @media (min-width: 520px) { .meta-grid { grid-template-columns: repeat(2, 1fr); } }
+    .meta-item dt { margin: 0; font-weight: 700; color: #475569; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .meta-item dd { margin: 0.2rem 0 0; color: #64748b; font-size: 0.9rem; }
+    .feat-list { margin: 0; padding-left: 1.1rem; color: #475569; }
+    .feat-list li { margin-bottom: 0.35rem; }
+  </style>
+</head>
+<body class="v3-shell">
+  <a class="skip" href="#main">본문으로</a>
+  <a class="v3-float" href="/ui-mockup-main-v3.html#inquiry">문의</a>
+
+  <header class="v3-head">
+    <div class="v3-head-inner">
+      <a class="v3-brand" href="/">
+        <img src="/backend/image/logo.png" alt="" />
+        <span class="v3-brand-title">YEOBAEK<span class="v3-brand-pipe">| Lab</span></span>
+      </a>
+      <nav class="v3-head-nav" aria-label="주요 메뉴">
+        <a class="v3-pill" href="/ui-mockup-main-v3.html#main">홈</a>
+        <a class="v3-pill v3-pill--active" href="/ui-mockup-main-v3.html#services">서비스</a>
+        <a class="v3-pill" href="/ui-mockup-about.html">소개</a>
+        <a class="v3-pill" href="/recruit">모집</a>
+        <a class="v3-pill" href="/login">로그인</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="v3-pagehead">
+    <div class="v3-pagehead-inner">
+      <p class="v3-eyebrow" style="margin-bottom:0.35rem">LAB</p>
+      <h1 class="v3-h1">LAB 상세</h1>
+      <p class="v3-page-lead">좌측 목록 + 우측 상세 메타·설명 패턴입니다.</p>
+    </div>
+  </div>
+
+  <main id="main" class="v3-section v3-band-slate">
+    <div class="lab-layout">
+      <aside class="lab-side" aria-label="LAB 목록">
+        <h2>탐색</h2>
+        <a href="#">LAB 1</a>
+        <a href="#" aria-current="page">LAB 2</a>
+        <a href="#">LAB 3</a>
+        <a href="#">LAB 4</a>
+        <a href="#">LAB 5</a>
+        <a href="#">LAB 6</a>
+      </aside>
+      <article class="mock-card" style="background:#fff;border:1px solid #e2e8f0;border-radius:1rem;padding:1.5rem;box-shadow:0 4px 20px rgba(15,23,42,0.06)">
+        <h2 style="margin:0 0 0.35rem;font-size:1.5rem">LAB 2 — 디지털 아카이빙</h2>
+        <p style="margin:0 0 1.25rem;color:#64748b;font-size:1rem">yeobaek 및 전공 동아리들의 활동 산출물과 문서를 체계적으로 아카이빙합니다.</p>
+        <dl class="meta-grid">
+          <div class="meta-item"><dt>이름</dt><dd>yeobaek 디지털 아카이빙 시스템</dd></div>
+          <div class="meta-item"><dt>기간</dt><dd>2025/03/01 ~ 진행중</dd></div>
+          <div class="meta-item"><dt>주체</dt><dd>문헌정보학과 동아리 여백</dd></div>
+          <div class="meta-item"><dt>기술 스택</dt><dd>SQL</dd></div>
+        </dl>
+        <h3 style="margin:1.5rem 0 0.5rem;font-size:1.05rem">기능</h3>
+        <ul class="feat-list">
+          <li>메타데이터 관리</li>
+          <li>검색·필터</li>
+          <li>카테고리·태깅</li>
+          <li>타임라인 뷰</li>
+        </ul>
+      </article>
+    </div>
+    <div class="mock-card" style="margin-top:1.5rem;text-align:center;background:#f8fafc;border:1px dashed #cbd5e1">
+      <p style="margin:0;color:#64748b;font-size:0.9rem">LAB 1·3~6 — Coming Soon 카드로 통일 가능합니다.</p>
+    </div>
+  </main>
+
+  <footer class="mock-footer">
+    시안 v3 셸 · <a href="/ui-mockup-index.html">목록</a> · <a href="/ui-mockup-main-v3.html">메인 v3</a> · <a href="/lab/2">실제 LAB 2</a>
+  </footer>
+</body>
+</html>

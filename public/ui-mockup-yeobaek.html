@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yeobaek — UI 시안 (메인·공통)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --emerald-950: #022c22;
+      --emerald-900: #064e3b;
+      --emerald-800: #065f46;
+      --emerald-700: #047857;
+      --emerald-600: #059669;
+      --emerald-100: #d1fae5;
+      --emerald-50: #ecfdf5;
+      --slate-900: #0f172a;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-200: #e2e8f0;
+      --white: #fff;
+      --radius-lg: 1rem;
+      --radius-xl: 1.25rem;
+      --shadow: 0 12px 40px rgba(6, 78, 59, 0.12);
+      --font-sans: "Noto Sans KR", "DM Sans", system-ui, sans-serif;
+      --step--1: clamp(0.875rem, 0.82rem + 0.2vw, 0.95rem);
+      --step-0: clamp(1rem, 0.92rem + 0.35vw, 1.125rem);
+      --step-1: clamp(1.15rem, 1rem + 0.5vw, 1.35rem);
+      --step-2: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+      --step-3: clamp(2rem, 1.5rem + 1.8vw, 2.75rem);
+      --step-4: clamp(2.5rem, 1.8rem + 2.8vw, 3.5rem);
+      --max: 72rem;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      font-size: var(--step-0);
+      color: var(--slate-900);
+      background: #f8fafc;
+      line-height: 1.6;
+    }
+
+    .skip {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    .skip:focus {
+      left: 1rem;
+      top: 1rem;
+      width: auto;
+      height: auto;
+      padding: 0.5rem 1rem;
+      background: var(--emerald-900);
+      color: var(--white);
+      border-radius: var(--radius-lg);
+      z-index: 9999;
+    }
+
+    /* ----- Header ----- */
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      background: rgba(6, 95, 70, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .site-header__inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 700;
+      font-size: var(--step-1);
+      white-space: nowrap;
+    }
+    .brand img { height: 1.75rem; width: auto; }
+
+    .nav-main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.25rem;
+    }
+    .nav-main a {
+      color: rgba(255, 255, 255, 0.92);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: var(--step--1);
+      padding: 0.35rem 0.2rem;
+      border-radius: 0.35rem;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-main a:hover,
+    .nav-main a:focus-visible {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.1);
+      outline: none;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-ghost {
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: transparent;
+      color: var(--white);
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: var(--step--1);
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .btn-ghost:hover,
+    .btn-ghost:focus-visible {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.55);
+      outline: 2px solid var(--emerald-100);
+      outline-offset: 2px;
+    }
+    .btn-primary {
+      background: var(--white);
+      color: var(--emerald-900);
+      border: none;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: var(--step--1);
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+      outline: 2px solid var(--emerald-100);
+      outline-offset: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-main { order: 3; width: 100%; justify-content: flex-start; padding-top: 0.25rem; border-top: 1px solid rgba(255,255,255,0.15); }
+      .site-header__inner { flex-wrap: wrap; }
+    }
+
+    /* ----- Hero ----- */
+    .hero {
+      min-height: 100vh;
+      min-height: 100dvh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 1.25rem 4rem;
+    }
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background: var(--emerald-900) center / cover no-repeat;
+      background-image: linear-gradient(135deg, rgba(6, 78, 59, 0.55), rgba(15, 23, 42, 0.45)), url("/backend/image/gomdol.jpg");
+      filter: brightness(0.92);
+    }
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      max-width: 42rem;
+    }
+    .hero__eyebrow {
+      display: inline-block;
+      font-size: var(--step--1);
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.95);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.75rem;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    }
+    .hero__title {
+      margin: 0 0 1rem;
+      font-size: var(--step-4);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+    }
+    .hero__lead {
+      margin: 0 0 2rem;
+      font-size: var(--step-1);
+      color: rgba(255, 255, 255, 0.92);
+      max-width: 36rem;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+    }
+    .hero__cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+    .btn-solid {
+      min-width: 11rem;
+      padding: 0.9rem 1.5rem;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: var(--step--1);
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-solid--light {
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--emerald-950);
+    }
+    .btn-solid--outline {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+    }
+    .btn-solid:hover,
+    .btn-solid:focus-visible {
+      transform: scale(1.02);
+      outline: 2px solid var(--emerald-100);
+      outline-offset: 2px;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 1.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      z-index: 2;
+    }
+    .scroll-hint svg { opacity: 0.9; }
+
+    /* ----- Mission ----- */
+    .section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: clamp(3rem, 8vw, 5rem) 1.25rem;
+    }
+    .section--tight { padding-top: clamp(2.5rem, 6vw, 4rem); padding-bottom: clamp(2.5rem, 6vw, 4rem); }
+    .section__title {
+      font-size: var(--step-3);
+      font-weight: 700;
+      color: var(--slate-900);
+      text-align: center;
+      margin: 0 0 1rem;
+      letter-spacing: -0.02em;
+    }
+    .section__lead {
+      text-align: center;
+      color: var(--slate-600);
+      font-size: var(--step-1);
+      max-width: 40rem;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ----- Services carousel ----- */
+    .services {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid var(--slate-200);
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 900px) {
+      .services { grid-template-columns: 1fr 1fr; min-height: 26rem; }
+    }
+    .services__visual {
+      position: relative;
+      background: linear-gradient(160deg, var(--emerald-50), #f0fdf4);
+      min-height: 16rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .services__visual img {
+      max-width: 100%;
+      max-height: 18rem;
+      object-fit: contain;
+      border-radius: var(--radius-lg);
+      transition: opacity 0.35s ease;
+    }
+    .services__panel {
+      padding: clamp(1.5rem, 4vw, 2.75rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+    .services__nav {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .services__nav button {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 999px;
+      border: 1px solid var(--slate-200);
+      background: var(--white);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--emerald-800);
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .services__nav button:hover,
+    .services__nav button:focus-visible {
+      background: var(--emerald-50);
+      border-color: var(--emerald-600);
+      outline: none;
+    }
+    .dots {
+      display: flex;
+      gap: 0.4rem;
+      margin-left: auto;
+    }
+    .dots button {
+      width: 0.5rem;
+      height: 0.5rem;
+      padding: 0;
+      border: none;
+      border-radius: 999px;
+      background: #cbd5e1;
+      cursor: pointer;
+      transition: width 0.2s, background 0.2s;
+    }
+    .dots button[aria-current="true"] {
+      background: var(--emerald-700);
+      width: 1.5rem;
+    }
+    .service-title {
+      font-size: var(--step-2);
+      font-weight: 700;
+      margin: 0 0 0.75rem;
+      color: var(--slate-900);
+    }
+    .service-desc {
+      margin: 0 0 1.25rem;
+      color: var(--slate-600);
+      font-size: var(--step-0);
+      line-height: 1.65;
+    }
+    .link-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--emerald-700);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: var(--step--1);
+    }
+    .link-arrow:hover { gap: 0.55rem; }
+
+    /* ----- Contact ----- */
+    .contact-grid {
+      display: grid;
+      gap: 2rem;
+      align-items: start;
+    }
+    @media (min-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr 1.1fr; }
+    }
+    .map-card {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--slate-200);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .map-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 280px;
+      object-fit: cover;
+    }
+    .map-card__footer {
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--slate-200);
+    }
+    .info-list { list-style: none; padding: 0; margin: 0; }
+    .info-list li {
+      display: flex;
+      gap: 0.75rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .info-list li:last-child { border-bottom: none; }
+    .info-list strong { display: block; font-size: var(--step--1); color: var(--slate-900); }
+    .info-list span { color: var(--slate-600); font-size: var(--step--1); }
+
+    /* ----- Footer ----- */
+    .site-footer {
+      background: var(--slate-900);
+      color: #94a3b8;
+      padding: 2rem 1.25rem;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    .site-footer a { color: var(--emerald-100); }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--emerald-800);
+      background: var(--emerald-100);
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.25rem;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="/">
+        <img src="/backend/image/logo.png" alt="" width="28" height="28" />
+        Yeobaek
+      </a>
+      <nav class="nav-main" aria-label="주요 메뉴">
+        <a href="/#hero">홈</a>
+        <a href="/#services">서비스</a>
+        <a href="/about">소개</a>
+        <a href="/recruit">모집</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="btn-ghost" id="btn-audio" aria-pressed="false" title="배경음은 사용자 클릭 후 재생됩니다">
+          배경음 끄기
+        </button>
+        <a class="btn-primary" href="/login">로그인</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="hero__bg" role="presentation"></div>
+      <div class="hero__content">
+        <span class="hero__eyebrow">문헌정보학 · 데이터 · AI</span>
+        <h1 id="hero-title" class="hero__title">여백과 함께하는<br />디지털 정보 경험</h1>
+        <p class="hero__lead">
+          학과 소통과 전공 동아리 활성화를 위해 만든 웹 공간입니다. 챗봇·아카이빙·전시·LAB을 한곳에서 탐색해 보세요.
+        </p>
+        <div class="hero__cta">
+          <button type="button" class="btn-solid btn-solid--light" data-scroll="#services">서비스 둘러보기</button>
+          <a class="btn-solid btn-solid--outline" href="/about" style="text-decoration: none;">동아리 소개</a>
+        </div>
+      </div>
+      <div class="scroll-hint" aria-hidden="true">
+        <span>아래로 스크롤</span>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+        </svg>
+      </div>
+    </section>
+
+    <section class="section section--tight" id="mission" style="background: #fff;">
+      <p class="badge">Mission</p>
+      <h2 class="section__title">Yeobaek Web은</h2>
+      <p class="section__lead">
+        문헌정보학을 기반으로 학과의 소통과 정보 공유, 전공 동아리 활성화를 위해 만들어졌습니다. 긴 문장도 모바일에서 자연스럽게 줄바꿈되도록 너비를 제한했습니다.
+      </p>
+    </section>
+
+    <section class="section" id="services" aria-labelledby="services-title">
+      <h2 id="services-title" class="section__title">서비스</h2>
+      <p class="section__lead" style="margin-bottom: 2rem;">카드 안에서 이전·다음을 조작해 모바일에서도 화살표가 잘리지 않게 배치했습니다.</p>
+
+      <div class="services" id="carousel">
+        <div class="services__visual">
+          <img id="svc-img" src="/backend/image/chatbot_image.jpg" alt="" />
+        </div>
+        <div class="services__panel">
+          <h3 class="service-title" id="svc-title">챗봇 · 여불이</h3>
+          <p class="service-desc" id="svc-desc">질문을 입력하면 동아리·전공 맥락을 반영한 답변을 탐색할 수 있습니다.</p>
+          <a class="link-arrow" id="svc-link" href="/chatbot">자세히 보기 →</a>
+          <div class="services__nav">
+            <button type="button" id="svc-prev" aria-label="이전 서비스">‹</button>
+            <button type="button" id="svc-next" aria-label="다음 서비스">›</button>
+            <div class="dots" id="svc-dots" role="tablist" aria-label="서비스 선택"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact" style="background: #f1f5f9;">
+      <h2 class="section__title">연락 · 오시는 길</h2>
+      <p class="section__lead" style="margin-bottom: 2rem;">지도는 썸네일로 두고, 실제 길찾기는 외부 지도 앱 링크로 연결하는 패턴 예시입니다.</p>
+      <div class="contact-grid">
+        <div class="map-card">
+          <img src="/backend/image/map.png" alt="캠퍼스 위치 안내 이미지" />
+          <div class="map-card__footer">
+            <span style="font-size: var(--step--1); color: var(--slate-600);">인천대학교 송도캠퍼스</span>
+            <a class="btn-primary" style="font-size: 0.8rem; padding: 0.4rem 0.9rem;" href="https://map.naver.com" target="_blank" rel="noopener noreferrer">길 찾기</a>
+          </div>
+        </div>
+        <div>
+          <ul class="info-list">
+            <li>
+              <div>
+                <strong>이메일</strong>
+                <span>lisyeobaek@gmail.com</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>인스타그램</strong>
+                <span><a href="https://www.instagram.com/team_yeobeak" target="_blank" rel="noopener noreferrer" style="color: var(--emerald-700);">@team_yeobeak</a></span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>GitHub</strong>
+                <span><a href="https://github.com/YeoGitDa" target="_blank" rel="noopener noreferrer" style="color: var(--emerald-700);">YeoGitDa</a></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>시안 전용 정적 페이지 · 실제 라우팅은 React 앱과 별도입니다.</p>
+    <p style="margin-top: 0.5rem">© Yeobaek — <a href="/">메인 앱으로</a> · <a href="/ui-mockup-index.html">전체 시안 목록</a> · <a href="/ui-mockup-main-v3.html">메인 v3</a></p>
+  </footer>
+
+  <audio id="bg-audio" loop preload="metadata" style="display: none">
+    <source src="/backend/image/musicchristmas.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    (function () {
+      const slides = [
+        { title: "챗봇 · 여불이", desc: "질문을 입력하면 동아리·전공 맥락을 반영한 답변을 탐색할 수 있습니다.", img: "/backend/image/chatbot_image.jpg", href: "/chatbot" },
+        { title: "디지털 아카이빙", desc: "활동 산출물과 문서를 체계적으로 보관하고 검색할 수 있도록 설계된 영역입니다.", img: "/backend/image/digitalA.png", href: "/archiving" },
+        { title: "동아리 산출물 전시", desc: "추천과 전시를 통해 산출물을 발견하고 연결하는 경험을 목표로 합니다.", img: "/backend/image/digicu.png", href: "/exhibition" },
+      ];
+      let i = 0;
+      const img = document.getElementById("svc-img");
+      const title = document.getElementById("svc-title");
+      const desc = document.getElementById("svc-desc");
+      const link = document.getElementById("svc-link");
+      const dots = document.getElementById("svc-dots");
+
+      function render() {
+        const s = slides[i];
+        img.src = s.img;
+        img.alt = s.title;
+        title.textContent = s.title;
+        desc.textContent = s.desc;
+        link.href = s.href;
+        dots.querySelectorAll("button").forEach((b, j) => b.setAttribute("aria-current", j === i ? "true" : "false"));
+      }
+
+      slides.forEach((_, j) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.setAttribute("role", "tab");
+        b.setAttribute("aria-label", "서비스 " + (j + 1));
+        b.addEventListener("click", () => { i = j; render(); });
+        dots.appendChild(b);
+      });
+
+      document.getElementById("svc-prev").addEventListener("click", () => { i = (i - 1 + slides.length) % slides.length; render(); });
+      document.getElementById("svc-next").addEventListener("click", () => { i = (i + 1) % slides.length; render(); });
+      render();
+
+      document.querySelectorAll("[data-scroll]").forEach((el) => {
+        el.addEventListener("click", () => {
+          const sel = el.getAttribute("data-scroll");
+          document.querySelector(sel)?.scrollIntoView({ behavior: "smooth" });
+        });
+      });
+
+      const audio = document.getElementById("bg-audio");
+      const btn = document.getElementById("btn-audio");
+      let playing = false;
+      function sync() {
+        btn.textContent = playing ? "배경음 끄기" : "배경음 켜기";
+        btn.setAttribute("aria-pressed", playing ? "true" : "false");
+      }
+      sync();
+      btn.addEventListener("click", () => {
+        if (playing) {
+          audio.pause();
+          playing = false;
+        } else {
+          audio.play().then(() => { playing = true; sync(); }).catch(() => { playing = false; sync(); });
+          return;
+        }
+        sync();
+      });
+    })();
+  </script>
+</body>
+</html>

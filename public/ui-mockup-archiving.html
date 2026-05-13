@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>디지털 아카이빙 — Yeobaek UI 시안 (v3 셸)</title>
+  <link rel="stylesheet" href="/mockup-shared.css" />
+  <link rel="stylesheet" href="/mockup-shell-v3.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .steps { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.5rem 0 2rem; }
+    .step { flex: 1; min-width: 8rem; background: #ecfdf5; border: 1px solid #d1fae5; border-radius: 0.5rem; padding: 0.75rem; font-size: 0.85rem; font-weight: 600; color: #064e3b; text-align: center; }
+    .wait-box { text-align: center; padding: 2rem 1rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 1rem; }
+    .wait-box img { max-width: 22rem; width: 100%; height: auto; margin: 1.5rem auto 0; display: block; }
+  </style>
+</head>
+<body class="v3-shell">
+  <a class="skip" href="#main">본문으로</a>
+  <a class="v3-float" href="/ui-mockup-main-v3.html#inquiry">문의</a>
+
+  <header class="v3-head">
+    <div class="v3-head-inner">
+      <a class="v3-brand" href="/">
+        <img src="/backend/image/logo.png" alt="" />
+        <span class="v3-brand-title">YEOBAEK<span class="v3-brand-pipe">| Archiving</span></span>
+      </a>
+      <nav class="v3-head-nav" aria-label="주요 메뉴">
+        <a class="v3-pill" href="/ui-mockup-main-v3.html#main">홈</a>
+        <a class="v3-pill v3-pill--active" href="/ui-mockup-main-v3.html#services">서비스</a>
+        <a class="v3-pill" href="/ui-mockup-about.html">소개</a>
+        <a class="v3-pill" href="/recruit">모집</a>
+        <a class="v3-pill" href="/login">로그인</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="v3-pagehead">
+    <div class="v3-pagehead-inner">
+      <p class="v3-eyebrow" style="margin-bottom:0.35rem">Archiving</p>
+      <h1 class="v3-h1">디지털 아카이빙</h1>
+      <p class="v3-page-lead">준비 중일 때도 로드맵과 문의 경로를 보여 주는 레이아웃입니다.</p>
+    </div>
+  </div>
+
+  <main id="main" class="v3-section v3-band-slate">
+    <div class="steps" role="list">
+      <div class="step" role="listitem">1. 수집</div>
+      <div class="step" role="listitem">2. 메타데이터</div>
+      <div class="step" role="listitem">3. 검색</div>
+      <div class="step" role="listitem">4. 공유</div>
+    </div>
+    <div class="wait-box">
+      <p style="margin:0 0 1rem;color:#475569;font-size:1rem">현재 페이지는 Coming Soon 중심입니다.</p>
+      <a class="mock-btn mock-btn--primary" href="mailto:lisyeobaek@gmail.com">문의 메일</a>
+      <img src="/backend/image/wait.png" alt="" />
+    </div>
+  </main>
+
+  <footer class="mock-footer">
+    시안 v3 셸 · <a href="/ui-mockup-index.html">목록</a> · <a href="/ui-mockup-main-v3.html">메인 v3</a> · <a href="/archiving">실제 아카이빙</a>
+  </footer>
+</body>
+</html>

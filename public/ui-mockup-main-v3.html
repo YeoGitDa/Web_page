@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yeobaek 메인 시안 v3 — 헤더(Recruit형) + 히어로(v1) + 본문(v2)</title>
+  <link rel="stylesheet" href="/mockup-shared.css" />
+  <link rel="stylesheet" href="/mockup-shell-v3.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body class="v3-shell">
+  <a class="skip" href="#main">본문으로</a>
+  <a class="v3-float" href="#inquiry">문의</a>
+
+  <header class="v3-head">
+    <div class="v3-head-inner">
+      <a class="v3-brand" href="/">
+        <img src="/backend/image/logo.png" alt="" width="32" height="32" />
+        <span class="v3-brand-title">YEOBAEK<span class="v3-brand-pipe">| Web</span></span>
+      </a>
+      <nav class="v3-head-nav" aria-label="주요 메뉴">
+        <a class="v3-pill" href="/ui-mockup-index.html">시안 목록</a>
+        <a class="v3-pill v3-pill--active" href="/ui-mockup-main-v3.html#main">홈</a>
+        <a class="v3-pill" href="#services">서비스</a>
+        <a class="v3-pill" href="/about">소개</a>
+        <a class="v3-pill" href="/recruit">모집</a>
+        <a class="v3-pill" href="/login">로그인</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="v3-hero" aria-labelledby="v3-hero-title">
+      <div class="v3-hero-bg" role="presentation"></div>
+      <div class="v3-hero-overlay" aria-hidden="true"></div>
+      <div class="v3-hero-content">
+        <p class="v3-hero-kicker">문헌정보학 · 데이터 · AI</p>
+        <h1 id="v3-hero-title">Yeobaek Web</h1>
+        <p class="v3-hero-lead">
+          학과 소통과 전공 동아리 활성화를 위한 웹 공간입니다.<br />
+          챗봇 · 아카이빙 · 전시 · LAB을 한곳에서 탐색해 보세요.
+        </p>
+        <div class="v3-hero-cta">
+          <button type="button" class="btn-a btn-solid" onclick="document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })">
+            Service 구경하기
+          </button>
+          <button type="button" class="btn-a btn-outline" onclick="document.getElementById('news')?.scrollIntoView({ behavior: 'smooth' })">
+            소식 보기
+          </button>
+        </div>
+      </div>
+      <div class="v3-scroll" aria-hidden="true">
+        <span>SCROLL</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7" /></svg>
+      </div>
+    </section>
+
+    <section class="v3-band-white v3-section" id="stats" aria-label="핵심 수치">
+      <p class="v3-eyebrow">Numbers</p>
+      <h2 class="v3-h2">여백 한눈에 보기</h2>
+      <p class="v3-lead" style="margin-bottom: 2rem">동아리 핵심 수치를 한눈에 확인하세요.</p>
+      <div class="v3-stat-grid">
+        <div class="v3-stat-card">
+          <p class="v3-stat-num">6</p>
+          <p class="v3-stat-label">LAB</p>
+        </div>
+        <div class="v3-stat-card">
+          <p class="v3-stat-num">30<span class="v3-stat-suffix">+</span></p>
+          <p class="v3-stat-label">부원</p>
+        </div>
+        <div class="v3-stat-card">
+          <p class="v3-stat-num">10<span class="v3-stat-suffix">+</span></p>
+          <p class="v3-stat-label">프로젝트</p>
+        </div>
+        <div class="v3-stat-card">
+          <p class="v3-stat-num">3<span class="v3-stat-suffix">년</span></p>
+          <p class="v3-stat-label">운영</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="v3-band-white v3-section" id="services" aria-labelledby="v3-svc-title" style="border-top: 1px solid #e2e8f0">
+      <p class="v3-eyebrow">Services</p>
+      <h2 id="v3-svc-title" class="v3-h2">서비스</h2>
+      <p class="v3-lead" style="margin-bottom: 2rem">가로 3열 카드 · 상단 이미지 + 본문 구조입니다.</p>
+      <div class="v3-cards">
+        <article class="v3-card">
+          <div class="v3-card-media">
+            <img src="/backend/image/chatbot_image.jpg" alt="" />
+          </div>
+          <div class="v3-card-body">
+            <div class="v3-card-icon"><img src="/backend/image/mascot_chatbot.png" alt="" /></div>
+            <h3>챗봇 · 여불이</h3>
+            <ul>
+              <li>LIS 맥락 질의응답</li>
+              <li>문서 기반 RAG</li>
+              <li>빠른 질문 템플릿</li>
+            </ul>
+            <a href="/chatbot">둘러보기 →</a>
+          </div>
+        </article>
+        <article class="v3-card">
+          <div class="v3-card-media">
+            <img src="/backend/image/digitalA.png" alt="" />
+          </div>
+          <div class="v3-card-body">
+            <div class="v3-card-icon"><img src="/backend/image/Archive.png" alt="" /></div>
+            <h3>디지털 아카이빙</h3>
+            <ul>
+              <li>산출물·문서 보존</li>
+              <li>메타데이터·검색</li>
+              <li>동아리 간 공유</li>
+            </ul>
+            <a href="/archiving">둘러보기 →</a>
+          </div>
+        </article>
+        <article class="v3-card">
+          <div class="v3-card-media">
+            <img src="/backend/image/digicu.png" alt="" />
+          </div>
+          <div class="v3-card-body">
+            <div class="v3-card-icon"><img src="/backend/image/digicu.png" alt="" /></div>
+            <h3>산출물 전시</h3>
+            <ul>
+              <li>LAB 카탈로그</li>
+              <li>전시형 탐색</li>
+              <li>추후 큐레이션</li>
+            </ul>
+            <a href="/exhibition">둘러보기 →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="v3-band-slate v3-section" id="news" aria-labelledby="v3-news-title">
+      <div class="v3-news-grid">
+        <aside>
+          <p class="v3-eyebrow">News</p>
+          <h2 id="v3-news-title" class="v3-h2">소식</h2>
+          <p class="v3-lead" style="margin-top: 0.75rem">좌측 제목 블록 + 우측 리스트.</p>
+        </aside>
+        <div>
+          <ul class="v3-news-list">
+            <li>
+              <span class="v3-news-date">2026.05</span>
+              <a href="#">메인 v3 시안: Recruit형 헤더 + 히어로 + 통계 + 서비스 카드</a>
+            </li>
+            <li>
+              <span class="v3-news-date">2026.05</span>
+              <a href="#">메인 v2 시안: SINSIWAY형 레이아웃 분기</a>
+            </li>
+            <li>
+              <span class="v3-news-date">2026.04</span>
+              <a href="#">통합 로그인 및 모집 Phase 연동</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="v3-inquiry" id="inquiry" aria-labelledby="v3-inq-title">
+      <div class="v3-inquiry-grid">
+        <div>
+          <h2 id="v3-inq-title">문의하기</h2>
+          <p>그라데이션 + 2단 폼 밴드입니다.</p>
+        </div>
+        <form class="v3-form" action="#" method="get" onsubmit="return false;">
+          <div>
+            <label for="q-name">이름</label>
+            <input id="q-name" type="text" placeholder="이름" autocomplete="name" />
+          </div>
+          <div>
+            <label for="q-email">이메일</label>
+            <input id="q-email" type="email" placeholder="email@example.com" autocomplete="email" />
+          </div>
+          <div>
+            <label for="q-msg">내용</label>
+            <textarea id="q-msg" placeholder="문의 내용"></textarea>
+          </div>
+          <button type="submit">보내기</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mock-footer">
+    메인 시안 v3 ·
+    <a href="/ui-mockup-index.html">시안 목록</a> ·
+    <a href="/mockup-shell-v3.css">v3 셸 CSS</a> ·
+    <a href="/ui-mockup-main-v2-layout.html">v2</a> ·
+    <a href="/ui-mockup-yeobaek.html">v1</a> ·
+    <a href="/">실제 앱</a>
+  </footer>
+</body>
+</html>

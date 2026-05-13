@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yeobaek — UI 시안 목록</title>
+  <link rel="stylesheet" href="/mockup-shared.css" />
+  <link rel="stylesheet" href="/mockup-shell-v3.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .hub { max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    .hub h1 { font-size: clamp(1.75rem, 4vw, 2.25rem); margin: 0 0 0.5rem; letter-spacing: -0.03em; }
+    .hub p { color: #475569; margin: 0 0 2rem; line-height: 1.65; }
+    .hub-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.65rem; }
+    .hub-list a {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.15rem; background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 1rem; text-decoration: none; color: #0f172a;
+      font-weight: 600; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04); transition: border-color 0.15s, transform 0.15s;
+    }
+    .hub-list a:hover { border-color: #059669; transform: translateY(-1px); }
+    .hub-list span { font-size: 0.8rem; font-weight: 500; color: #94a3b8; }
+    .hub-section { margin-top: 2rem; font-size: 0.85rem; color: #64748b; line-height: 1.6; }
+    .hub-section code { font-size: 0.78rem; background: #f1f5f9; padding: 0.1rem 0.35rem; border-radius: 0.25rem; }
+  </style>
+</head>
+<body class="v3-shell">
+  <a class="skip" href="#main">본문으로</a>
+  <a class="v3-float" href="/ui-mockup-main-v3.html#inquiry">문의</a>
+
+  <header class="v3-head">
+    <div class="v3-head-inner">
+      <a class="v3-brand" href="/ui-mockup-index.html">
+        <img src="/backend/image/logo.png" alt="" />
+        <span class="v3-brand-title">YEOBAEK<span class="v3-brand-pipe">| Mockups</span></span>
+      </a>
+      <nav class="v3-head-nav" aria-label="시안 내비">
+        <a class="v3-pill v3-pill--active" href="/ui-mockup-index.html#main">시안 목록</a>
+        <a class="v3-pill" href="/ui-mockup-main-v3.html#main">메인 v3</a>
+        <a class="v3-pill" href="/">앱 홈</a>
+        <a class="v3-pill" href="/recruit">모집</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="v3-pagehead">
+    <div class="v3-pagehead-inner">
+      <p class="v3-eyebrow" style="margin-bottom: 0.35rem">Index</p>
+      <h1 class="v3-h1">정적 HTML 시안</h1>
+      <p class="v3-page-lead">아래 링크는 모두 v3와 동일한 상단 헤더(Recruit형) 맥락을 공유합니다.</p>
+    </div>
+  </div>
+
+  <main id="main" class="hub">
+    <p><code>npm run dev</code> 후 열어 주세요. 리크루트·운영 <code>/admin</code> 제외.</p>
+    <ul class="hub-list">
+      <li><a href="/ui-mockup-main-v3.html">메인 v3 (권장) <span>ui-mockup-main-v3.html</span></a></li>
+      <li><a href="/ui-mockup-yeobaek.html">메인 v1 (히어로 전면·캐러셀) <span>ui-mockup-yeobaek.html</span></a></li>
+      <li><a href="/ui-mockup-main-v2-layout.html">메인 v2 (SINSIWAY형) <span>ui-mockup-main-v2-layout.html</span></a></li>
+      <li><a href="/ui-mockup-about.html">소개 About <span>ui-mockup-about.html</span></a></li>
+      <li><a href="/ui-mockup-chatbot.html">챗봇 상세 <span>ui-mockup-chatbot.html</span></a></li>
+      <li><a href="/ui-mockup-archiving.html">디지털 아카이빙 <span>ui-mockup-archiving.html</span></a></li>
+      <li><a href="/ui-mockup-exhibition.html">산출물 전시 <span>ui-mockup-exhibition.html</span></a></li>
+      <li><a href="/ui-mockup-lab.html">LAB 상세 <span>ui-mockup-lab.html</span></a></li>
+      <li><a href="/ui-mockup-login.html">로그인 <span>ui-mockup-login.html</span></a></li>
+      <li><a href="/ui-mockup-signup.html">회원가입 <span>ui-mockup-signup.html</span></a></li>
+      <li><a href="/ui-mockup-me.html">내 계정 <span>ui-mockup-me.html</span></a></li>
+    </ul>
+    <p class="hub-section">
+      공통: <code>/mockup-shared.css</code> · v3 셸: <code>/mockup-shell-v3.css</code>
+    </p>
+  </main>
+
+  <footer class="mock-footer">
+    시안 허브 · <a href="/ui-mockup-main-v3.html">메인 v3</a> · <a href="/">실제 앱</a>
+  </footer>
+</body>
+</html>
