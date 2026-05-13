@@ -12,6 +12,10 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Chatbot from './components/Chatbot/Chatbot';
 import About from './components/About';
+import RecruitLayout from './recruit/RecruitLayout';
+import RecruitHome from './recruit/RecruitHome';
+import MemberApplication from './recruit/MemberApplication';
+import TalentPoolApplication from './recruit/TalentPoolApplication';
 
 function HomePage() {
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
@@ -64,6 +68,7 @@ function HomePage() {
             <a href="#home" className="text-white no-underline opacity-90 hover:opacity-100 transition-opacity">Home</a>
             <a href="#service" className="text-white no-underline opacity-90 hover:opacity-100 transition-opacity">Service</a>
             <Link to="/about" className="text-white no-underline opacity-90 hover:opacity-100 transition-opacity">About</Link>
+            <Link to="/recruit" className="text-white no-underline opacity-90 hover:opacity-100 transition-opacity">모집</Link>
           </div>
           <div className="flex items-center gap-4 text-white text-xl md:text-2xl">
             <button
@@ -139,6 +144,11 @@ function App() {
         <Route path="/lab/:labNumber" element={<LabDetail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/recruit" element={<RecruitLayout />}>
+          <Route index element={<RecruitHome />} />
+          <Route path="member" element={<MemberApplication />} />
+          <Route path="talent-pool" element={<TalentPoolApplication />} />
+        </Route>
       </Routes>
     </Router>
   );
