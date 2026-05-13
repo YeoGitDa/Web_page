@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 import { useState, useRef } from 'react';
 import SplitText from './SplitText';
 import SnowEffect from './SnowEffect';
@@ -20,6 +20,12 @@ import OpportunityList from './recruit/OpportunityList';
 import OpportunityForm from './recruit/OpportunityForm';
 import MatchResults from './recruit/MatchResults';
 import AdminDashboard from './recruit/AdminDashboard';
+import ProtectedRoute from './auth/ProtectedRoute';
+import UserProtectedRoute from './auth/UserProtectedRoute';
+import MeHome from './me/MeHome';
+import AdminShell from './admin/AdminShell';
+import AdminHome from './admin/AdminHome';
+import AdminLogin from './admin/AdminLogin';
 
 function HomePage() {
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
@@ -148,6 +154,18 @@ function App() {
         <Route path="/lab/:labNumber" element={<LabDetail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route element={<UserProtectedRoute />}>
+          <Route path="/me" element={<MeHome />} />
+        </Route>
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/hub" element={<Navigate to="/admin" replace />} />
+        <Route path="/hub/admin" element={<Navigate to="/admin/dashboard" replace />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/admin" element={<AdminShell />}>
+            <Route index element={<AdminHome />} />
+            <Route path="dashboard" element={<AdminDashboard />} />
+          </Route>
+        </Route>
         <Route path="/recruit" element={<RecruitLayout />}>
           <Route index element={<RecruitHome />} />
           <Route path="member" element={<MemberApplication />} />
@@ -155,7 +173,6 @@ function App() {
           <Route path="opportunities" element={<OpportunityList />} />
           <Route path="opportunities/new" element={<OpportunityForm />} />
           <Route path="match" element={<MatchResults />} />
-          <Route path="admin" element={<AdminDashboard />} />
         </Route>
       </Routes>
     </Router>

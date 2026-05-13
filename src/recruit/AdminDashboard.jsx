@@ -116,8 +116,12 @@ export default function AdminDashboard() {
     <div className="mx-auto max-w-5xl">
       {/* 헤더 */}
       <div className="mb-8">
+        <Link to="/admin" className="text-sm font-medium text-slate-600 hover:underline">
+          &larr; 운영 홈
+        </Link>
+        <span className="mx-2 text-slate-300">|</span>
         <Link to="/recruit" className="text-sm font-medium text-emerald-700 hover:underline">
-          &larr; 모집 홈
+          모집 홈
         </Link>
         <h1 className="mt-4 text-3xl font-bold tracking-tight text-slate-900">관리자 대시보드</h1>
         <p className="mt-2 text-sm text-slate-500">
