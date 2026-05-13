@@ -118,3 +118,95 @@ export const ROLE_OPTIONS = [
   'Frontend', 'Backend', 'Design',
   'Data', 'PM/기획', '기타',
 ];
+
+/* ── 기회(Opportunity) 관련 상수 & 헬퍼 ── */
+
+export const OPPORTUNITY_TYPE_OPTIONS = [
+  '공모전', '해커톤', '학술대회', '세미나/컨퍼런스',
+  '교육/워크숍', '스터디', '인턴십', '기타',
+];
+
+export const OPPORTUNITY_STATUS_OPTIONS = [
+  '모집중', '모집예정', '마감', '진행중', '종료',
+];
+
+/**
+ * @param {Record<string, unknown>} payload
+ */
+export function buildOpportunityEnvelope(payload) {
+  return {
+    submittedAt: new Date().toISOString(),
+    applicationType: 'opportunity',
+    source: 'yeobaek-web-recruit',
+    version: '2.0',
+    payload,
+  };
+}
+
+/**
+ * @param {Record<string, unknown>} payload
+ */
+export async function submitOpportunity(payload) {
+  const envelope = buildOpportunityEnvelope(payload);
+
+  const primaryUrl = import.meta.env.VITE_RECRUIT_SUBMIT_URL?.trim();
+  const sheetUrl = import.meta.env.VITE_RECRUIT_SHEET_URL?.trim();
+  const url = primaryUrl || sheetUrl;
+
+  if (url) {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(envelope),
+    });
+    const text = await res.text();
+    if (!res.ok) throw new Error(text || `서버 응답 오류 (${res.status})`);
+    return { delivered: true, envelope };
+  }
+
+  return { delivered: false, envelope };
+}
+
+/* ── 로컬 기회 저장소 (브라우저 메모리, 향후 DB 대체) ── */
+
+let _opportunityStore = [];
+
+export function getOpportunities() {
+  return [..._opportunityStore];
+}
+
+export function addOpportunity(opportunity) {
+  const entry = {
+    id: `opp-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+    createdAt: new Date().toISOString(),
+    ...opportunity,
+  };
+  _opportunityStore = [entry, ..._opportunityStore];
+  return entry;
+}
+
+export function removeOpportunity(id) {
+  _opportunityStore = _opportunityStore.filter((o) => o.id !== id);
+}
+
+/* ── 인력풀 로컬 저장소 (브라우저 메모리, 향후 DB 대체) ── */
+
+let _talentStore = [];
+
+export function getTalentProfiles() {
+  return [..._talentStore];
+}
+
+export function addTalentProfile(profile) {
+  const entry = {
+    id: `tp-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+    registeredAt: new Date().toISOString(),
+    ...profile,
+  };
+  _talentStore = [entry, ..._talentStore];
+  return entry;
+}
+
+export function removeTalentProfile(id) {
+  _talentStore = _talentStore.filter((p) => p.id !== id);
+}

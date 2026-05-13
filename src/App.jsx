@@ -16,6 +16,10 @@ import RecruitLayout from './recruit/RecruitLayout';
 import RecruitHome from './recruit/RecruitHome';
 import MemberApplication from './recruit/MemberApplication';
 import TalentPoolApplication from './recruit/TalentPoolApplication';
+import OpportunityList from './recruit/OpportunityList';
+import OpportunityForm from './recruit/OpportunityForm';
+import MatchResults from './recruit/MatchResults';
+import AdminDashboard from './recruit/AdminDashboard';
 
 function HomePage() {
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
@@ -148,6 +152,10 @@ function App() {
           <Route index element={<RecruitHome />} />
           <Route path="member" element={<MemberApplication />} />
           <Route path="talent-pool" element={<TalentPoolApplication />} />
+          <Route path="opportunities" element={<OpportunityList />} />
+          <Route path="opportunities/new" element={<OpportunityForm />} />
+          <Route path="match" element={<MatchResults />} />
+          <Route path="admin" element={<AdminDashboard />} />
         </Route>
       </Routes>
     </Router>

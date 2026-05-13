@@ -8,6 +8,7 @@ import {
   DOMAIN_OPTIONS,
   ACTIVITY_TYPE_OPTIONS,
   ROLE_OPTIONS,
+  addTalentProfile,
 } from './submitRecruitment.js';
 import TagSelector from './TagSelector.jsx';
 
@@ -97,6 +98,9 @@ export default function TalentPoolApplication() {
     };
 
     try {
+      // 로컬 저장소에 추가 (매칭용)
+      addTalentProfile(payload);
+
       const { delivered, envelope } = await submitRecruitment('talent_pool', payload);
       if (!delivered) {
         persistEnvelopeLocally(envelope);
