@@ -54,4 +54,3 @@ env/
 # Database
 *.sqlite3
 *.db
-docs

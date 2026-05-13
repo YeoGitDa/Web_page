@@ -8,29 +8,25 @@ import logging
 from dotenv import load_dotenv
 from openai import OpenAI, RateLimitError, APITimeoutError, APIConnectionError, APIError
 
-from pymongo import MongoClient
+import chromadb
+from chromadb.utils import embedding_functions
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# api 디렉토리에서 .env 사용
-BASE_DIR = Path(__file__).resolve().parent
-load_dotenv(BASE_DIR / ".env")
+# public/backend 에 있는 .env 와 ChromaDB 경로 사용
+BACKEND_DIR = Path(__file__).resolve().parent.parent / "public" / "backend"
+DB_DIR = BACKEND_DIR / "rag" / "db"
 
+load_dotenv(BACKEND_DIR / ".env")
 api_key = os.getenv("OPENAI_API_KEY")
-mongo_uri = os.getenv("MONGO_URI")
-
 if not api_key:
     raise RuntimeError("OPENAI_API_KEY가 설정되어 있지 않습니다.")
-if not mongo_uri:
-    raise RuntimeError("MONGO_URI가 설정되어 있지 않습니다.")
 
 client = OpenAI(api_key=api_key)
 
-DB_NAME = "yeobaek_db"
 COLLECTION_NAME = "yeobaek_docs"
 EMBED_MODEL = "text-embedding-3-small"
-INDEX_NAME = "vector_index"  # Atlas UI에서 생성해야 하는 인덱스 이름
 
 app = FastAPI()
 
@@ -41,26 +37,31 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 class ChatRequest(BaseModel):
     message: str
 
-def get_collection():
-    mongo_client = MongoClient(mongo_uri)
-    db = mongo_client[DB_NAME]
-    return db[COLLECTION_NAME]
 
-def make_context(docs):
+def get_collection():
+    chroma_client = chromadb.PersistentClient(path=str(DB_DIR))
+    openai_ef = embedding_functions.OpenAIEmbeddingFunction(
+        api_key=api_key,
+        model_name=EMBED_MODEL,
+    )
+    return chroma_client.get_or_create_collection(
+        name=COLLECTION_NAME,
+        embedding_function=openai_ef,
+    )
+
+
+def make_context(documents, metadatas):
     blocks = []
-    for doc in docs:
-        source = doc.get("source", "unknown")
-        idx = doc.get("chunk_index", 0)
-        text = doc.get("text", "").strip()
-        blocks.append(f"[출처: {source} | chunk #{idx}]\n{text}")
+    for doc, meta in zip(documents, metadatas):
+        source = meta.get("source", "unknown")
+        idx = meta.get("chunk_index", 0)
+        blocks.append(f"[출처: {source} | chunk #{idx}]\n{doc.strip()}")
     return "\n\n---\n\n".join(blocks)
 
-def get_embedding(text: str) -> list[float]:
-    response = client.embeddings.create(input=text, model=EMBED_MODEL)
-    return response.data[0].embedding
 
 @app.post("/api/rag-chat")
 def rag_chat(req: ChatRequest):
@@ -68,38 +69,14 @@ def rag_chat(req: ChatRequest):
     if not query:
         raise HTTPException(status_code=400, detail="메시지가 비어 있습니다.")
 
-    docs = []
     try:
-        query_embedding = get_embedding(query)
         collection = get_collection()
-        
-        # MongoDB Atlas Vector Search Pipeline
-        pipeline = [
-            {
-                "$vectorSearch": {
-                    "index": INDEX_NAME,
-                    "path": "embedding",
-                    "queryVector": query_embedding,
-                    "numCandidates": 50,
-                    "limit": 4
-                }
-            },
-            {
-                "$project": {
-                    "_id": 0,
-                    "text": 1,
-                    "source": 1,
-                    "chunk_index": 1,
-                    "score": { "$meta": "vectorSearchScore" }
-                }
-            }
-        ]
-        
-        docs = list(collection.aggregate(pipeline))
-        
+        results = collection.query(query_texts=[query], n_results=4)
+        docs = results.get("documents", [[]])[0]
+        metas = results.get("metadatas", [[]])[0]
     except Exception as e:
-        logger.error(f"MongoDB Vector Search 실패: {e}")
-        docs = []
+        logger.error(f"ChromaDB 검색 실패: {e}")
+        docs, metas = [], []
 
     system_prompt = (
         "너는 인천대학교 문헌정보학과 동아리 '여백(Yeobaek)'의 "
@@ -114,7 +91,7 @@ def rag_chat(req: ChatRequest):
     if docs:
         user_content = (
             "다음은 여백 프로젝트 관련 문서 일부입니다:\n\n"
-            f"{make_context(docs)}\n\n"
+            f"{make_context(docs, metas)}\n\n"
             f"위 내용을 참고해서 답변해주세요.\n\n질문: {query}"
         )
     else:
