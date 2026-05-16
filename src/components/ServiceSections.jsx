@@ -38,7 +38,7 @@ const ServiceSection = () => {
       <div className="max-w-7xl mx-auto w-full relative">
         <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
           {/* Image - left half */}
-          <div className="w-full md:w-1/2 h-[500px] rounded-[2rem] overflow-hidden bg-white border-2 border-emerald-700/40 shadow-lg grid p-6">
+          <div className="w-full md:w-1/2 h-[830px] rounded-[2rem] overflow-hidden bg-white border-2 border-emerald-700/40 shadow-lg grid p-6">
             {services.map((service, i) => (
               <img
                 key={i}

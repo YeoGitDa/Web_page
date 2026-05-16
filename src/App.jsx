@@ -57,7 +57,7 @@ function HomePage() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url(public/backend/image/Spring_Main_IMG.png)',
+            backgroundImage: 'url(/backend/image/summer_back.png)',
             filter: 'brightness(0.95)',
           }}
         />
@@ -95,12 +95,8 @@ function HomePage() {
         </nav>
 
         {/* Hero Content */}
-        <div className="relative z-10 flex flex-col gap-7 items-center justify-center h-screen text-gray-800 text-center px-4 -mt-16">
-          <h1 className="text-12xl md:text-7xl mb-4 font-bold leading-tight max-w-4xl">
-            <SplitText text="Yeobaek Web" delay={50} />
-          </h1>
-
-          <div className="flex flex-wrap gap-4 mt-8 justify-center">
+        <div className="relative z-10 flex flex-col gap-7 items-center justify-end h-screen text-gray-800 text-center px-4 pb-32">
+          <div className="flex flex-wrap gap-4 justify-center">
             <button
               onClick={() => document.getElementById('service')?.scrollIntoView({ behavior: 'smooth' })}
               className="bg-gray-200 w-60 text-black border-none px-8 py-4 md:px-12 md:py-5 rounded-full text-base md:text-lg font-semibold cursor-pointer transition-transform hover:scale-105"
