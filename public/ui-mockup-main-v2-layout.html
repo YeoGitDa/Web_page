@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yeobaek 메인 시안 v2 — 레이아웃 (SINSIWAY형)</title>
+  <link rel="stylesheet" href="/mockup-shared.css" />
+  <link rel="stylesheet" href="/mockup-shell-v3.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ----- Page shell ----- */
+    .v2 { background: #fafafa; color: var(--slate-900); }
+    .v2-section { max-width: 72rem; margin: 0 auto; padding: clamp(2.5rem, 5vw, 4rem) 1.25rem; }
+    .v2-eyebrow {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--emerald-700); margin: 0 0 0.75rem;
+    }
+    .v2-h2 { font-size: clamp(1.75rem, 4vw, 2.35rem); font-weight: 800; margin: 0 0 0.5rem; letter-spacing: -0.03em; }
+    .v2-lead { color: var(--slate-600); font-size: clamp(1rem, 2vw, 1.1rem); line-height: 1.65; margin: 0; max-width: 36rem; }
+
+    /* ----- Hero: 2-column (layout ref) ----- */
+    .v2-hero {
+      padding-top: 2rem;
+      padding-bottom: clamp(2rem, 5vw, 3.5rem);
+      background: linear-gradient(180deg, #fff 0%, #f4fbf7 100%);
+      border-bottom: 1px solid var(--slate-200);
+    }
+    .v2-hero-grid {
+      max-width: 72rem; margin: 0 auto; padding: 0 1.25rem;
+      display: grid; gap: 2rem; align-items: center;
+    }
+    @media (min-width: 900px) {
+      .v2-hero-grid { grid-template-columns: 1fr 1.05fr; gap: 3rem; min-height: min(70vh, 36rem); }
+    }
+    .v2-hero-kicker { font-size: clamp(1.85rem, 4.5vw, 2.75rem); font-weight: 800; line-height: 1.2; margin: 0 0 1rem; letter-spacing: -0.03em; }
+    .v2-hero-sub { color: var(--emerald-800); font-weight: 700; font-size: clamp(1rem, 2vw, 1.15rem); margin: 0 0 1rem; }
+    .v2-hero-p { color: var(--slate-600); line-height: 1.7; margin: 0 0 1.5rem; max-width: 32rem; }
+    .v2-hero-cta { display: flex; flex-wrap: wrap; gap: 0.65rem; }
+    .v2-hero-visual {
+      position: relative; border-radius: 1.25rem; overflow: hidden;
+      box-shadow: 0 20px 50px rgba(6, 95, 70, 0.18);
+      aspect-ratio: 4/3; background: var(--emerald-900);
+    }
+    .v2-hero-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .v2-scroll-hint {
+      display: none;
+    }
+    @media (min-width: 900px) {
+      .v2-scroll-hint {
+        display: flex; align-items: center; gap: 0.35rem; margin-top: 2rem;
+        font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; color: var(--slate-400); text-transform: uppercase;
+      }
+    }
+
+    /* ----- Service cards: horizontal row ----- */
+    .v2-services { background: #fff; }
+    .v2-cards {
+      display: grid; gap: 1.25rem;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 720px) {
+      .v2-cards { grid-template-columns: repeat(3, 1fr); }
+    }
+    .v2-card {
+      background: #fff; border: 1px solid var(--slate-200); border-radius: 1rem;
+      padding: 1.35rem 1.25rem; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+      display: flex; flex-direction: column; min-height: 17rem;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .v2-card:hover { border-color: var(--emerald-300); box-shadow: 0 8px 28px rgba(6, 95, 70, 0.1); }
+    .v2-card-icon {
+      width: 3rem; height: 3rem; border-radius: 0.75rem; margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--emerald-100), #d1fae5);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .v2-card-icon img { width: 1.75rem; height: 1.75rem; object-fit: contain; }
+    .v2-card h3 { margin: 0 0 0.65rem; font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; }
+    .v2-card ul { margin: 0; padding-left: 1.1rem; color: var(--slate-600); font-size: 0.88rem; line-height: 1.55; flex: 1; }
+    .v2-card a {
+      margin-top: 1rem; font-size: 0.88rem; font-weight: 700; color: var(--emerald-700); text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.25rem;
+    }
+    .v2-card a:hover { gap: 0.45rem; }
+
+    /* ----- News: split ----- */
+    .v2-news { background: #f8fafc; border-top: 1px solid var(--slate-200); }
+    .v2-news-grid {
+      display: grid; gap: 2rem;
+    }
+    @media (min-width: 768px) {
+      .v2-news-grid { grid-template-columns: minmax(12rem, 16rem) 1fr; gap: 3rem; align-items: start; }
+    }
+    .v2-news-aside .v2-lead { max-width: none; }
+    .v2-news-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--slate-200); }
+    .v2-news-list li {
+      display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: baseline;
+      padding: 1.1rem 0; border-bottom: 1px solid var(--slate-200);
+    }
+    .v2-news-date { font-weight: 800; color: var(--emerald-800); font-size: 0.95rem; white-space: nowrap; }
+    .v2-news-list a { color: var(--slate-900); text-decoration: none; font-weight: 600; font-size: 0.95rem; line-height: 1.45; }
+    .v2-news-list a:hover { color: var(--emerald-700); text-decoration: underline; }
+
+    /* ----- Inquiry band ----- */
+    .v2-inquiry {
+      position: relative; overflow: hidden;
+      background: linear-gradient(115deg, #0d9488 0%, #047857 45%, #065f46 100%);
+      color: #fff; padding: clamp(2.5rem, 6vw, 4rem) 1.25rem;
+    }
+    .v2-inquiry::after {
+      content: ""; position: absolute; right: -15%; top: -40%; width: 50%; height: 140%;
+      background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 65%); pointer-events: none;
+    }
+    .v2-inquiry-grid {
+      max-width: 72rem; margin: 0 auto; position: relative; z-index: 1;
+      display: grid; gap: 2rem;
+    }
+    @media (min-width: 800px) {
+      .v2-inquiry-grid { grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    }
+    .v2-inquiry h2 { margin: 0 0 0.75rem; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; line-height: 1.3; }
+    .v2-inquiry p { margin: 0; opacity: 0.92; font-size: 0.95rem; line-height: 1.65; max-width: 28rem; }
+    .v2-form { display: flex; flex-direction: column; gap: 0.75rem; }
+    .v2-form label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; opacity: 0.9; }
+    .v2-form input, .v2-form textarea {
+      width: 100%; padding: 0.65rem 0.85rem; border-radius: 0.5rem; border: 1px solid rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.1); color: #fff; font-family: inherit; font-size: 0.9rem;
+    }
+    .v2-form input::placeholder, .v2-form textarea::placeholder { color: rgba(255,255,255,0.55); }
+    .v2-form input:focus, .v2-form textarea:focus {
+      outline: 2px solid rgba(255,255,255,0.6); outline-offset: 1px; border-color: rgba(255,255,255,0.7);
+    }
+    .v2-form textarea { min-height: 5.5rem; resize: vertical; }
+    .v2-form button {
+      align-self: flex-start; margin-top: 0.35rem;
+      padding: 0.65rem 1.35rem; border-radius: 999px; border: none; cursor: pointer;
+      background: #fff; color: var(--emerald-900); font-weight: 800; font-size: 0.9rem; font-family: inherit;
+    }
+    .v2-form button:hover { filter: brightness(1.05); }
+
+  </style>
+</head>
+<body class="v2 v3-shell">
+  <a class="skip" href="#main">본문으로</a>
+  <a class="v3-float" href="#inquiry">문의</a>
+
+  <header class="v3-head">
+    <div class="v3-head-inner">
+      <a class="v3-brand" href="/">
+        <img src="/backend/image/logo.png" alt="" />
+        <span class="v3-brand-title">YEOBAEK<span class="v3-brand-pipe">| Layout</span></span>
+      </a>
+      <nav class="v3-head-nav" aria-label="주요 메뉴">
+        <a class="v3-pill v3-pill--active" href="/ui-mockup-main-v2-layout.html#main">홈</a>
+        <a class="v3-pill" href="#services">서비스</a>
+        <a class="v3-pill" href="/about">소개</a>
+        <a class="v3-pill" href="/recruit">모집</a>
+        <a class="v3-pill" href="/login">로그인</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="v2-hero" aria-labelledby="v2-hero-title">
+      <div class="v2-hero-grid">
+        <div>
+          <p class="v2-eyebrow">University LIS Club</p>
+          <h1 id="v2-hero-title" class="v2-hero-kicker">문헌정보학을 바탕으로<br />만드는 디지털 경험</h1>
+          <p class="v2-hero-sub">Yeobaek Web</p>
+          <p class="v2-hero-p">
+            챗봇·아카이빙·전시·LAB을 한 흐름으로 연결합니다. 아래 서비스 카드에서 각 영역으로 이동할 수 있습니다.
+          </p>
+          <div class="v2-hero-cta">
+            <a class="mock-btn mock-btn--primary" href="#services">서비스 보기</a>
+            <a class="mock-btn mock-btn--ghost" href="/recruit">모집 안내</a>
+          </div>
+          <div class="v2-scroll-hint" aria-hidden="true">
+            <span>SCROLL</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </div>
+        </div>
+        <div class="v2-hero-visual">
+          <img src="/backend/image/gomdol.jpg" alt="" width="800" height="600" />
+        </div>
+      </div>
+    </section>
+
+    <section class="v2-services v2-section" id="services" aria-labelledby="v2-svc-title">
+      <p class="v2-eyebrow">Services</p>
+      <h2 id="v2-svc-title" class="v2-h2">여백이 제공하는 기능</h2>
+      <p class="v2-lead" style="margin-bottom: 2rem">가로 3열 동일 높이 카드 — 레퍼런스의 제품 카드 행과 동일한 정보 구조입니다.</p>
+      <div class="v2-cards">
+        <article class="v2-card">
+          <div class="v2-card-icon"><img src="/backend/image/mascot_chatbot.png" alt="" /></div>
+          <h3>챗봇 · 여불이</h3>
+          <ul>
+            <li>LIS 맥락 질의응답</li>
+            <li>문서 기반 RAG</li>
+            <li>빠른 질문 템플릿</li>
+          </ul>
+          <a href="/chatbot">둘러보기 →</a>
+        </article>
+        <article class="v2-card">
+          <div class="v2-card-icon"><img src="/backend/image/Archive.png" alt="" /></div>
+          <h3>디지털 아카이빙</h3>
+          <ul>
+            <li>산출물·문서 보존</li>
+            <li>메타데이터·검색</li>
+            <li>동아리 간 공유</li>
+          </ul>
+          <a href="/archiving">둘러보기 →</a>
+        </article>
+        <article class="v2-card">
+          <div class="v2-card-icon"><img src="/backend/image/digicu.png" alt="" /></div>
+          <h3>산출물 전시</h3>
+          <ul>
+            <li>LAB 카탈로그</li>
+            <li>전시형 탐색</li>
+            <li>추후 큐레이션</li>
+          </ul>
+          <a href="/exhibition">둘러보기 →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="v2-news v2-section" id="news" aria-labelledby="v2-news-title">
+      <div class="v2-news-grid">
+        <aside class="v2-news-aside">
+          <p class="v2-eyebrow">News</p>
+          <h2 id="v2-news-title" class="v2-h2">소식</h2>
+          <p class="v2-lead" style="margin-top: 0.75rem">왼쪽 고정 폭 제목 블록 + 오른쪽 리스트 레이아웃입니다.</p>
+        </aside>
+        <div>
+          <ul class="v2-news-list">
+            <li>
+              <span class="v2-news-date">2026.05</span>
+              <a href="#">메인 페이지 UI 시안 v2 (레이아웃 분기) 반영</a>
+            </li>
+            <li>
+              <span class="v2-news-date">2026.04</span>
+              <a href="#">모집 섹션 및 통합 로그인 흐름 정리</a>
+            </li>
+            <li>
+              <span class="v2-news-date">2026.03</span>
+              <a href="#">챗봇 RAG 백엔드 연동 및 Mongo 벡터 검색</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="v2-inquiry" id="inquiry" aria-labelledby="v2-inq-title">
+      <div class="v2-inquiry-grid">
+        <div>
+          <h2 id="v2-inq-title">문의하기</h2>
+          <p>하단 그라데이션 밴드에 짧은 폼을 두는 패턴입니다. 실제 구현 시에는 백엔드·폼 스팸 방지 등을 연결하면 됩니다.</p>
+        </div>
+        <form class="v2-form" action="#" method="get" onsubmit="return false;">
+          <div>
+            <label for="q-name">이름</label>
+            <input id="q-name" type="text" name="name" placeholder="이름" autocomplete="name" />
+          </div>
+          <div>
+            <label for="q-email">이메일</label>
+            <input id="q-email" type="email" name="email" placeholder="email@example.com" autocomplete="email" />
+          </div>
+          <div>
+            <label for="q-msg">내용</label>
+            <textarea id="q-msg" name="message" placeholder="문의 내용을 입력해 주세요"></textarea>
+          </div>
+          <button type="submit">보내기</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mock-footer">
+    메인 시안 v2 (SINSIWAY형 레이아웃) ·
+    <a href="/ui-mockup-index.html">시안 목록</a> ·
+    <a href="/ui-mockup-main-v3.html">메인 v3</a> ·
+    <a href="/ui-mockup-yeobaek.html">v1</a> ·
+    <a href="/">실제 앱</a>
+  </footer>
+</body>
+</html>

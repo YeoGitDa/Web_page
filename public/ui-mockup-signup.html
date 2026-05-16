@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>회원가입 — Yeobaek UI 시안 (v3 셸)</title>
+  <link rel="stylesheet" href="/mockup-shared.css" />
+  <link rel="stylesheet" href="/mockup-shell-v3.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .v3-auth-card h1 { margin: 0 0 0.25rem; font-size: 1.35rem; text-align: center; }
+    .sub { text-align: center; font-size: 0.85rem; color: #64748b; margin: 0 0 1.25rem; }
+    .field { margin-bottom: 0.85rem; }
+    .chk { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.85rem; color: #475569; margin: 1rem 0; }
+    .chk input { margin-top: 0.2rem; }
+  </style>
+</head>
+<body class="v3-shell">
+  <a class="skip" href="#main">본문으로</a>
+  <a class="v3-float" href="/ui-mockup-main-v3.html#inquiry">문의</a>
+
+  <header class="v3-head">
+    <div class="v3-head-inner">
+      <a class="v3-brand" href="/">
+        <img src="/backend/image/logo.png" alt="" />
+        <span class="v3-brand-title">YEOBAEK<span class="v3-brand-pipe">| Signup</span></span>
+      </a>
+      <nav class="v3-head-nav" aria-label="주요 메뉴">
+        <a class="v3-pill" href="/ui-mockup-main-v3.html#main">홈</a>
+        <a class="v3-pill" href="/ui-mockup-main-v3.html#services">서비스</a>
+        <a class="v3-pill" href="/ui-mockup-about.html">소개</a>
+        <a class="v3-pill" href="/recruit">모집</a>
+        <a class="v3-pill" href="/ui-mockup-login.html">로그인</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="v3-auth-shell">
+    <div class="v3-auth-card" id="main">
+      <h1>회원가입</h1>
+      <p class="sub">로그인 시안과 동일한 카드 폭·여백입니다.</p>
+      <form action="#" method="get">
+        <div class="field">
+          <label class="mock-label" for="email">이메일</label>
+          <input class="mock-input" id="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label class="mock-label" for="id">아이디</label>
+          <input class="mock-input" id="id" type="text" autocomplete="username" required />
+        </div>
+        <div class="field">
+          <label class="mock-label" for="id2">아이디 확인</label>
+          <input class="mock-input" id="id2" type="text" required />
+        </div>
+        <div class="field">
+          <label class="mock-label" for="pw">비밀번호</label>
+          <input class="mock-input" id="pw" type="password" autocomplete="new-password" required />
+        </div>
+        <div class="field">
+          <label class="mock-label" for="pw2">비밀번호 확인</label>
+          <input class="mock-input" id="pw2" type="password" autocomplete="new-password" required />
+        </div>
+        <label class="chk">
+          <input type="checkbox" required />
+          <span>개인정보 수집·이용에 동의합니다.</span>
+        </label>
+        <button type="submit" class="mock-btn mock-btn--primary" style="width:100%">가입하기</button>
+      </form>
+      <p style="text-align:center;margin:1rem 0 0;font-size:0.85rem">
+        이미 계정이 있나요? <a href="/ui-mockup-login.html" style="color:#047857;font-weight:700">로그인</a>
+      </p>
+    </div>
+  </div>
+
+  <footer class="mock-footer">
+    시안 v3 셸 · <a href="/ui-mockup-index.html">목록</a> · <a href="/signup">실제 회원가입</a>
+  </footer>
+</body>
+</html>

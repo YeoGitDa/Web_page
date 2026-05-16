@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>챗봇 — Yeobaek UI 시안 (v3 셸)</title>
+  <link rel="stylesheet" href="/mockup-shared.css" />
+  <link rel="stylesheet" href="/mockup-shell-v3.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .split { display: grid; gap: 2rem; align-items: start; max-width: 56rem; margin: 0 auto; }
+    @media (min-width: 900px) { .split { grid-template-columns: 220px 1fr; } }
+    .mascot-wrap { text-align: center; }
+    .bubble { display: inline-block; background: #fff; border: 1px solid #e2e8f0; border-radius: 1rem; padding: 0.65rem 1rem; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.75rem; box-shadow: 0 4px 20px rgba(15,23,42,0.06); }
+    .mascot-oval { background: #ecfdf5; border-radius: 999px; width: 13rem; height: 13rem; margin: 0 auto; display: flex; align-items: center; justify-content: center; }
+    .mascot-oval img { width: 10rem; height: 10rem; object-fit: contain; }
+    .chat-shell { border: 1px solid #e2e8f0; border-radius: 1rem; overflow: hidden; box-shadow: 0 8px 30px rgba(15,23,42,0.08); max-width: 26rem; margin: 0 auto; }
+    .chat-head { background: #047857; color: #fff; padding: 0.75rem 1rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
+    .chat-body { background: #fff1f2; padding: 1rem; min-height: 14rem; display: flex; flex-direction: column; gap: 0.65rem; }
+    .msg { display: flex; gap: 0.35rem; align-items: flex-end; }
+    .msg--user { justify-content: flex-end; }
+    .msg-bubble { max-width: 82%; padding: 0.55rem 0.85rem; border-radius: 1rem; font-size: 0.9rem; line-height: 1.5; }
+    .msg--bot .msg-bubble { background: #fff; border: 1px solid #e2e8f0; border-bottom-left-radius: 0.25rem; }
+    .msg--user .msg-bubble { background: #047857; color: #fff; border-bottom-right-radius: 0.25rem; }
+    .quick-row { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0.5rem 0.75rem; background: #f8fafc; border-top: 1px solid #e2e8f0; }
+    .quick-row button { font-size: 0.72rem; padding: 0.35rem 0.65rem; border-radius: 999px; border: 1px solid #e2e8f0; background: #fff; cursor: pointer; font-family: inherit; }
+    .chat-input-row { display: flex; gap: 0.5rem; padding: 0.65rem 0.75rem; background: #f8fafc; border-top: 1px solid #e2e8f0; }
+    .chat-input-row input { flex: 1; }
+  </style>
+</head>
+<body class="v3-shell">
+  <a class="skip" href="#main">본문으로</a>
+  <a class="v3-float" href="/ui-mockup-main-v3.html#inquiry">문의</a>
+
+  <header class="v3-head">
+    <div class="v3-head-inner">
+      <a class="v3-brand" href="/">
+        <img src="/backend/image/logo.png" alt="" />
+        <span class="v3-brand-title">YEOBAEK<span class="v3-brand-pipe">| Chatbot</span></span>
+      </a>
+      <nav class="v3-head-nav" aria-label="주요 메뉴">
+        <a class="v3-pill" href="/ui-mockup-main-v3.html#main">홈</a>
+        <a class="v3-pill v3-pill--active" href="/ui-mockup-main-v3.html#services">서비스</a>
+        <a class="v3-pill" href="/ui-mockup-about.html">소개</a>
+        <a class="v3-pill" href="/recruit">모집</a>
+        <a class="v3-pill" href="/login">로그인</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="v3-pagehead">
+    <div class="v3-pagehead-inner">
+      <p class="v3-eyebrow" style="margin-bottom:0.35rem">Chatbot</p>
+      <h1 class="v3-h1">여불이와 대화하기</h1>
+      <p class="v3-page-lead">마스코트 영역과 채팅 UI를 나란히 둔 레이아웃입니다.</p>
+    </div>
+  </div>
+
+  <main id="main" class="v3-section v3-band-white">
+    <div class="split">
+      <div class="mascot-wrap">
+        <div class="bubble">무엇이든 물어보살</div>
+        <div class="mascot-oval">
+          <img src="/backend/image/mascot_chatbot.png" alt="여백 챗봇 마스코트" />
+        </div>
+      </div>
+      <div>
+        <div class="chat-shell">
+          <div class="chat-head">
+            <span>Yeobaek Chat-bot</span>
+            <span style="opacity:0.85;font-size:0.72rem">온라인</span>
+          </div>
+          <div class="chat-body" aria-live="polite">
+            <div class="msg">
+              <div class="msg-bubble">안녕하세요! 저는 여백의 AI 백봇이에요.</div>
+            </div>
+            <div class="msg msg--user">
+              <div class="msg-bubble">추천 시스템 구조가 궁금해요</div>
+            </div>
+            <div class="msg">
+              <div class="msg-bubble">(시안) 실제 답변은 API 연동 후 표시됩니다.</div>
+            </div>
+          </div>
+          <div class="quick-row">
+            <button type="button">여백 × LIS</button>
+            <button type="button">추천 시스템</button>
+            <button type="button">시소러스 vs 온톨로지</button>
+          </div>
+          <div class="chat-input-row">
+            <input class="mock-input" type="text" placeholder="메시지를 입력하세요" aria-label="메시지" />
+            <button type="button" class="mock-btn mock-btn--primary" style="flex-shrink:0">전송</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="mock-footer">
+    시안 v3 셸 · <a href="/ui-mockup-index.html">목록</a> · <a href="/ui-mockup-main-v3.html">메인 v3</a> · <a href="/chatbot">실제 챗봇</a>
+  </footer>
+</body>
+</html>

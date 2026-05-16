@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>로그인 — Yeobaek UI 시안 (v3 셸)</title>
+  <link rel="stylesheet" href="/mockup-shared.css" />
+  <link rel="stylesheet" href="/mockup-shell-v3.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .v3-auth-card h1 { margin: 0 0 0.35rem; font-size: 1.35rem; text-align: center; }
+    .v3-auth-card .sub { text-align: center; font-size: 0.85rem; color: #64748b; margin: 0 0 1.25rem; line-height: 1.5; }
+    .field { margin-bottom: 1rem; }
+    .hint { font-size: 0.75rem; color: #94a3b8; margin-top: 1rem; text-align: center; line-height: 1.5; }
+    .row-between { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1rem; font-size: 0.85rem; }
+    .row-between a { color: #047857; font-weight: 600; }
+  </style>
+</head>
+<body class="v3-shell">
+  <a class="skip" href="#main">본문으로</a>
+  <a class="v3-float" href="/ui-mockup-main-v3.html#inquiry">문의</a>
+
+  <header class="v3-head">
+    <div class="v3-head-inner">
+      <a class="v3-brand" href="/">
+        <img src="/backend/image/logo.png" alt="" />
+        <span class="v3-brand-title">YEOBAEK<span class="v3-brand-pipe">| Login</span></span>
+      </a>
+      <nav class="v3-head-nav" aria-label="주요 메뉴">
+        <a class="v3-pill" href="/ui-mockup-main-v3.html#main">홈</a>
+        <a class="v3-pill" href="/ui-mockup-main-v3.html#services">서비스</a>
+        <a class="v3-pill" href="/ui-mockup-about.html">소개</a>
+        <a class="v3-pill" href="/recruit">모집</a>
+        <a class="v3-pill v3-pill--active" href="/ui-mockup-login.html">로그인</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="v3-auth-shell">
+    <div class="v3-auth-card" id="main">
+      <h1>로그인</h1>
+      <p class="sub">운영·일반 계정 모두 이 화면에서 처리합니다. 운영은 로그인 후 <code>/admin</code> 으로 이동합니다.</p>
+      <div style="margin-bottom:1rem;padding:0.75rem 1rem;font-size:0.85rem;color:#334155;background:#f8fafc;border-radius:0.5rem;border:1px solid #e2e8f0">
+        <strong>운영</strong> → <a href="/login?next=/admin" style="color:#047857">?next=/admin</a>
+      </div>
+      <form action="#" method="get">
+        <div class="field">
+          <label class="mock-label" for="id">아이디</label>
+          <input class="mock-input" id="id" type="text" autocomplete="username" required />
+        </div>
+        <div class="field">
+          <label class="mock-label" for="pw">비밀번호</label>
+          <input class="mock-input" id="pw" type="password" autocomplete="current-password" required />
+        </div>
+        <button type="submit" class="mock-btn mock-btn--primary" style="width:100%;margin-top:0.25rem">로그인</button>
+      </form>
+      <p class="hint">시안: 실제 제출은 React 앱과 연동됩니다.</p>
+      <div class="row-between">
+        <a href="/ui-mockup-signup.html">회원가입</a>
+        <span style="color:#e2e8f0">|</span>
+        <a href="/ui-mockup-main-v3.html">메인 시안</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="mock-footer">
+    시안 v3 셸 · <a href="/ui-mockup-index.html">목록</a> · <a href="/login">실제 로그인</a>
+  </footer>
+</body>
+</html>
