@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 
-const SN1 = "/backend/image/SN1.png";
-const SN2 = "/backend/image/SN2.png";
+const SN1 = "/backend/image/sun.png";
+const SN2 = "/backend/image/sun.png";
 
-function SnowEffect({ count = 50 }) {
+function SnowEffect({ count = 15 }) {
   const [snowflakes, setSnowflakes] = useState([]);
 
   useEffect(() => {
     const createSnowflake = (id) => ({
       id,
       left: Math.random() * 100,
-      fallDuration: Math.random() * 4 + 4,
+      fallDuration: Math.random() *  10 +2, // 랜덤한 낙하 시간
       fallDelay: Math.random() * 6,
-      spinX: Math.random() * 170,  // rotateX 랜덤
-      spinY: Math.random() * 170,  // rotateY 랜덤
+      spinX: Math.random() * 100,  // rotateX 랜덤
+      spinY: Math.random() * 100,  // rotateY 랜덤
       spinDuration: Math.random() * 3 + 2,
       opacity: Math.random() * 0.2 + 0.8,
       size: Math.random() * 40 + 40,
