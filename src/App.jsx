@@ -57,7 +57,7 @@ function HomePage() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url(/backend/image/summer_back.png)',
+            backgroundImage: 'url(/backend/image/summer_back2.png)',
             filter: 'brightness(0.95)',
           }}
         />
