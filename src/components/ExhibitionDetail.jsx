@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { SiteBrandMark } from './SiteBrandMark';
 import HTMLFlipBook from 'react-pageflip';
 
 // LAB 데이터
@@ -58,9 +59,11 @@ const ExhibitionDetail = () => {
   return (
     <div className="min-h-screen bg-slate-50"> {/* 배경을 약간 어둡게 해서 책이 돋보이게 수정 */}
       <nav className="sticky top-0 z-20 flex items-center px-4 py-4 md:px-16 bg-emerald-900/90 backdrop-blur-xl border-b border-white/10">
-        <div className="flex items-center gap-5 text-white text-xl md:text-2xl font-semibold">
+        <div className="flex items-center gap-3 text-white text-xl md:text-2xl font-semibold tracking-tight">
           <img src="/backend/image/logo.png" alt="Yeobaek Logo" className="h-8" />
-          Yeobaek
+          <span className="leading-none font-bold">
+            <SiteBrandMark suffix="Exhibition" />
+          </span>
         </div>
         <button onClick={() => navigate('/')} className="ml-6 text-white text-sm opacity-90 hover:opacity-100 transition-opacity cursor-pointer bg-transparent border-none">
           ← Back to Home
