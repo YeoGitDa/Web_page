@@ -6,6 +6,7 @@ import {
   loginUnified,
   resolvePostLoginPath,
 } from '../auth/session';
+import { SiteBrandMark } from './SiteBrandMark';
 
 function Login() {
   const [searchParams] = useSearchParams();
@@ -73,9 +74,11 @@ function Login() {
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <nav className="w-full bg-white border-b border-gray-200 px-8 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-2 text-2xl font-bold text-emerald-700">
+          <Link to="/" className="flex items-center gap-2 text-2xl font-bold text-emerald-700 tracking-tight">
             <img src="/backend/image/logo.png" alt="YB Logo" className="h-6" />
-            Yeobaek
+            <span className="leading-none">
+              <SiteBrandMark suffix="Login" tone="onLight" />
+            </span>
           </Link>
           <div className="flex gap-8 text-gray-700">
             <Link to="/" className="hover:text-emerald-1000 transition-colors">

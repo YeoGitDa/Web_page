@@ -26,6 +26,7 @@ import MeHome from './me/MeHome';
 import AdminShell from './admin/AdminShell';
 import AdminHome from './admin/AdminHome';
 import AdminLogin from './admin/AdminLogin';
+import { SiteBrandMark } from './components/SiteBrandMark';
 
 function HomePage() {
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
@@ -57,7 +58,7 @@ function HomePage() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url(public/backend/image/Spring_Main_IMG.png)',
+            backgroundImage: 'url(/backend/image/gomdol.jpg)',
             filter: 'brightness(0.95)',
           }}
         />
@@ -70,9 +71,11 @@ function HomePage() {
         
         {/* Navigation */}
         <nav className="absolute top-0 left-0 right-0 z-50 flex justify-between items-center px-8 py-12 md:px-8 md:py-8 bg-emerald-800/40 backdrop-blur-xl border-b border-white/10">
-          <div className="flex items-center gap-5 text-white text-xl md:text-2xl font-bold">
+          <div className="flex items-center gap-3 text-white text-xl md:text-2xl font-bold tracking-tight">
             <img src="/backend/image/logo.png" alt="Yeobaek Logo" className="h-5" />
-            Yeobaek
+            <span className="leading-none">
+              <SiteBrandMark suffix="Web" />
+            </span>
           </div>
           <div className="flex-1 flex justify-center gap-4 md:gap-8 text-white text-xl md:text-2xl">
             <a href="#home" className="text-white no-underline opacity-90 hover:opacity-100 transition-opacity">Home</a>
@@ -80,7 +83,13 @@ function HomePage() {
             <Link to="/about" className="text-white no-underline opacity-90 hover:opacity-100 transition-opacity">About</Link>
             <Link to="/recruit" className="text-white no-underline opacity-90 hover:opacity-100 transition-opacity">모집</Link>
           </div>
-          <div className="flex items-center gap-4 text-white text-xl md:text-2xl">
+          <div className="flex items-center gap-3 md:gap-4 text-white text-base md:text-xl lg:text-2xl flex-wrap justify-end">
+            <a
+              href="/ui-mockup-index.html"
+              className="text-white no-underline opacity-90 hover:opacity-100 transition-opacity whitespace-nowrap rounded-full border border-white/35 px-3 py-1.5 text-sm md:text-base font-semibold bg-black/15 hover:bg-black/25"
+            >
+              시안 목록
+            </a>
             <button
               onClick={toggleMusic}
               className="text-white opacity-90 hover:opacity-100 transition-opacity bg-transparent border-none cursor-pointer"
@@ -90,7 +99,7 @@ function HomePage() {
                 {isMusicPlaying ? '🔊' : '🔇'}
               </span>
             </button>
-            <Link to="/login" className="text-white no-underline opacity-90 hover:opacity-100 transition-opacity">Login</Link>
+            <Link to="/login" className="text-white no-underline opacity-90 hover:opacity-100 transition-opacity whitespace-nowrap">Login</Link>
           </div>
         </nav>
 
