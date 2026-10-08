@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   copyEnvelopeToClipboard,
   persistEnvelopeLocally,
@@ -39,7 +39,6 @@ export default function OpportunityForm() {
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState(null);
-  const navigate = useNavigate();
 
   const onChange = (e) => {
     const { name, value } = e.target;

@@ -55,3 +55,7 @@ env/
 *.sqlite3
 *.db
 docs
+
+# Python
+__pycache__/
+*.py[cod]
