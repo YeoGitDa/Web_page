@@ -6,6 +6,14 @@ import { SectionHead } from './SiteHeader';
  * 모양은 v3 시안 기준: 작은 영문 라벨 · 제목 · 설명 + 카드
  */
 
+// 숫자 칸 — 확인된 숫자만. 바뀌면 여기만 고친다
+const NUMBERS = [
+  { value: '4', label: '활동 LAB' },
+  { value: '3', label: '서비스' },
+  { value: '2022', label: '창립' },
+  { value: '8', label: '부원', note: '2025-09 운영계획서 기준' },
+];
+
 const SERVICES = [
   {
     image: '/backend/image/chatbot_image.jpg',
@@ -40,33 +48,31 @@ const NEWS = [
   },
 ];
 
-// LAB — dormant: true 면 「휴면」 표시 · 흐리게 · 눌러도 안 넘어감
-const LABS = [
-  { name: 'LAB 1', icon: '/backend/image/AI.png', link: '/chatbot', description: 'AI기반 자동화 어시스턴트를 구동하고 챗봇을 통해 자료 검색 기능을 제공하는 서비스입니다.' },
-  { name: 'LAB 2', icon: '/backend/image/Archive.png', link: '/lab/2', description: '동아리 내 문서/기획서 등 학술 자료의 체계적인 저장, 공유하는 기능을 제공하는 서비스입니다.' },
-  { name: 'LAB 3', icon: '/backend/image/Curation.png', link: '/exhibition', description: '문헌정보학 기반 개인 맞춤형 도서 추천과 동아리 구성원들의 산출물을 큐레이션 하는 서비스입니다.' },
-  { name: 'LAB 4', icon: '/backend/image/Infra.png', link: '/lab/4', description: 'Git, CI/CD, Firebase 연동 및 배포 실습을 위한 서비스입니다.' },
-  { name: 'LAB 5', icon: '/backend/image/Compition.png', link: '/lab/5', dormant: true, description: '데이활동 기반 앱/웹 프로젝트 고도화하는 서비스입니다.' },
-  { name: 'LAB 6', icon: '/backend/image/Idea.png', link: '/lab/6', dormant: true, description: '아이디어 기록, 발굴 및 실화하는 서비스입니다.' },
-];
-
-const VALUES = [
-  { title: '밤티 NO!', description: '데이터 기반으로 사용자의 불편함을 정확하게 파악하고, 이를 해결할 수 있는 서비스를 기획합니다.' },
-  { title: '내손내만 서비스', description: '내가 원하는 서비스는 직접 기획, 개발, 배포하며 활용하고 고도화 시킵니다. 언제든지 사용 가능하게 공개하여 사용자 피드백을 통해 서비스를 개선합니다.' },
-  { title: '팀 프로젝트 경험', description: '문헌정보학과 내 여러 동아리와 협업해 기술과 경험를 공유하고, 협업 경험을 쌓아갑니다.' },
-  { title: '통합 개발 경험', description: '기획부터 개발, 큐레이션과 고도화 기능까지 제공하며 all in one 의 완전한 서비스를 제공합니다.' },
-];
-
 const card = 'rounded-2xl border border-slate-200 bg-white shadow-sm';
 
 const ServiceSections = () => (
   <div className="bg-slate-50">
+    {/* 숫자 */}
+    <section className="px-5 pt-20 sm:px-6">
+      <div className="mx-auto max-w-5xl">
+        <SectionHead eyebrow="Numbers" title="여백 한눈에 보기" desc="동아리 핵심 수치를 한눈에 확인하세요." />
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+          {NUMBERS.map((n) => (
+            <div key={n.label} className={`${card} p-6 text-center`} title={n.note}>
+              <p className="text-3xl font-bold tracking-tight text-emerald-800">{n.value}</p>
+              <p className="mt-1 text-sm text-slate-500">{n.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
     {/* 서비스 */}
     <section className="px-5 py-20 sm:px-6">
       <div className="mx-auto max-w-5xl">
         <SectionHead
           eyebrow="Services"
-          title="Yeobaek Web은요.."
+          title="서비스"
           desc="문헌정보학을 기반으로 학과의 소통과 정보 공유, 전공 동아리 활성화를 위해 만들어졌어요"
         />
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
@@ -127,52 +133,6 @@ const ServiceSections = () => (
       </div>
     </section>
 
-    {/* LAB */}
-    <section className="border-t border-slate-200 px-5 py-20 sm:px-6" id="service-info">
-      <div className="mx-auto max-w-5xl">
-        <SectionHead eyebrow="LAB" title="LAB Info" desc="yeobaek 의 LAB에 대한 정보" />
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {LABS.map((lab) => {
-            const body = (
-              <>
-                <div className="flex items-center justify-between">
-                  <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${lab.dormant ? 'bg-slate-100' : 'bg-emerald-50'}`}>
-                    <img src={lab.icon} alt="" className={`h-7 w-7 object-contain ${lab.dormant ? 'opacity-50 grayscale' : ''}`} />
-                  </div>
-                  {lab.dormant && (
-                    <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-500">휴면</span>
-                  )}
-                </div>
-                <h3 className={`mt-4 text-lg font-bold ${lab.dormant ? 'text-slate-400' : 'text-slate-900'}`}>{lab.name}</h3>
-                <p className={`mt-2 text-sm leading-relaxed ${lab.dormant ? 'text-slate-400' : 'text-slate-600'}`}>{lab.description}</p>
-              </>
-            );
-            return lab.dormant ? (
-              <div key={lab.name} className={`${card} bg-slate-50 p-6`} aria-disabled="true">{body}</div>
-            ) : (
-              <Link key={lab.name} to={lab.link} className={`${card} block p-6 no-underline transition hover:-translate-y-1 hover:border-emerald-200 hover:shadow-md`}>
-                {body}
-              </Link>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-
-    {/* 여백의 가치 */}
-    <section className="border-t border-slate-200 bg-white px-5 py-20 sm:px-6" id="core-values">
-      <div className="mx-auto max-w-5xl">
-        <SectionHead eyebrow="Values" title="여백의 가치" desc="여백은 이런 가치를 지향하고 있어요" />
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-          {VALUES.map((v) => (
-            <div key={v.title} className={`${card} p-6`}>
-              <h3 className="text-lg font-bold text-slate-900">{v.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{v.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
   </div>
 );
 
