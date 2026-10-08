@@ -1,10 +1,10 @@
+import { SectionHead } from './SiteHeader';
+
 function Contact() {
   return (
-    <div id="contact" className="w-full bg-white py-20 px-4">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-800">
-          Contact Yeobaek team
-        </h2>
+    <div id="contact" className="w-full border-t border-slate-200 bg-slate-50 px-5 py-20 sm:px-6">
+      <div className="mx-auto max-w-5xl">
+        <SectionHead eyebrow="Contact" title="Contact Yeobaek team" />
 
         <div className="grid md:grid-cols-2 gap-12">
           {/* Map Section */}
@@ -19,7 +19,7 @@ function Contact() {
           {/* Contact Information */}
           <div className="flex flex-col justify-center gap-6">
             <div>
-              <h3 className="text-2xl font-semibold mb-6 text-gray-800">
+              <h3 className="mb-6 text-lg font-bold text-slate-900">
                 관련 정보
               </h3>
 
@@ -99,7 +99,7 @@ function Contact() {
       </div>
 
       
-      <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-gray-200">
+      <div className="mx-auto mt-16 max-w-5xl border-t border-slate-200 pt-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">
           <p>© 2024 YEOBAEK. All Rights Reserved.</p>
           <div className="flex gap-6">
