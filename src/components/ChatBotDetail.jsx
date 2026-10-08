@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { SiteBrandMark } from './SiteBrandMark';
 
 const ChatBotDetail = () => {
   const navigate = useNavigate();
@@ -48,7 +49,9 @@ const ChatBotDetail = () => {
           className="flex items-center gap-3 text-white text-xl md:text-2xl font-semibold cursor-pointer hover:opacity-80 transition-opacity"
         >
           <img src="/backend/image/logo.png" alt="Yeobaek Logo" className="h-8" />
-          Yeobaek
+          <span className="leading-none font-bold tracking-tight">
+            <SiteBrandMark suffix="Chatbot" />
+          </span>
         </button>
         <button
           onClick={() => navigate('/')}
