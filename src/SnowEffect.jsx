@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 
-const SN1 = "/backend/image/sun.png";
-const SN2 = "/backend/image/sun.png";
+// 떨어지는 그림 — 테마(src/theme.json)의 「효과」가 정한다
+const EFFECT_IMAGES = {
+  snow: ["/backend/image/SN1.png", "/backend/image/SN2.png"],
+  sun: ["/backend/image/sun.png"],
+};
 
-function SnowEffect({ count = 15 }) {
+function SnowEffect({ count = 15, effect = "sun" }) {
   const [snowflakes, setSnowflakes] = useState([]);
 
   useEffect(() => {
@@ -31,7 +34,7 @@ function SnowEffect({ count = 15 }) {
     return () => clearInterval(interval);
   }, [count]);
 
-  const snowImages = [SN1, SN2];
+  const snowImages = EFFECT_IMAGES[effect] || EFFECT_IMAGES.sun;
 
   return (
     <>
