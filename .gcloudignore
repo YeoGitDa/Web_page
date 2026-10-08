@@ -1,0 +1,8 @@
+# Cloud Run 에 올릴 때는 챗봇 서버(api/)와 Dockerfile 만 보낸다
+*
+!Dockerfile
+!api/
+!api/**
+api/.env
+api/__pycache__/
+api/docs/
