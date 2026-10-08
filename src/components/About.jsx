@@ -65,11 +65,11 @@ const About = () => {
       <PageHead eyebrow="ABOUT" title="동아리 여백을 소개합니다" desc="문헌정보학을 기반으로 학과의 소통과 정보 공유를 위해 만들어진 동아리입니다." />
 
       {/* Our History Section */}
-      <section className="py-28 md:py-40 px-5 md:px-10 bg-gray-50/50 relative">
+      <section className="py-20 px-5 md:px-10 bg-gray-50/50 relative">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20 md:mb-28">
-            <h2 className="text-5xl md:text-7xl font-bold mb-8 text-gray-800 tracking-tight">여백의 역사</h2>
-            <p className="text-xl md:text-2xl text-gray-500 font-light">여백의 시작부터 현재까지의 발전</p>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-gray-800 tracking-tight">여백의 역사</h2>
+            <p className="text-base text-slate-500">여백의 시작부터 현재까지의 발전</p>
           </div>
 
           <div className="relative">
@@ -82,7 +82,7 @@ const About = () => {
               <div className="flex flex-col md:flex-row items-center gap-10">
                 <div className="flex-1 text-right pr-0 md:pr-16 p-8 rounded-3xl bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:bg-emerald-900/5 hover:border-emerald-800/50 relative overflow-hidden z-[5]">
                   <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent"></div>
-                  <h3 className="text-4xl md:text-5xl font-bold text-emerald-800 mb-5 tracking-tight relative z-10">2022</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold text-emerald-800 mb-5 tracking-tight relative z-10">2022</h3>
                   <p className="text-gray-600 text-lg md:text-xl font-light relative z-10">
                     DB 프로그래밍 소모임 창설 "0과 1사이의 여백을 채우다"라는 의미
                   </p>
@@ -111,7 +111,7 @@ const About = () => {
                 </div>
                 <div className="flex-1 text-left pl-0 md:pl-16 order-3 p-8 rounded-3xl bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:bg-emerald-900/5 hover:border-emerald-800/50 relative overflow-hidden z-[5]">
                   <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent"></div>
-                  <h3 className="text-4xl md:text-5xl font-bold text-emerald-800 mb-5 tracking-tight relative z-10">2023</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold text-emerald-800 mb-5 tracking-tight relative z-10">2023</h3>
                   <p className="text-gray-600 text-lg md:text-xl font-light relative z-10">
                     Python 기반 시각화, 데이터 분석 심화
                   </p>
@@ -122,7 +122,7 @@ const About = () => {
               <div className="flex flex-col md:flex-row items-center gap-10">
                 <div className="flex-1 text-right pr-0 md:pr-16 p-8 rounded-3xl bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:bg-emerald-900/5 hover:border-emerald-800/50 relative overflow-hidden z-[5]">
                   <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent"></div>
-                  <h3 className="text-4xl md:text-5xl font-bold text-emerald-800 mb-5 tracking-tight relative z-10">2025</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold text-emerald-800 mb-5 tracking-tight relative z-10">2025</h3>
                   <p className="text-gray-600 text-lg md:text-xl font-light relative z-10">
                     데이터 기반 서비스 기획, LLM활용 마이크로 서비스 개발
                   </p>
@@ -143,11 +143,11 @@ const About = () => {
       </section>
 
       {/* Meet Our Team Section */}
-      <section className="py-28 md:py-40 px-5 md:px-10 bg-gray-50/50 relative">
+      <section className="py-20 px-5 md:px-10 bg-gray-50/50 relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20 md:mb-28">
-            <h2 className="text-5xl md:text-7xl font-bold mb-6 text-gray-800 tracking-tight">Team Yeobaek</h2>
-            <p className="text-xl md:text-2xl text-gray-500 font-light">여백 의 기획, 운영, 개발을 담당하는 구성원들</p>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-gray-800 tracking-tight">Team Yeobaek</h2>
+            <p className="text-base text-slate-500">여백 의 기획, 운영, 개발을 담당하는 구성원들</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
@@ -199,27 +199,27 @@ const About = () => {
       </section>
 
       {/* Our Story Section */}
-      <section className="py-28 md:py-40 px-5 md:px-10 bg-white relative">
+      <section className="py-20 px-5 md:px-10 bg-white relative">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-5xl md:text-7xl font-bold mb-10 text-gray-800 tracking-tight">Our Story</h2>
-          <p className="text-xl md:text-2xl leading-relaxed text-gray-600 font-light mb-8 whitespace-nowrap">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-10 text-gray-800 tracking-tight">Our Story</h2>
+          <p className="text-base md:text-lg leading-relaxed text-slate-600 mb-6">
             여백은 2022년 "0과 1사이의 여백을 채우다"라는 의미로 시작된 DB 프로그래밍 소모임입니다.
           </p>
-          <p className="text-xl md:text-2xl leading-relaxed text-gray-600 font-light mb-8 whitespace-nowrap">
+          <p className="text-base md:text-lg leading-relaxed text-slate-600 mb-6">
             문헌정보학을 기반으로 데이터베이스 설계부터 웹 서비스 개발까지, 학과의 소통과 정보 공유를 위한 다양한 프로젝트를 진행하고 있습니다.
           </p>
-          <p className="text-xl md:text-2xl leading-relaxed text-gray-600 font-light whitespace-nowrap">
+          <p className="text-base md:text-lg leading-relaxed text-slate-600">
             AI 기반 챗봇, 디지털 아카이빙, 큐레이션 서비스 등을 통해 문헌정보학과 학생들의 학습과 성장을 돕고 있습니다.
           </p>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-28 md:py-40 px-5 md:px-10 bg-emerald-700 relative overflow-hidden">
+      <section className="py-20 px-5 md:px-10 bg-emerald-700 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/30 to-transparent"></div>
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-5xl md:text-7xl font-bold mb-8 text-white tracking-tight">Join Us</h2>
-          <p className="text-xl md:text-2xl text-white/90 font-light mb-12 whitespace-nowrap">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-white tracking-tight">Join Us</h2>
+          <p className="text-base md:text-lg text-white/90 mb-10">
             여백과 함께 성장 해 보세요!
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
