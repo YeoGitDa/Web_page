@@ -83,24 +83,24 @@ function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-emerald-50 to-slate-50">
       <SiteHeader suffix="Signup" />
 
       {/* Main Content */}
       <main className="flex-1 flex items-center justify-center px-4 py-12">
-        <div className="w-full max-w-2xl">
-          <div className="bg-white rounded-lg shadow-lg p-12 border border-gray-200">
-            <h2 className="text-3xl font-bold text-center mb-4 text-gray-900">
+        <div className="w-full max-w-md">
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-bold text-center mb-2 text-slate-900">
               계정 만들기
             </h2>
-            <p className="text-center text-gray-600 mb-8">
+            <p className="text-center text-slate-600 mb-8">
               아래 정보를 입력하여 가입하세요.
             </p>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-5">
               {/* 이메일 */}
               <div>
-                <label htmlFor="email" className="block text-base font-medium text-gray-700 mb-3">
+                <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-1.5">
                   이메일
                 </label>
                 <input
@@ -109,7 +109,7 @@ function Signup() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full px-5 py-3 text-base border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:outline-none transition-all`}
+                  className={`w-full px-4 py-2.5 text-sm border ${errors.email ? 'border-red-500' : 'border-slate-200'} rounded-xl focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:outline-none transition-all`}
                   placeholder="이메일을 입력하세요"
                   required
                 />
@@ -118,7 +118,7 @@ function Signup() {
 
               {/* ID */}
               <div>
-                <label htmlFor="id" className="block text-base font-medium text-gray-700 mb-3">
+                <label htmlFor="id" className="block text-sm font-semibold text-slate-700 mb-1.5">
                   ID
                 </label>
                 <input
@@ -127,17 +127,17 @@ function Signup() {
                   name="id"
                   value={formData.id}
                   onChange={handleChange}
-                  className={`w-full px-5 py-3 text-base border ${errors.id ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:outline-none transition-all`}
+                  className={`w-full px-4 py-2.5 text-sm border ${errors.id ? 'border-red-500' : 'border-slate-200'} rounded-xl focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:outline-none transition-all`}
                   placeholder="ID를 입력하세요"
                   required
                 />
-                <p className="mt-2 text-sm text-gray-500">최소 8자 이상, 영문과 숫자만 사용 가능합니다.</p>
+                <p className="mt-2 text-sm text-slate-500">최소 8자 이상, 영문과 숫자만 사용 가능합니다.</p>
                 {errors.id && <p className="mt-2 text-sm text-red-600">{errors.id}</p>}
               </div>
 
               {/* ID 확인 */}
               <div>
-                <label htmlFor="confirmId" className="block text-base font-medium text-gray-700 mb-3">
+                <label htmlFor="confirmId" className="block text-sm font-semibold text-slate-700 mb-1.5">
                   ID 확인
                 </label>
                 <input
@@ -146,7 +146,7 @@ function Signup() {
                   name="confirmId"
                   value={formData.confirmId}
                   onChange={handleChange}
-                  className={`w-full px-5 py-3 text-base border ${errors.confirmId ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:outline-none transition-all`}
+                  className={`w-full px-4 py-2.5 text-sm border ${errors.confirmId ? 'border-red-500' : 'border-slate-200'} rounded-xl focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:outline-none transition-all`}
                   placeholder="ID를 다시 입력하세요"
                   required
                 />
@@ -155,7 +155,7 @@ function Signup() {
 
               {/* 비밀번호 */}
               <div>
-                <label htmlFor="password" className="block text-base font-medium text-gray-700 mb-3">
+                <label htmlFor="password" className="block text-sm font-semibold text-slate-700 mb-1.5">
                   비밀번호
                 </label>
                 <input
@@ -164,17 +164,17 @@ function Signup() {
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  className={`w-full px-5 py-3 text-base border ${errors.password ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:outline-none transition-all`}
+                  className={`w-full px-4 py-2.5 text-sm border ${errors.password ? 'border-red-500' : 'border-slate-200'} rounded-xl focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:outline-none transition-all`}
                   placeholder="비밀번호를 입력하세요"
                   required
                 />
-                <p className="mt-2 text-sm text-gray-500">최소 8자 이상, 영문, 숫자, 특수문자(*, @, #) 중 하나를 포함해야 합니다.</p>
+                <p className="mt-2 text-sm text-slate-500">최소 8자 이상, 영문, 숫자, 특수문자(*, @, #) 중 하나를 포함해야 합니다.</p>
                 {errors.password && <p className="mt-2 text-sm text-red-600">{errors.password}</p>}
               </div>
 
               {/* 비밀번호 확인 */}
               <div>
-                <label htmlFor="confirmPassword" className="block text-base font-medium text-gray-700 mb-3">
+                <label htmlFor="confirmPassword" className="block text-sm font-semibold text-slate-700 mb-1.5">
                   비밀번호 확인
                 </label>
                 <input
@@ -183,7 +183,7 @@ function Signup() {
                   name="confirmPassword"
                   value={formData.confirmPassword}
                   onChange={handleChange}
-                  className={`w-full px-5 py-3 text-base border ${errors.confirmPassword ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:outline-none transition-all`}
+                  className={`w-full px-4 py-2.5 text-sm border ${errors.confirmPassword ? 'border-red-500' : 'border-slate-200'} rounded-xl focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:outline-none transition-all`}
                   placeholder="비밀번호를 다시 입력하세요"
                   required
                 />
@@ -198,9 +198,9 @@ function Signup() {
                   name="agreeToTerms"
                   checked={formData.agreeToTerms}
                   onChange={handleChange}
-                  className="mt-1 h-5 w-5 text-emerald-700 border-gray-300 rounded focus:ring-emerald-500"
+                  className="mt-1 h-5 w-5 text-emerald-700 border-slate-300 rounded focus:ring-emerald-500"
                 />
-                <label htmlFor="agreeToTerms" className="ml-3 text-base text-gray-700">
+                <label htmlFor="agreeToTerms" className="ml-3 text-base text-slate-700">
                   개인정보 사용에 동의합니다
                 </label>
               </div>
@@ -208,13 +208,13 @@ function Signup() {
 
               <button
                 type="submit"
-                className="w-full bg-emerald-700 text-white py-4 rounded-md text-lg font-semibold hover:bg-emerald-800 transition-colors focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:outline-none"
+                className="w-full bg-emerald-700 text-white py-3 rounded-full text-base font-semibold hover:bg-emerald-800 transition-colors focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:outline-none"
               >
                 가입하기
               </button>
             </form>
 
-            <div className="mt-6 text-center text-sm text-gray-600">
+            <div className="mt-6 text-center text-sm text-slate-600">
               이미 계정이 있으신가요?{' '}
               <Link to="/login" className="text-emerald-700 font-semibold hover:text-emerald-800 transition-colors">
                 로그인
@@ -224,36 +224,9 @@ function Signup() {
         </div>
       </main>
 
-      {/* Footer */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div>
-          <h3 className="text-white font-bold mb-4"></h3>
-          <ul className="space-y-2 text-sm">
-
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="text-white font-bold mb-4"></h3>
-          <ul className="space-y-2 text-sm">
-
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="text-white font-bold mb-4"></h3>
-          <ul className="space-y-2 text-sm">
-
-          </ul>
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto mt-8 pt-8 border-t border-gray-800 text-center text-sm">
-        <p>&copy; 2025 YeoBaek. All rights reserved.
-          {'&nbsp;'}
-          <br/>
-        </p>
-      </div>
+      <footer className="border-t border-slate-200 bg-slate-50 py-8 px-4 text-center text-sm text-slate-500">
+        &copy; 2026 YeoBaek. All rights reserved.
+      </footer>
     </div>
   );
 }
