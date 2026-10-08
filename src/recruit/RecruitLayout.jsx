@@ -36,7 +36,7 @@ export default function RecruitLayout() {
       <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-5 py-3 sm:px-6">
           <Link to="/recruit" className="flex items-center gap-2.5">
-            <img src="/backend/image/logo.png" alt="" className="h-7 w-auto" />
+            <img src="/backend/image/logo.png" alt="" className="h-7 w-auto invert" />
             <span className="text-lg font-bold tracking-tight text-slate-900">
               YEOBAEK<span className="ml-1.5 text-sm font-normal text-slate-400">| Recruit</span>
             </span>
