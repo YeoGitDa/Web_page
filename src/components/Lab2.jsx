@@ -1,248 +1,122 @@
-import { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { SiteHeader } from './SiteHeader';
+import { useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { SiteHeader, PageHead } from './SiteHeader';
+
+// 왼쪽 목록 — dormant: true 면 「휴면」 (홈·전시와 같은 기준)
+const LABS = [
+  { no: '1', name: 'AI 어시스턴트 & 챗봇' },
+  { no: '2', name: '디지털 아카이빙' },
+  { no: '3', name: '큐레이션 & 추천' },
+  { no: '4', name: '인프라 & DevOps' },
+  { no: '5', name: '프로젝트 고도화', dormant: true },
+  { no: '6', name: '아이디어 랩', dormant: true },
+];
+
+// 상세 내용이 있는 LAB — 내용이 생기면 같은 모양으로 추가
+const labData = {
+  2: {
+    title: 'LAB 2 — 디지털 아카이빙',
+    subtitle: 'yeobaek 및 전공 동아리들의 활동 산출물과 문서들을 체계적으로 아카이빙',
+    info: {
+      이름: 'yeobaek 디지털 아카이빙 시스템',
+      기간: '2025/03/01 ~ 진행중',
+      주체: '문헌정보학과 동아리 여백',
+      성격: '학술 아카이브',
+      기술스택: 'SQL',
+      서비스: 'DB, Data, 기록관리',
+    },
+    description: `yeobaek 동아리의 프로젝트 결과물, 활동 기록을 보존하고 여러 사람과 공유하기 위한 디지털 아카이빙 시스템입니다.
+문서, 기획서, 프로젝트 결과물 등 다양한 형태의 자료를 수집하고 정리하여, 동아리 구성원들이 쉽게 검색하고 활용할 수 있도록 합니다.`,
+    features: ['체계적인 메타데이터 관리', '정확한 검색 및 필터링 기능', '카테고리별 분류 및 태깅', '시간순 타임라인 뷰'],
+    goals: ['동아리 활동 기록의 체계적 보존', '지식과 경험의 세대 간 전승', '학술 자료의 효율적 공유', '협업 문화 활성화'],
+  },
+};
+
+const card = 'rounded-2xl border border-slate-200 bg-white shadow-sm';
 
 const LabDetail = () => {
-  const navigate = useNavigate();
   const { labNumber } = useParams();
-  const [selectedCategory, setSelectedCategory] = useState('전체보기');
+  const lab = labData[labNumber];
+  const meta = LABS.find((l) => l.no === labNumber);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
-  const [expandedCategories, setExpandedCategories] = useState({
-    '여백': true,
-    '해외여행': true,
-    '강아지동반 여행': true
-  });
-
-  // 카테고리 데이터
-  const categories = [
-    
-    {
-      name: '여백',
-      count: 0,
-      subcategories: ['LAB1', 'LAB2', 'LAB3', 'LAB3' , 'LAB4' , 'LAB5' , 'LAB6']
-    }
-  ];
-
-  const toggleCategory = (categoryName) => {
-    setExpandedCategories(prev => ({
-      ...prev,
-      [categoryName]: !prev[categoryName]
-    }));
-  };
-
-  // LAB2 상세 데이터
-  const labData = {
-    2: {
-      title: 'LAB 2 - 디지털 아카이빙',
-      subtitle: 'yeobaek 및 전공 동아리들의 활동 산출물과 문서들을 체계적으로 아카이빙',
-      info: {
-        이름: 'yeobaek 디지털 아카이빙 시스템',
-        기간: '2025/03/01 ~ 진행중',
-        주체: '문헌정보학과 동아리 여백',
-        성격: '학술 아카이브',
-        기술스택: 'SQL',
-        서비스: 'DB, Data, 기록관리'
-      },
-      description: `yeobaek 동아리의 프로젝트 결과물, 활동 기록을 보존하고 여러 사람과 공유하기 위한 디지털 아카이빙 시스템입니다.
-문서, 기획서, 프로젝트 결과물 등 다양한 형태의 자료를 수집하고 정리하여, 동아리 구성원들이 쉽게 검색하고 활용할 수 있도록 합니다.`,
-      features: [
-        '체계적인 메타데이터 관리',
-        '정확한 검색 및 필터링 기능',
-        '카테고리별 분류 및 태깅',
-        '시간순 타임라인 뷰',
-  
-      ],
-      goals: [
-        '동아리 활동 기록의 체계적 보존',
-        '지식과 경험의 세대 간 전승',
-        '학술 자료의 효율적 공유',
-        '협업 문화 활성화'
-      ]
-    }
-  };
-
-  const currentLab = labData[labNumber];
-  const labBrandSuffix = labNumber ? `Lab ${labNumber}` : 'Lab';
-
-  // LAB2가 아닌 경우 기본 화면 표시
-  if (labNumber !== '2' || !currentLab) {
-    return (
-      <div className="min-h-screen bg-white">
-        <SiteHeader suffix={labBrandSuffix} />
-
-        {/* Content */}
-        <div className="flex items-center justify-center min-h-[calc(100vh-80px)] py-20 px-5">
-          <div className="text-center">
-            <img
-              src="/backend/image/wait.png"
-              alt="Coming Soon"
-              className="mx-auto max-w-md w-full h-auto"
-            />
-          </div>
-        </div>
-      </div>
-    );
-  }
+  }, [labNumber]);
 
   return (
-    <div className="min-h-screen bg-white">
-      <SiteHeader suffix={labBrandSuffix} />
+    <div className="min-h-screen bg-slate-50">
+      <SiteHeader suffix={labNumber ? `Lab ${labNumber}` : 'Lab'} />
+      <PageHead eyebrow="LAB" title="LAB 상세" desc="여백 LAB 별 목표와 진행 상황입니다." />
 
-      {/* Main Layout with Sidebar */}
-      <div className="max-w-[1600px] mx-auto px-4 md:px-8 py-8 md:py-12">
-        <div className="flex gap-6 md:gap-8">
-          {/* Sidebar - Category Menu */}
-          <aside className="w-64 flex-shrink-0">
-            <div className="sticky top-24 bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
-              {/* Category Header */}
-              <div className="px-5 py-4 bg-emerald-50/60 border-b border-gray-200">
-                <h2 className="text-xl font-bold text-gray-800 flex items-center justify-between">
-                  카테고리
-                  <span className="text-sm text-gray-500">▲</span>
-                </h2>
+      <main className="mx-auto grid max-w-5xl gap-6 px-5 py-12 sm:px-6 md:grid-cols-[13rem_1fr]">
+        {/* 왼쪽 목록 */}
+        <nav className={`${card} h-fit p-3`} aria-label="LAB 목록">
+          <p className="px-2 pb-2 pt-1 text-xs font-semibold text-slate-400">탐색</p>
+          {LABS.map((l) => {
+            const active = l.no === labNumber;
+            return (
+              <Link
+                key={l.no}
+                to={`/lab/${l.no}`}
+                className={`flex items-center justify-between rounded-lg px-3 py-2 text-sm no-underline transition ${
+                  active ? 'bg-emerald-50 font-semibold text-emerald-900' : l.dormant ? 'text-slate-400 hover:bg-slate-50' : 'text-slate-700 hover:bg-slate-50'
+                }`}
+              >
+                LAB {l.no}
+                {l.dormant && <span className="text-[11px] text-slate-400">휴면</span>}
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* 오른쪽 상세 */}
+        {lab ? (
+          <article className={`${card} p-6 sm:p-8`}>
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900">{lab.title}</h2>
+            <p className="mt-2 text-base text-slate-500">{lab.subtitle}</p>
+
+            <dl className="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
+              {Object.entries(lab.info).map(([k, v]) => (
+                <div key={k}>
+                  <dt className="text-xs font-semibold text-slate-500">{k}</dt>
+                  <dd className="m-0 mt-1 text-sm text-slate-800">{v}</dd>
+                </div>
+              ))}
+            </dl>
+
+            <h3 className="mt-8 text-lg font-bold text-slate-900">프로젝트 소개</h3>
+            <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-slate-600">{lab.description}</p>
+
+            <div className="mt-8 grid gap-6 sm:grid-cols-2">
+              <div>
+                <h3 className="text-lg font-bold text-slate-900">기능</h3>
+                <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm text-slate-600">
+                  {lab.features.map((f) => <li key={f}>{f}</li>)}
+                </ul>
               </div>
-
-              {/* Category List */}
-              <div className="py-2">
-                {categories.map((category, index) => (
-                  <div key={index}>
-                    {/* Main Category */}
-                    <div
-                      className={`px-5 py-2.5 flex items-center justify-between cursor-pointer hover:bg-gray-50 transition-colors ${
-                        selectedCategory === category.name ? 'bg-emerald-50/60 text-emerald-600 font-semibold' : 'text-gray-700'
-                      }`}
-                      onClick={() => {
-                        setSelectedCategory(category.name);
-                        if (category.subcategories.length > 0) {
-                          toggleCategory(category.name);
-                        }
-                      }}
-                    >
-                      <div className="flex items-center gap-2">
-                        {category.subcategories.length > 0 && (
-                          <span className="text-sm">
-                            {expandedCategories[category.name] ? '▾' : '▸'}
-                          </span>
-                        )}
-                        <span className="text-base">{category.name}</span>
-                      </div>
-                      {category.count > 0 && (
-                        <span className="text-xs px-2 py-0.5 bg-red-500 text-white rounded-full">
-                          {category.count}
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Subcategories */}
-                    {category.subcategories.length > 0 && expandedCategories[category.name] && (
-                      <div className="bg-gray-50">
-                        {category.subcategories.map((sub, subIndex) => (
-                          <div
-                            key={subIndex}
-                            className="px-5 pl-12 py-2 text-sm text-gray-600 hover:text-emerald-600 hover:bg-white cursor-pointer transition-colors"
-                          >
-                            ├─ {sub}
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
-                    {/* Divider after certain categories */}
-                    {(category.name === '전체보기' || category.name === '뷰티' || category.name === '해외여행') && (
-                      <div className="my-2 mx-4 border-t border-gray-200"></div>
-                    )}
-                  </div>
-                ))}
+              <div>
+                <h3 className="text-lg font-bold text-slate-900">목표</h3>
+                <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm text-slate-600">
+                  {lab.goals.map((g) => <li key={g}>{g}</li>)}
+                </ul>
               </div>
             </div>
-          </aside>
 
-          {/* Main Content */}
-          <div className="flex-1 min-w-0 px-0 md:px-6">
-        {/* Breadcrumb */}
-        <div className="text-sm text-gray-500 mb-8 flex items-center gap-2">
-          <span className="cursor-pointer hover:text-gray-700" onClick={() => navigate('/')}>Home</span>
-          <span>→</span>
-          <span className="cursor-pointer hover:text-gray-700">LAB Info</span>
-          <span>→</span>
-          <span className="text-gray-700">LAB {labNumber}</span>
-        </div>
-
-        {/* Title */}
-        <h1 className="text-[32px] md:text-[40px] font-bold text-[#37352f] mb-4 leading-tight">
-          {currentLab.title}
-        </h1>
-
-        {/* Subtitle */}
-        <p className="text-lg md:text-xl text-gray-600 mb-12">
-          {currentLab.subtitle}
-        </p>
-
-        {/* Project Info Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16 p-8 bg-gray-50/80 rounded-2xl border border-gray-200">
-          {Object.entries(currentLab.info).map(([key, value]) => (
-            <div key={key} className="flex gap-4">
-              <span className="font-semibold text-gray-700 min-w-[100px]">{key}</span>
-              <span className="text-gray-600">{value}</span>
+            <div className="mt-10 rounded-xl bg-emerald-50 px-5 py-4 text-sm text-emerald-900">
+              이 LAB 에 관심 있으신가요? →{' '}
+              <a href="mailto:lisyeobaek@gmail.com" className="font-semibold text-emerald-800">lisyeobaek@gmail.com</a>
             </div>
-          ))}
-        </div>
-
-        {/* Description Section */}
-        <div className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#37352f] mb-6">프로젝트 소개</h2>
-          <div className="text-gray-600 leading-relaxed whitespace-pre-line text-base md:text-lg">
-            {currentLab.description}
-          </div>
-        </div>
-
-        {/* Features Section */}
-        <div className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#37352f] mb-6">주요 기능</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {currentLab.features.map((feature, index) => (
-              <div key={index} className="flex items-start gap-3 p-4 bg-emerald-50/40 rounded-xl border border-emerald-100/60">
-                <span className="text-emerald-600 text-xl">✓</span>
-                <span className="text-gray-700 text-base md:text-lg">{feature}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Goals Section */}
-        <div className="mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#37352f] mb-6">프로젝트 목표</h2>
-          <div className="space-y-3">
-            {currentLab.goals.map((goal, index) => (
-              <div key={index} className="flex items-start gap-3 p-5 bg-white rounded-xl border border-gray-200 hover:border-emerald-400/50 transition-colors">
-                <span className="text-emerald-600 font-bold text-lg">{index + 1}.</span>
-                <span className="text-gray-700 text-base md:text-lg">{goal}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div className="mt-20 p-10 bg-gradient-to-br from-emerald-50/70 to-emerald-100/40 rounded-2xl border border-emerald-200/60 text-center">
-          <h3 className="text-2xl md:text-3xl font-bold text-emerald-700 mb-4">
-            LAB 2 프로젝트에 관심 있으신가요?
-          </h3>
-          <p className="text-gray-700 mb-8 text-lg">
-            yeobaek은 정보의 공유와 재활용, 협업을 지향합니다.
-          </p>
-          <button
-            onClick={() => navigate('/')}
-            className="px-8 py-4 bg-emerald-500 text-white rounded-full font-semibold text-lg hover:bg-emerald-600 transition-colors shadow-lg hover:shadow-xl"
-          >
-           lisyeobaek@gmail.com
-          </button>
-        </div>
-          </div>
-        </div>
-      </div>
+          </article>
+        ) : (
+          <article className={`${card} flex flex-col items-center justify-center border-dashed p-10 text-center`}>
+            <p className="text-xs font-bold tracking-[0.14em] text-emerald-700">LAB {labNumber}</p>
+            <h2 className="mt-2 text-xl font-bold text-slate-900">{meta ? meta.name : '없는 LAB 입니다'}</h2>
+            <p className="mt-3 text-sm text-slate-500">
+              {meta?.dormant ? '지금은 쉬고 있는 LAB 입니다.' : meta ? '상세 내용을 준비하고 있어요.' : '왼쪽 목록에서 LAB 을 골라 주세요.'}
+            </p>
+          </article>
+        )}
+      </main>
     </div>
   );
 };

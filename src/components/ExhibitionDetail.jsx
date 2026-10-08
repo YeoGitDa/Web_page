@@ -1,129 +1,62 @@
-import React, { useRef, useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { SiteHeader, PageHead } from './SiteHeader';
-import HTMLFlipBook from 'react-pageflip';
 
-// LAB 데이터
+// LAB 카탈로그 — dormant: true 면 「휴면」 (홈 LAB 표시와 같은 기준)
 const labPages = [
-  { lab: 'LAB 1', title: 'AI 어시스턴트 & 챗봇', description: 'AI 기반 자동화 어시스턴트를 구동하고, 챗봇을 통해 자료 검색 기능을 제공합니다...', keywords: ['NLP', 'RAG', 'LLM'] },
-  { lab: 'LAB 2', title: '디지털 아카이빙 시스템', description: '동아리 내 문서, 기획서, 회의록 등 학술 자료를 체계적으로 저장하고 공유합니다...', keywords: ['Metadata', 'Search'] },
-  { lab: 'LAB 3', title: '큐레이션 & 추천 서비스', description: '문헌정보학 기반 개인 맞춤형 도서 추천과 동아리 구성원들의 산출물을 큐레이션합니다...', keywords: ['Recommendation'] },
-  { lab: 'LAB 4', title: '인프라 & DevOps', description: 'Git, CI/CD, Firebase 연동 및 배포 실습을 위한 서비스입니다...', keywords: ['Git', 'CI/CD'] },
-  { lab: 'LAB 5', title: '프로젝트 고도화', description: '데이터 활동 기반 앱/웹 프로젝트를 고도화합니다. 기존 프로젝트의 성능 최적화...', keywords: ['Performance', 'UX/UI'] },
-  { lab: 'LAB 6', title: '아이디어 랩', description: '아이디어를 기록하고 발굴하여 실현하는 서비스입니다. 브레인스토밍부터...', keywords: ['Ideation', 'Innovation'] },
+  { lab: 'LAB 1', title: 'AI 어시스턴트 & 챗봇', description: 'AI 기반 자동화 어시스턴트를 구동하고, 챗봇을 통해 자료 검색 기능을 제공합니다.', keywords: ['NLP', 'RAG', 'LLM'], link: '/chatbot' },
+  { lab: 'LAB 2', title: '디지털 아카이빙 시스템', description: '동아리 내 문서, 기획서, 회의록 등 학술 자료를 체계적으로 저장하고 공유합니다.', keywords: ['Metadata', 'Search'], link: '/lab/2' },
+  { lab: 'LAB 3', title: '큐레이션 & 추천 서비스', description: '문헌정보학 기반 개인 맞춤형 도서 추천과 동아리 구성원들의 산출물을 큐레이션합니다.', keywords: ['Recommendation'], link: '/lab/3' },
+  { lab: 'LAB 4', title: '인프라 & DevOps', description: 'Git, CI/CD, Firebase 연동 및 배포 실습을 위한 서비스입니다.', keywords: ['Git', 'CI/CD'], link: '/lab/4' },
+  { lab: 'LAB 5', title: '프로젝트 고도화', description: '데이터 활동 기반 앱/웹 프로젝트를 고도화합니다.', keywords: ['Performance', 'UX/UI'], dormant: true },
+  { lab: 'LAB 6', title: '아이디어 랩', description: '아이디어를 기록하고 발굴하여 실현하는 서비스입니다.', keywords: ['Ideation', 'Innovation'], dormant: true },
 ];
 
-// 표지: 배경색을 명확히 지정하여 비침 방지
-const PageCover = React.forwardRef((props, ref) => (
-  <div ref={ref} data-density="hard" className="bg-emerald-900 w-full h-full">
-    <div className="page-cover h-full flex flex-col items-center justify-center p-8 text-white shadow-[inset_0_0_50px_rgba(0,0,0,0.2)]">
-      {props.children}
-    </div>
-  </div>
-));
-
-// 일반 페이지: bg-white를 넣고 shadow를 추가해 입체감 부여
-const Page = React.forwardRef((props, ref) => (
-  <div ref={ref} className="bg-white w-full h-full shadow-inner">
-    <div className="page h-full overflow-hidden border-l border-gray-100">
-      {props.children}
-    </div>
-  </div>
-));
+const card = 'rounded-2xl border border-slate-200 bg-white p-6 shadow-sm';
 
 const ExhibitionDetail = () => {
-  const bookRef = useRef(null);
-  const [currentPage, setCurrentPage] = useState(0);
-  const [bookKey, setBookKey] = useState(0);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-
   useEffect(() => {
     window.scrollTo(0, 0);
-    const handleResize = () => {
-      const mobile = window.innerWidth < 768;
-      if (mobile !== isMobile) {
-        setIsMobile(mobile);
-        setBookKey((k) => k + 1);
-      }
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [isMobile]);
-
-  const handleFlip = (e) => setCurrentPage(e.data);
-
-  const pageWidth = isMobile ? 300 : 550;
-  const pageHeight = isMobile ? 420 : 500;
+  }, []);
 
   return (
-    <div className="min-h-screen bg-slate-50"> <SiteHeader suffix="Exhibition" />
- <PageHead eyebrow="EXHIBITION" title="산출물 전시" desc="여백 활동 산출물을 책처럼 넘겨 볼 수 있습니다." />
+    <div className="min-h-screen bg-slate-50">
+      <SiteHeader suffix="Exhibition" />
+      <PageHead eyebrow="EXHIBITION" title="동아리 산출물 전시" desc="여백 LAB 별 활동과 산출물을 모아 둔 카탈로그입니다." />
 
-      <div className="flex flex-col items-center justify-center min-h-[calc(100vh-64px)] py-8 px-4">
-        <HTMLFlipBook
-          key={bookKey}
-          width={pageWidth}
-          height={pageHeight}
-          size="fixed"
-          showCover={true}
-          maxShadowOpacity={0.2} // 연한 그림자 유지
-          drawShadow={true}
-          flippingTime={800}
-          usePortrait={isMobile}
-          startZIndex={0}
-          autoSize={true}
-          className="exhibition-book shadow-2xl"
-          ref={bookRef}
-          onFlip={handleFlip}
-        >
-          {/* Front Cover */}
-          <PageCover>
-            <img src="/backend/image/logo.png" alt="Yeobaek" className="h-16 mb-6" />
-            <h1 className="text-2xl md:text-3xl font-bold mb-3">Yeobaek</h1>
-            <p className="text-base opacity-80 font-light">Digital Archive</p>
-            <div className="w-16 h-0.5 bg-white/40 mt-6 mb-4"></div>
-            <p className="text-sm opacity-60">2025</p>
-          </PageCover>
+      <main className="mx-auto max-w-5xl px-5 py-12 sm:px-6">
+        {/* 표지 */}
+        <section className="rounded-2xl bg-gradient-to-br from-emerald-800 to-emerald-950 px-6 py-12 text-center text-white shadow-md">
+          <img src="/backend/image/logo.png" alt="" className="mx-auto h-12 w-auto" />
+          <h2 className="mt-5 text-2xl font-bold tracking-tight sm:text-3xl">Yeobaek Digital Archive</h2>
+          <p className="mt-2 text-sm text-white/80">LAB 카탈로그</p>
+        </section>
 
-          {/* LAB Pages (6개) - bg-white로 불투명도 확보 */}
-          {labPages.map((lab, i) => (
-            <Page key={`lab-${i}`}>
-              <div className="h-full flex flex-col justify-center p-8 md:p-12">
-                <span className="text-xs font-bold text-emerald-600 tracking-widest uppercase mb-3">{lab.lab}</span>
-                <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-5">{lab.title}</h2>
-                <p className="text-sm text-gray-600 leading-relaxed mb-8">{lab.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {lab.keywords.map((kw, j) => (
-                    <span key={j} className="px-3 py-1 bg-gray-50 rounded-full text-xs text-gray-500 border border-gray-200">
-                      {kw}
-                    </span>
+        <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {labPages.map((l) => {
+            const body = (
+              <>
+                <div className="flex items-center justify-between">
+                  <p className={`text-xs font-bold tracking-[0.14em] ${l.dormant ? 'text-slate-400' : 'text-emerald-700'}`}>{l.lab}</p>
+                  {l.dormant && <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-500">휴면</span>}
+                </div>
+                <h3 className={`mt-2 text-lg font-bold ${l.dormant ? 'text-slate-400' : 'text-slate-900'}`}>{l.title}</h3>
+                <p className={`mt-2 text-sm leading-relaxed ${l.dormant ? 'text-slate-400' : 'text-slate-600'}`}>{l.description}</p>
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {l.keywords.map((kw) => (
+                    <span key={kw} className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-0.5 text-xs text-slate-500">{kw}</span>
                   ))}
                 </div>
-              </div>
-            </Page>
-          ))}
-
-          {/* Back Cover */}
-          <PageCover>
-            <h2 className="text-2xl font-bold mb-4">Thank You</h2>
-            <p className="text-sm opacity-80 mb-6 text-center px-4">yeobaek과 함께 디지털 아카이빙의 미래를 만들어갑니다</p>
-            <div className="w-16 h-0.5 bg-white/40 mb-6"></div>
-            <p className="text-sm opacity-70">lisyeobaek@gmail.com</p>
-          </PageCover>
-        </HTMLFlipBook>
-
-        {/* Controls */}
-        <div className="flex items-center justify-center gap-6 mt-12">
-          <button onClick={() => bookRef.current?.pageFlip()?.flipPrev()} className="w-10 h-10 rounded-full bg-white border border-emerald-700/20 shadow-sm flex items-center justify-center hover:bg-emerald-50 transition-colors">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-emerald-700"><polyline points="15 18 9 12 15 6" /></svg>
-          </button>
-          <span className="text-gray-600 text-sm font-semibold">
-            {currentPage + 1} / 6
-          </span>
-          <button onClick={() => bookRef.current?.pageFlip()?.flipNext()} className="w-10 h-10 rounded-full bg-white border border-emerald-700/20 shadow-sm flex items-center justify-center hover:bg-emerald-50 transition-colors">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-emerald-700"><polyline points="9 18 15 12 9 6" /></svg>
-          </button>
+              </>
+            );
+            return l.dormant ? (
+              <div key={l.lab} className={`${card} bg-slate-50`} aria-disabled="true">{body}</div>
+            ) : (
+              <Link key={l.lab} to={l.link} className={`${card} block no-underline transition hover:-translate-y-1 hover:shadow-md`}>{body}</Link>
+            );
+          })}
         </div>
-      </div>
+      </main>
     </div>
   );
 };
