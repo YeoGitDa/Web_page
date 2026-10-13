@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import { SectionHead } from './SiteHeader';
+import { Button, Card } from './ui';
 
 /*
  * 홈 아래 섹션 — 내용은 맨 위 배열들만 고치면 된다 (개발 몰라도 됨)
@@ -48,7 +48,6 @@ const NEWS = [
   },
 ];
 
-const card = 'rounded-2xl border border-slate-200 bg-white shadow-sm';
 
 const ServiceSections = () => (
   <div className="bg-slate-50">
@@ -58,10 +57,10 @@ const ServiceSections = () => (
         <SectionHead eyebrow="Numbers" title="여백 한눈에 보기" desc="동아리 핵심 수치를 한눈에 확인하세요." />
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           {NUMBERS.map((n) => (
-            <div key={n.label} className={`${card} p-6 text-center`} title={n.note}>
-              <p className="text-3xl font-bold tracking-tight text-emerald-800">{n.value}</p>
+            <Card key={n.label} className="text-center">
+              <p className="text-3xl font-bold tracking-tight text-yb-forest" title={n.note}>{n.value}</p>
               <p className="mt-1 text-sm text-slate-500">{n.label}</p>
-            </div>
+            </Card>
           ))}
         </div>
       </div>
@@ -77,16 +76,11 @@ const ServiceSections = () => (
         />
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
           {SERVICES.map((s) => (
-            <Link key={s.link} to={s.link} className={`${card} group flex flex-col overflow-hidden no-underline transition hover:-translate-y-1 hover:shadow-md`}>
-              <div className="h-44 overflow-hidden border-b border-slate-100 bg-white">
-                <img src={s.image} alt="" className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-105" />
-              </div>
-              <div className="flex flex-1 flex-col p-6">
-                <h3 className="text-lg font-bold text-slate-900">{s.title}</h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{s.description}</p>
-                <span className="mt-4 text-sm font-semibold text-emerald-700">둘러보기 →</span>
-              </div>
-            </Link>
+            <Card key={s.link} to={s.link} image={s.image}>
+              <h3 className="text-lg font-bold text-slate-900">{s.title}</h3>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{s.description}</p>
+              <span className="mt-4 text-sm font-semibold text-yb-forest">둘러보기 →</span>
+            </Card>
           ))}
         </div>
       </div>
@@ -94,7 +88,7 @@ const ServiceSections = () => (
 
     {/* 소식 & 공지 */}
     <section className="border-t border-slate-200 bg-white px-5 py-20 sm:px-6" id="club-news">
-      <div className="mx-auto grid max-w-5xl gap-10 md:grid-cols-[16rem_1fr]">
+      <div className="mx-auto grid max-w-5xl gap-10 md:grid-cols-[20rem_1fr]">
         <div>
           <SectionHead eyebrow="News" title="동아리 소식 & 공지" desc="여백의 최신 소식과 공지사항을 확인하세요" />
           <div className="flex items-center gap-3">
@@ -107,23 +101,15 @@ const ServiceSections = () => (
         <ul className="m-0 list-none divide-y divide-slate-200 border-y border-slate-200 p-0">
           {NEWS.map((n) => (
             <li key={n.title} className="py-6">
-              <p className="text-sm font-semibold text-emerald-700">{n.date}</p>
+              <p className="text-sm font-semibold text-yb-forest">{n.date}</p>
               <h3 className="mt-1 text-lg font-bold text-slate-900">{n.title}</h3>
               {n.description && <p className="mt-2 text-sm leading-relaxed text-slate-600">{n.description}</p>}
               {n.links?.length > 0 && (
                 <div className="mt-4 flex flex-wrap gap-2">
                   {n.links.map((l, i) => (
-                    <a
-                      key={l.href}
-                      href={l.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`rounded-full px-4 py-2 text-sm font-semibold no-underline transition ${
-                        i === 0 ? 'bg-emerald-700 text-white hover:bg-emerald-800' : 'border border-emerald-700 text-emerald-700 hover:bg-emerald-50'
-                      }`}
-                    >
+                    <Button key={l.href} href={l.href} variant={i === 0 ? 'primary' : 'secondary'}>
                       {l.label}
-                    </a>
+                    </Button>
                   ))}
                 </div>
               )}

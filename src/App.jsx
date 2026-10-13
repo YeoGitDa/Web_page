@@ -27,6 +27,7 @@ import AdminShell from './admin/AdminShell';
 import AdminHome from './admin/AdminHome';
 import AdminLogin from './admin/AdminLogin';
 import { SiteHeader } from './components/SiteHeader';
+import { Button } from './components/ui';
 import { pickTheme } from './theme';
 
 function HomePage() {
@@ -50,20 +51,10 @@ function HomePage() {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   const buttons = (
     <div className="flex flex-wrap gap-3 justify-center">
-      <button
-        onClick={() => scrollTo('service')}
-        className="w-52 rounded-full border-none bg-white px-8 py-4 text-base font-semibold text-slate-900 shadow-md cursor-pointer transition-transform hover:scale-105"
-      >
-        Service 구경하기
-      </button>
-      <button
-        onClick={() => scrollTo('club-news')}
-        className={`w-52 rounded-full border px-8 py-4 text-base font-semibold cursor-pointer backdrop-blur-xl transition-transform hover:scale-105 ${
-          theme.light ? 'border-white/60 bg-white/10 text-white' : 'border-slate-700 bg-white/40 text-slate-800'
-        }`}
-      >
+      <Button size="lg" onClick={() => scrollTo('service')}>Service 구경하기</Button>
+      <Button size="lg" variant={theme.light ? 'onImage' : 'onLight'} onClick={() => scrollTo('club-news')}>
         소식 보기
-      </button>
+      </Button>
     </div>
   );
 
@@ -105,7 +96,7 @@ function HomePage() {
           // v3 배치 — 곰이 왼쪽에 있으니 글자는 오른쪽 절반
           <div className="relative z-10 flex h-full items-start px-5 pt-10 md:items-center md:pt-0">
             <div className={`mx-auto max-w-xl text-center md:ml-[48%] md:mr-0 ${theme.light ? 'text-white' : 'text-slate-900'}`}>
-              <p className={`text-sm font-semibold tracking-wide ${theme.light ? 'text-white/80' : 'text-emerald-800'}`}>
+              <p className={`text-sm font-semibold tracking-wide ${theme.light ? 'text-white/80' : 'text-yb-forest'}`}>
                 문헌정보학 · 데이터 · AI
               </p>
               <h1 className="mt-3 text-5xl font-bold tracking-tight md:text-6xl">Yeobaek Web</h1>

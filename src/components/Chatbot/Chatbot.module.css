@@ -10,7 +10,7 @@
   font-size: 18px;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  background: #2563eb;
+  background: #31594e; /* yb-forest */
   color: #ffffff;
   z-index: 9999;
 }
@@ -39,7 +39,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 12px;
-  background: linear-gradient(135deg, #1d4ed8, #22c55e);
+  background: #31594e; /* yb-forest — 그라데이션 대신 단색 */
   color: #ffffff;
 }
 
@@ -101,7 +101,7 @@
   align-items: flex-end;
 }
 .user .bubble {
-  background: #2563eb;
+  background: #31594e; /* yb-forest */
   color: #ffffff;
   border-bottom-right-radius: 4px;
 }
@@ -198,7 +198,7 @@
 
 .input:focus {
   outline: none;
-  border-color: #2563eb;
+  border-color: #3a8c75; /* yb-leaf (포커스) */
 }
 
 .sendButton {
@@ -208,7 +208,7 @@
   padding: 6px 12px;
   font-size: 13px;
   cursor: pointer;
-  background: #16a34a;
+  background: #31594e; /* yb-forest */
   color: #ffffff;
 }
 
