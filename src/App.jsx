@@ -99,7 +99,8 @@ function HomePage() {
               <p className={`text-sm font-semibold tracking-wide ${theme.light ? 'text-white/80' : 'text-yb-forest'}`}>
                 문헌정보학 · 데이터 · AI
               </p>
-              <h1 className="mt-3 text-5xl font-bold tracking-tight md:text-6xl">Yeobaek Web</h1>
+              {/* 첫 화면 제목 36/48 — 모집 홈과 같은 크기 (Design 01-foundations hero) */}
+              <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">Yeobaek Web</h1>
               <p className={`mt-5 text-base leading-relaxed md:text-lg ${theme.light ? 'text-white/85' : 'text-slate-600'}`}>
                 학과 소통과 전공 동아리 활성화를 위한 웹 공간입니다.
                 <br />
