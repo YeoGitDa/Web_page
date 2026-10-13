@@ -1,11 +1,25 @@
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { isUserSession } from '../auth/session';
+import { Button } from './ui';
 
 /**
  * 사이트 공용 헤더 — v3 시안(.v3-head)과 모집(RecruitLayout) 헤더와 같은 모양
  * suffix: 로고 옆 「YEOBAEK | {suffix}」
  * right: 헤더 오른쪽 끝에 붙일 것 (예: 홈의 배경음 버튼)
+ * 폰(md 미만)은 햄버거 → 세로 메뉴 (Design 02-components Header / Mobile)
  */
+
+// Lucide menu · x (ISC) — 패키지 없이 경로만
+const Icon = ({ open }) => (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    {open ? (
+      <><path d="M18 6 6 18" /><path d="m6 6 12 12" /></>
+    ) : (
+      <><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="18" y2="18" /></>
+    )}
+  </svg>
+);
 const NAV = [
   { to: '/', label: '홈', match: (p) => p === '/' },
   { to: '/#service', label: '서비스', match: (p) => ['/chatbot', '/archiving', '/exhibition'].includes(p) || p.startsWith('/lab/') },
@@ -15,14 +29,17 @@ const NAV = [
 
 export function SiteHeader({ suffix = 'Web', right = null }) {
   const { pathname } = useLocation();
+  // 연 페이지를 기억 → 다른 페이지로 가면 저절로 닫힘
+  const [openAt, setOpenAt] = useState(null);
+  const open = openAt === pathname;
   const loggedIn = isUserSession();
   const account = loggedIn
     ? { to: '/me', label: '내 계정', match: (p) => p === '/me' }
     : { to: '/login', label: '로그인', match: (p) => p === '/login' || p === '/signup' };
 
-  const pill = ({ to, label, match }) => {
+  const pill = ({ to, label, match }, mobile = false) => {
     const active = match(pathname);
-    const cls = `rounded-md px-3 py-1.5 text-sm font-medium no-underline transition ${
+    const cls = `rounded-md text-sm font-medium no-underline transition ${mobile ? 'block px-3 py-3' : 'px-3 py-1.5'} ${
       active ? 'bg-yb-leaf-12 text-yb-forest' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900'
     }`;
     // 「/#service」 는 홈 안의 위치라 a 로 이동한다 (Link 는 해시 스크롤을 안 함)
@@ -43,12 +60,30 @@ export function SiteHeader({ suffix = 'Web', right = null }) {
             YEOBAEK<span className="ml-1.5 font-sans text-sm font-normal tracking-normal text-slate-400">| {suffix}</span>
           </span>
         </Link>
-        <nav className="flex flex-wrap items-center justify-end gap-1 sm:gap-2">
-          {NAV.map(pill)}
+        <nav className="hidden flex-wrap items-center justify-end gap-1 sm:gap-2 md:flex">
+          {NAV.map((n) => pill(n))}
           {pill(account)}
           {right}
         </nav>
+        <div className="flex items-center gap-1 md:hidden">
+          {right}
+          <button
+            type="button"
+            onClick={() => setOpenAt(open ? null : pathname)}
+            className="rounded-md bg-transparent p-2 text-slate-700 transition hover:bg-slate-100 focus:outline-none focus-visible:ring-[3px] focus-visible:ring-yb-leaf/45"
+            aria-label={open ? '메뉴 닫기' : '메뉴 열기'}
+            aria-expanded={open}
+          >
+            <Icon open={open} />
+          </button>
+        </div>
       </div>
+      {open && (
+        <nav className="border-t border-slate-200 bg-white px-5 pb-4 pt-2 md:hidden">
+          {NAV.map((n) => pill(n, true))}
+          <Button to={account.to} className="mt-3 w-full">{account.label}</Button>
+        </nav>
+      )}
     </header>
   );
 }
