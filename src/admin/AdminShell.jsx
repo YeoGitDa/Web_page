@@ -6,6 +6,7 @@ import { SiteHeader, SiteFooter } from '../components/SiteHeader';
 const titles = {
   '/admin': '운영 · Yeobaek',
   '/admin/dashboard': '대시보드 · Yeobaek',
+  '/admin/theme': '홈 꾸미기 · Yeobaek',
 };
 
 export default function AdminShell() {
@@ -48,6 +49,7 @@ export default function AdminShell() {
         <div className="mx-auto flex max-w-5xl items-center gap-1 overflow-x-auto px-5 py-2 sm:gap-2 sm:px-6">
           {navLink('/admin', '운영 홈')}
           {navLink('/admin/dashboard', '대시보드')}
+          {navLink('/admin/theme', '홈 꾸미기')}
           {navLink('/recruit', '모집')}
           <button
             type="button"

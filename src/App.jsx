@@ -26,6 +26,7 @@ import MeHome from './me/MeHome';
 import AdminShell from './admin/AdminShell';
 import AdminHome from './admin/AdminHome';
 import AdminLogin from './admin/AdminLogin';
+import AdminTheme from './admin/AdminTheme';
 import { SiteHeader } from './components/SiteHeader';
 import { Button } from './components/ui';
 import { pickTheme } from './theme';
@@ -162,6 +163,7 @@ function App() {
           <Route path="/admin" element={<AdminShell />}>
             <Route index element={<AdminHome />} />
             <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="theme" element={<AdminTheme />} />
           </Route>
         </Route>
         <Route path="/recruit" element={<RecruitLayout />}>

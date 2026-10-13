@@ -28,6 +28,18 @@ export default function AdminHome() {
         </Link>
 
         <Link
+          to="/admin/theme"
+          className="group flex flex-col rounded-2xl border border-slate-200 bg-white p-7 shadow-sm transition hover:border-yb-leaf-24 hover:shadow-md"
+        >
+          <span className="text-xs font-bold uppercase tracking-wide text-yb-forest">Home Theme</span>
+          <h2 className="mt-2 text-xl font-bold text-slate-900">홈 꾸미기</h2>
+          <p className="mt-2 flex-1 text-sm text-slate-600">
+            홈 첫 화면의 배경 곰·떨어지는 효과·음악을 고르고 미리 봅니다.
+          </p>
+          <span className="mt-4 text-sm font-semibold text-yb-forest group-hover:underline">열기 →</span>
+        </Link>
+
+        <Link
           to="/recruit"
           className="group flex flex-col rounded-2xl border border-emerald-100 bg-emerald-50/40 p-7 shadow-sm transition hover:border-emerald-300 hover:shadow-md"
         >
