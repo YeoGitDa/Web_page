@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SiteHeader, PageHead } from './SiteHeader';
+import { SiteHeader, PageHead, SiteFooter } from './SiteHeader';
 
 const ChatBotDetail = () => {
 
@@ -282,6 +282,7 @@ const ChatBotDetail = () => {
           </a> 
         </div>
       </section>
+      <SiteFooter />
     </div>
   );
 };

@@ -6,7 +6,7 @@ import {
   loginUnified,
   resolvePostLoginPath,
 } from '../auth/session';
-import { SiteHeader } from './SiteHeader';
+import { SiteHeader, SiteFooter } from './SiteHeader';
 
 function Login() {
   const [searchParams] = useSearchParams();
@@ -166,12 +166,7 @@ function Login() {
           </div>
         </div>
       </main>
-
-      <footer className="border-t border-slate-200 bg-slate-50 text-slate-500 py-8 px-4">
-        <div className="max-w-7xl mx-auto text-center text-sm">
-          <p>&copy; 2026 YeoBaek. All rights reserved.</p>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

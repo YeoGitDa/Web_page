@@ -23,7 +23,7 @@ export function SiteHeader({ suffix = 'Web', right = null }) {
   const pill = ({ to, label, match }) => {
     const active = match(pathname);
     const cls = `rounded-md px-3 py-1.5 text-sm font-medium no-underline transition ${
-      active ? 'bg-emerald-50 text-emerald-900' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900'
+      active ? 'bg-yb-leaf-12 text-yb-forest' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900'
     }`;
     // 「/#service」 는 홈 안의 위치라 a 로 이동한다 (Link 는 해시 스크롤을 안 함)
     return to.includes('#') ? (
@@ -39,8 +39,8 @@ export function SiteHeader({ suffix = 'Web', right = null }) {
         <Link to="/" className="flex shrink-0 items-center gap-2.5 no-underline">
           {/* logo.png 는 흰색(어두운 헤더용) → 흰 헤더에서는 뒤집어 검게 */}
           <img src="/backend/image/logo.png" alt="" className="h-7 w-auto invert" />
-          <span className="text-lg font-bold tracking-tight text-slate-900">
-            YEOBAEK<span className="ml-1.5 text-sm font-normal text-slate-400">| {suffix}</span>
+          <span className="font-brand text-lg font-bold tracking-wide text-slate-900">
+            YEOBAEK<span className="ml-1.5 font-sans text-sm font-normal tracking-normal text-slate-400">| {suffix}</span>
           </span>
         </Link>
         <nav className="flex flex-wrap items-center justify-end gap-1 sm:gap-2">
@@ -58,7 +58,7 @@ export function PageHead({ eyebrow, title, desc }) {
   return (
     <section className="border-b border-slate-200 bg-white">
       <div className="mx-auto max-w-5xl px-5 py-10 sm:px-6 sm:py-12">
-        <p className="text-xs font-bold uppercase tracking-[0.14em] text-emerald-700">{eyebrow}</p>
+        <p className="font-brand text-xs font-bold uppercase tracking-[0.14em] text-yb-forest">{eyebrow}</p>
         <h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">{title}</h1>
         {desc && <p className="mt-3 text-base text-slate-500">{desc}</p>}
       </div>
@@ -70,9 +70,36 @@ export function PageHead({ eyebrow, title, desc }) {
 export function SectionHead({ eyebrow, title, desc }) {
   return (
     <div className="mb-10">
-      <p className="text-xs font-bold uppercase tracking-[0.14em] text-emerald-700">{eyebrow}</p>
+      <p className="font-brand text-xs font-bold uppercase tracking-[0.14em] text-yb-forest">{eyebrow}</p>
       <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">{title}</h2>
       {desc && <p className="mt-3 text-base text-slate-500">{desc}</p>}
     </div>
+  );
+}
+
+const FOOTER_LINKS = [
+  { label: 'Instagram', href: 'https://www.instagram.com/team_yeobeak' },
+  { label: 'Velog', href: 'https://velog.io/@yeobaek/posts' },
+  { label: 'GitHub', href: 'https://github.com/YeoGitDa' },
+];
+
+/** 사이트 공용 바닥글 — 모든 페이지 맨 아래. 연도는 올해로 자동 */
+export function SiteFooter() {
+  return (
+    <footer className="bg-yb-night text-white">
+      <div className="mx-auto flex max-w-5xl flex-col gap-3 px-5 py-10 sm:px-6">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <span className="font-brand text-lg font-bold tracking-wide">YEOBAEK</span>
+          <nav className="flex gap-5 text-sm">
+            {FOOTER_LINKS.map((l) => (
+              <a key={l.label} href={l.href} target="_blank" rel="noreferrer" className="text-white/85 no-underline hover:text-white">
+                {l.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+        <p className="text-sm text-white/60">© {new Date().getFullYear()} YEOBAEK · 인천대학교 문헌정보학과 전공동아리</p>
+      </div>
+    </footer>
   );
 }

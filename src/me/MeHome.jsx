@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { clearUserSession, getUserId } from '../auth/session';
-import { SiteHeader } from '../components/SiteHeader';
+import { SiteHeader, SiteFooter } from '../components/SiteHeader';
 
 const card = 'rounded-2xl border border-slate-200 bg-white p-6 shadow-sm';
 
@@ -63,6 +63,7 @@ export default function MeHome() {
           </div>
         </div>
       </main>
+      <SiteFooter />
     </div>
   );
 }

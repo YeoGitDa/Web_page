@@ -1,4 +1,4 @@
-import { SiteHeader, PageHead, SectionHead } from './SiteHeader';
+import { SiteHeader, PageHead, SectionHead, SiteFooter } from './SiteHeader';
 
 // 연혁 — 새 해는 아래에 추가
 const HISTORY = [
@@ -80,6 +80,7 @@ const About = () => (
         </div>
       </div>
     </section>
+    <SiteFooter />
   </div>
 );
 

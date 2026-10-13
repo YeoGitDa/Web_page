@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { SiteHeader, PageHead } from './SiteHeader';
+import { SiteHeader, PageHead, SiteFooter } from './SiteHeader';
 
 // LAB 카탈로그 — dormant: true 면 「휴면」 (홈 LAB 표시와 같은 기준)
 const labPages = [
@@ -57,6 +57,7 @@ const ExhibitionDetail = () => {
           })}
         </div>
       </main>
+      <SiteFooter />
     </div>
   );
 };

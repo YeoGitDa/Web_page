@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { SiteHeader, PageHead } from './SiteHeader';
+import { SiteHeader, PageHead, SiteFooter } from './SiteHeader';
 
 // 왼쪽 목록 — dormant: true 면 「휴면」 (홈·전시와 같은 기준)
 const LABS = [
@@ -117,6 +117,7 @@ const LabDetail = () => {
           </article>
         )}
       </main>
+      <SiteFooter />
     </div>
   );
 };

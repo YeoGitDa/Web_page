@@ -1,18 +1,21 @@
 # 여백 웹 디자인 가이드
 
-**기준은 v3 시안** (`public/ui-mockup-main-v3.html`). 새 페이지·섹션은 아래 부품을 가져다 쓰고, 색·크기를 손으로 정하지 않는다.
+**값의 기준은 [YeoGitDa/Design](https://github.com/YeoGitDa/Design)** (`tokens/` · `system/`). 이 문서는 그 값을 이 사이트에서 쓰는 법. 배치는 v3 시안(`public/ui-mockup-main-v3.html`). 새 페이지·섹션은 아래 부품을 가져다 쓰고, 색·크기를 손으로 정하지 않는다.
 
-> 한 줄 요약 — 헤더는 `SiteHeader`, 페이지 맨 위는 `PageHead`, 구역 제목은 `SectionHead`, 나머지는 흰 카드.
+> 한 줄 요약 — 헤더 `SiteHeader` · 바닥글 `SiteFooter` · 페이지 머리 `PageHead` · 구역 제목 `SectionHead` · 버튼 `Button` · 카드 `Card`.
 
 ---
 
 ## 1. 부품 (먼저 이것부터)
 
-모두 `src/components/SiteHeader.jsx` 에 있다.
+`SiteHeader` · `SiteFooter` · `PageHead` · `SectionHead` 는 `src/components/SiteHeader.jsx`, `Button` · `Card` 는 `src/components/ui.jsx`.
 
 | 부품 | 언제 | 쓰는 법 |
 |---|---|---|
 | `SiteHeader` | **모든 페이지 맨 위** | `<SiteHeader suffix="About" />` → 로고 옆 「YEOBAEK \| About」 |
+| `SiteFooter` | **모든 페이지 맨 아래** | `<SiteFooter />` — 연도 자동 |
+| `Button` | 누르는 것 전부 | `<Button to="/recruit">모집 보기</Button>` · `variant="secondary"` · 밖 링크는 `href` |
+| `Card` | 흰 카드 | `<Card to="/chatbot" image="/backend/image/x.png">…</Card>` — 링크가 있으면 hover |
 | `PageHead` | 하위 페이지 제목부 | `<PageHead eyebrow="ABOUT" title="동아리 여백을 소개합니다" desc="한 줄 설명" />` |
 | `SectionHead` | 페이지 안 구역 제목 | `<SectionHead eyebrow="LAB" title="LAB Info" desc="한 줄 설명" />` |
 
@@ -22,24 +25,32 @@
 
 ## 2. 색
 
-Tailwind 기본 색 이름만 쓴다. `#74A874` 같은 색 코드를 직접 쓰지 않는다.
+Design 레포 CI 색. `tailwind.config.js` 가 `design/tailwind.preset.js` 를 쓰므로 **기존 `emerald-*` 클래스는 CI 초록으로 바뀌어 나온다** (500 = leaf `#3A8C75` · 700 = forest `#31594E` · 800 = deep · 900 = night). 새로 쓸 때는 `yb-*` 이름을 권장. `#74A874` 같은 색 코드를 직접 쓰지 않는다.
 
 | 용도 | 클래스 |
 |---|---|
-| 강조 (버튼 · 라벨 · 링크) | `emerald-700` · 누르면 `emerald-800` |
-| 강조 배경 (선택된 메뉴 · 아이콘 칸) | `emerald-50` · 글자는 `emerald-900` |
+| 강조 (버튼 · 라벨 · 링크) | `yb-forest` (= `emerald-700`) · 누르면 `yb-deep` |
+| 강조 바탕 (선택된 메뉴 · 아이콘 칸) | `yb-leaf-12` · 글자는 `yb-forest` |
+| 구역 바탕 | `yb-leaf-6` 또는 `white` · 페이지 바탕 `slate-50` |
+| 큰 제목·장식 | `yb-leaf` — **작은 글자·흰 글씨 바탕 금지** (흰 바탕 대비 4.05) |
+| 어두운 바탕 (바닥글) | `yb-night` |
 | 제목 글자 | `slate-900` |
 | 본문 글자 | `slate-600` |
 | 보조 글자 (설명 · 날짜 외) | `slate-500` · 더 흐리게 `slate-400` |
 | 선 · 카드 테두리 | `slate-200` |
-| 페이지 바탕 | `slate-50` (구역을 번갈아 `white`) |
+| 오류 | `yb-danger` — 오류 표시에만 |
 | 비활성 · 휴면 | 바탕 `slate-50` · 글자 `slate-400` · 배지 `slate-100`/`slate-500` |
+
+- 파랑·보라·주황·분홍 등 그 밖의 색은 쓰지 않는다
+- 곰 머스터드는 곰 그림 안에서만
 
 ## 3. 글자
 
+글꼴: 본문·제목 **Pretendard** (기본 `font-sans`) · 로고 YEOBAEK 와 영문 라벨은 **Montserrat** (`font-brand`). Montserrat 는 한글이 없으므로 한글에 쓰지 않는다
+
 | 단계 | 클래스 | 예 |
 |---|---|---|
-| 라벨 (영문 소문자 → 자동 대문자) | `text-xs font-bold uppercase tracking-[0.14em] text-emerald-700` | ABOUT · NEWS |
+| 라벨 (영문 소문자 → 자동 대문자) | `font-brand text-xs font-bold uppercase tracking-[0.14em] text-yb-forest` | ABOUT · NEWS |
 | 페이지·구역 제목 | `text-3xl sm:text-4xl font-bold tracking-tight text-slate-900` | 동아리 여백을 소개합니다 |
 | 카드 제목 | `text-lg font-bold text-slate-900` | LAB 1 |
 | 본문 | `text-sm leading-relaxed text-slate-600` (긴 글은 `text-base`) | 카드 설명 |
@@ -58,11 +69,13 @@ Tailwind 기본 색 이름만 쓴다. `#74A874` 같은 색 코드를 직접 쓰�
 
 ## 5. 카드 · 버튼
 
+`Button` · `Card` 부품을 쓴다. 직접 만들어야 할 때의 값:
+
 ```
-카드        rounded-2xl border border-slate-200 bg-white shadow-sm p-6
-누르는 카드  + transition hover:-translate-y-1 hover:shadow-md
-주 버튼     rounded-full bg-emerald-700 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-800
-보조 버튼    rounded-full border border-emerald-700 px-4 py-2 text-sm font-semibold text-emerald-700 hover:bg-emerald-50
+카드        rounded-card border border-slate-200 bg-white shadow-rest p-6
+누르는 카드  + transition hover:-translate-y-1 hover:shadow-hover
+주 버튼     rounded-full bg-yb-forest px-4 py-2 text-sm font-semibold text-white hover:bg-yb-deep
+보조 버튼    rounded-full border border-yb-forest px-4 py-2 text-sm font-semibold text-yb-forest hover:bg-yb-leaf-12
 ```
 
 - 눌러서 넘어가는 건 `Link`(사이트 안) 또는 `a target="_blank"`(밖). `div onClick` 으로 만들지 않는다
