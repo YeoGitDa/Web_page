@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { SiteFooter } from './SiteHeader';
 
 /*
  * 문의 밴드 (v3 시안) + 바닥글
@@ -84,10 +85,7 @@ function Contact() {
           </form>
         </div>
       </section>
-
-      <footer className="border-t border-slate-200 bg-slate-50 px-5 py-8 text-center text-xs text-slate-500">
-        © 2024 YEOBAEK. All Rights Reserved.
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

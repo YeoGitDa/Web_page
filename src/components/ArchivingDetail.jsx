@@ -1,4 +1,4 @@
-import { SiteHeader, PageHead } from './SiteHeader';
+import { SiteHeader, PageHead, SiteFooter } from './SiteHeader';
 
 // 아카이빙이 할 일 4단계 (LAB 2 기능 목록 기준)
 const STEPS = ['수집', '메타데이터', '검색', '공유'];
@@ -28,6 +28,7 @@ const ArchivingDetail = () => (
         </a>
       </section>
     </main>
+    <SiteFooter />
   </div>
 );
 

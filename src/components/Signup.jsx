@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { SiteHeader } from './SiteHeader';
+import { SiteHeader, SiteFooter } from './SiteHeader';
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -223,10 +223,7 @@ function Signup() {
           </div>
         </div>
       </main>
-
-      <footer className="border-t border-slate-200 bg-slate-50 py-8 px-4 text-center text-sm text-slate-500">
-        &copy; 2026 YeoBaek. All rights reserved.
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
