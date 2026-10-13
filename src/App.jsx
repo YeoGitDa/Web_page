@@ -93,10 +93,10 @@ function HomePage() {
               Service 구경하기
             </button>
             <button
-              onClick={() => document.getElementById('service-info')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('club-news')?.scrollIntoView({ behavior: 'smooth' })}
               className="bg-transparent w-60 text-gray-800 border border-gray-700 px-8 py-4 md:px-12 md:py-5 rounded-full text-base md:text-lg font-semibold cursor-pointer backdrop-blur-xl transition-all hover:scale-105 hover:border-gray-600"
             >
-              LAB 구경하기
+              소식 보기
             </button>
           </div>
 
