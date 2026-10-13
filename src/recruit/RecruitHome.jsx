@@ -65,14 +65,14 @@ export default function RecruitHome() {
         {/* 인력풀 */}
         <Link
           to="/recruit/talent-pool"
-          className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:border-sky-300 hover:shadow-lg"
+          className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:border-yb-leaf-24 hover:shadow-lg"
         >
-          <div className="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full bg-sky-50 text-sky-600 transition group-hover:bg-sky-600 group-hover:text-white">
+          <div className="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full bg-yb-leaf-6 text-yb-forest transition group-hover:bg-yb-forest group-hover:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
           </div>
-          <span className="text-xs font-semibold uppercase tracking-wide text-sky-700">
+          <span className="text-xs font-semibold uppercase tracking-wide text-yb-forest">
             Talent Pool
           </span>
           <h2 className="mt-2 text-2xl font-bold text-slate-900">인력풀 등록</h2>
@@ -80,7 +80,7 @@ export default function RecruitHome() {
             공모전, 해커톤, 학술대회 등에 필요할 때 연락드릴 수 있도록
             역량과 가용 시간을 남겨 주세요. 부원 지원과는 별개입니다.
           </p>
-          <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-sky-800 transition group-hover:gap-3">
+          <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-yb-forest transition group-hover:gap-3">
             등록 폼 작성
             <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
           </div>
@@ -90,14 +90,14 @@ export default function RecruitHome() {
       {/* 기회 탐색 */}
       <Link
         to="/recruit/opportunities"
-        className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-amber-50/40 p-8 shadow-sm transition hover:border-amber-300 hover:shadow-lg"
+        className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:border-yb-leaf-24 hover:shadow-lg"
       >
-        <div className="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full bg-amber-50 text-amber-600 transition group-hover:bg-amber-600 group-hover:text-white">
+        <div className="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full bg-yb-leaf-6 text-yb-forest transition group-hover:bg-yb-forest group-hover:text-white">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
         </div>
-        <span className="text-xs font-semibold uppercase tracking-wide text-amber-700">
+        <span className="text-xs font-semibold uppercase tracking-wide text-yb-forest">
           Opportunities
         </span>
         <h2 className="mt-2 text-2xl font-bold text-slate-900">기회 탐색</h2>
@@ -105,7 +105,7 @@ export default function RecruitHome() {
           공모전, 해커톤, 학술대회, 교육 등 외부 기회를 확인하세요.
           인력풀 프로필에 맞는 기회를 매칭해 드립니다.
         </p>
-        <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-amber-800 transition group-hover:gap-3">
+        <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-yb-forest transition group-hover:gap-3">
           기회 둘러보기
           <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
         </div>
@@ -115,14 +115,14 @@ export default function RecruitHome() {
       {/* AI 매칭 */}
       <Link
         to="/recruit/match"
-        className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-violet-50/40 p-8 shadow-sm transition hover:border-violet-300 hover:shadow-lg"
+        className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:border-yb-leaf-24 hover:shadow-lg"
       >
-        <div className="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full bg-violet-50 text-violet-600 transition group-hover:bg-violet-600 group-hover:text-white">
+        <div className="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full bg-yb-leaf-6 text-yb-forest transition group-hover:bg-yb-forest group-hover:text-white">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
           </svg>
         </div>
-        <span className="text-xs font-semibold uppercase tracking-wide text-violet-700">
+        <span className="text-xs font-semibold uppercase tracking-wide text-yb-forest">
           Matching
         </span>
         <h2 className="mt-2 text-2xl font-bold text-slate-900">매칭 결과</h2>
@@ -130,7 +130,7 @@ export default function RecruitHome() {
           인력풀 프로필과 등록된 기회를 태그 기반으로 매칭합니다.
           도메인, 기술스택, 역할, 가용성을 종합 평가합니다.
         </p>
-        <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-violet-800 transition group-hover:gap-3">
+        <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-yb-forest transition group-hover:gap-3">
           매칭 확인하기
           <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
         </div>

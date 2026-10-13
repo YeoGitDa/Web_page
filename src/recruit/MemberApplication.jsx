@@ -112,7 +112,7 @@ export default function MemberApplication() {
 
   const resultColors = {
     ok: 'border-emerald-200 bg-emerald-50 text-emerald-800',
-    local: 'border-amber-200 bg-amber-50 text-amber-800',
+    local: 'border-slate-300 bg-slate-50 text-slate-700',
     error: 'border-red-200 bg-red-50 text-red-800',
   };
 

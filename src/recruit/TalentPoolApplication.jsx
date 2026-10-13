@@ -13,7 +13,7 @@ import {
 import TagSelector from './TagSelector.jsx';
 
 const inputClass =
-  'mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-sky-600 focus:outline-none focus:ring-1 focus:ring-sky-600';
+  'mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-yb-forest focus:outline-none focus:ring-1 focus:ring-yb-forest';
 const labelClass = 'block text-sm font-medium text-slate-700';
 const hintClass = 'mt-1 text-xs text-slate-400';
 
@@ -126,15 +126,15 @@ export default function TalentPoolApplication() {
   };
 
   const resultColors = {
-    ok: 'border-sky-200 bg-sky-50 text-sky-800',
-    local: 'border-amber-200 bg-amber-50 text-amber-800',
+    ok: 'border-yb-leaf-24 bg-yb-leaf-6 text-yb-forest',
+    local: 'border-slate-300 bg-slate-50 text-slate-700',
     error: 'border-red-200 bg-red-50 text-red-800',
   };
 
   return (
     <div className="mx-auto max-w-2xl">
       <div className="mb-8">
-        <Link to="/recruit" className="text-sm font-medium text-sky-700 hover:underline">
+        <Link to="/recruit" className="text-sm font-medium text-yb-forest hover:underline">
           &larr; 모집 홈
         </Link>
         <h1 className="mt-4 text-3xl font-bold tracking-tight text-slate-900">인력풀 등록</h1>
@@ -323,7 +323,7 @@ export default function TalentPoolApplication() {
               type="checkbox"
               checked={form.privacyAgree}
               onChange={onChange}
-              className="mt-0.5 h-4 w-4 rounded border-slate-300 text-sky-600 focus:ring-sky-500"
+              className="mt-0.5 h-4 w-4 rounded border-slate-300 text-yb-forest focus:ring-yb-leaf"
             />
             <label htmlFor="t-privacy" className="text-sm text-slate-700">
               개인정보 수집/이용에 동의합니다. *
@@ -337,7 +337,7 @@ export default function TalentPoolApplication() {
           <button
             type="submit"
             disabled={submitting}
-            className="w-full rounded-xl bg-sky-800 py-3.5 text-sm font-bold text-white shadow-md transition hover:bg-sky-700 hover:shadow-lg disabled:opacity-60"
+            className="w-full rounded-xl bg-yb-forest py-3.5 text-sm font-bold text-white shadow-md transition hover:bg-yb-deep hover:shadow-lg disabled:opacity-60"
           >
             {submitting ? '제출 중...' : '인력풀 등록 제출'}
           </button>
