@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { SiteBrandMark } from './SiteBrandMark';
+import { SiteHeader, PageHead } from './SiteHeader';
 
 const ChatBotDetail = () => {
-  const navigate = useNavigate();
 
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([
@@ -42,24 +40,8 @@ const ChatBotDetail = () => {
 
   return (
     <div className="min-h-screen bg-white font-sans">
-      {/* Navigation */}
-      <nav className="sticky top-0 z-20 flex justify-between items-center px-6 py-4 md:px-16 bg-emerald-900/90 backdrop-blur-xl border-b border-white/10">
-        <button
-          onClick={() => navigate('/')}
-          className="flex items-center gap-3 text-white text-xl md:text-2xl font-semibold cursor-pointer hover:opacity-80 transition-opacity"
-        >
-          <img src="/backend/image/logo.png" alt="Yeobaek Logo" className="h-8" />
-          <span className="leading-none font-bold tracking-tight">
-            <SiteBrandMark suffix="Chatbot" />
-          </span>
-        </button>
-        <button
-          onClick={() => navigate('/')}
-          className="text-white opacity-80 hover:opacity-100 transition-opacity text-sm"
-        >
-          ← Back to Home
-        </button>
-      </nav>
+      <SiteHeader suffix="Chatbot" />
+      <PageHead eyebrow="CHATBOT" title="여불이와 대화하기" desc="여백 자료를 바탕으로 답하는 AI 챗봇입니다." />
 
       {/* ── Section 1: Hero (챗봇 데모) ── */}
       <section className="px-6 md:px-16 py-16 bg-white">

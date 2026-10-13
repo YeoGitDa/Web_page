@@ -1,27 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { SiteBrandMark } from './SiteBrandMark';
+import { SiteHeader, PageHead } from './SiteHeader';
 
 const ArchivingDetail = () => {
-  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="sticky top-0 z-20 flex justify-between items-center px-4 py-4 md:px-16 bg-emerald-900/90 backdrop-blur-xl border-b border-white/10">
-        <div className="flex items-center gap-3 text-white text-xl md:text-2xl font-semibold tracking-tight">
-          <img src="/backend/image/logo.png" alt="Yeobaek Logo" className="h-8" />
-          <span className="leading-none font-bold">
-            <SiteBrandMark suffix="Archiving" />
-          </span>
-        </div>
-        <button
-          onClick={() => navigate('/')}
-          className="text-white no-underline opacity-90 hover:opacity-100 transition-opacity"
-        >
-          ← Back to Home
-        </button>
-      </nav>
+      <SiteHeader suffix="Archiving" />
+      <PageHead eyebrow="ARCHIVING" title="디지털 아카이빙" desc="여백과 전공 동아리의 활동 기록을 모으는 곳입니다. 지금은 준비 중이에요." />
 
       {/* Content */}
       <div className="flex items-center justify-center min-h-[calc(100vh-80px)] py-20 px-5">

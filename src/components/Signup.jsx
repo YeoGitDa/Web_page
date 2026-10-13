@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { SiteBrandMark } from './SiteBrandMark';
+import { SiteHeader } from './SiteHeader';
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -84,25 +84,7 @@ function Signup() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
-      {/* Navigation Header */}
-      <nav className="w-full bg-white border-b border-gray-200 px-8 py-4">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-2 text-2xl font-bold text-emerald-700 tracking-tight">
-            <img src="/backend/image/logo.png" alt="YB Logo" className="h-6" />
-            <span className="leading-none">
-              <SiteBrandMark suffix="Signup" tone="onLight" />
-            </span>
-          </Link>
-          <div className="flex gap-8 text-gray-700">
-            <Link to="/" className="hover:text-emerald-700 transition-colors">Home</Link>
-            <Link to="/#service" className="hover:text-emerald-700 transition-colors">Services</Link>
-            <Link to="/#about" className="hover:text-emerald-700 transition-colors">About</Link>
-          </div>
-          <Link to="/login" className="bg-emerald-700 text-white px-6 py-2 rounded-md hover:bg-emerald-800 transition-colors">
-            Login
-          </Link>
-        </div>
-      </nav>
+      <SiteHeader suffix="Signup" />
 
       {/* Main Content */}
       <main className="flex-1 flex items-center justify-center px-4 py-12">

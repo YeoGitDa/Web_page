@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { SiteBrandMark } from './SiteBrandMark';
+import { SiteHeader, PageHead } from './SiteHeader';
 import HTMLFlipBook from 'react-pageflip';
 
 // LAB 데이터
@@ -32,7 +31,6 @@ const Page = React.forwardRef((props, ref) => (
 ));
 
 const ExhibitionDetail = () => {
-  const navigate = useNavigate();
   const bookRef = useRef(null);
   const [currentPage, setCurrentPage] = useState(0);
   const [bookKey, setBookKey] = useState(0);
@@ -57,18 +55,8 @@ const ExhibitionDetail = () => {
   const pageHeight = isMobile ? 420 : 500;
 
   return (
-    <div className="min-h-screen bg-slate-50"> {/* 배경을 약간 어둡게 해서 책이 돋보이게 수정 */}
-      <nav className="sticky top-0 z-20 flex items-center px-4 py-4 md:px-16 bg-emerald-900/90 backdrop-blur-xl border-b border-white/10">
-        <div className="flex items-center gap-3 text-white text-xl md:text-2xl font-semibold tracking-tight">
-          <img src="/backend/image/logo.png" alt="Yeobaek Logo" className="h-8" />
-          <span className="leading-none font-bold">
-            <SiteBrandMark suffix="Exhibition" />
-          </span>
-        </div>
-        <button onClick={() => navigate('/')} className="ml-6 text-white text-sm opacity-90 hover:opacity-100 transition-opacity cursor-pointer bg-transparent border-none">
-          ← Back to Home
-        </button>
-      </nav>
+    <div className="min-h-screen bg-slate-50"> <SiteHeader suffix="Exhibition" />
+ <PageHead eyebrow="EXHIBITION" title="산출물 전시" desc="여백 활동 산출물을 책처럼 넘겨 볼 수 있습니다." />
 
       <div className="flex flex-col items-center justify-center min-h-[calc(100vh-64px)] py-8 px-4">
         <HTMLFlipBook

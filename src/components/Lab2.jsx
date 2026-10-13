@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { SiteBrandMark } from './SiteBrandMark';
+import { SiteHeader } from './SiteHeader';
 
 const LabDetail = () => {
   const navigate = useNavigate();
@@ -71,21 +71,7 @@ const LabDetail = () => {
   if (labNumber !== '2' || !currentLab) {
     return (
       <div className="min-h-screen bg-white">
-        {/* Navigation */}
-        <nav className="sticky top-0 z-20 flex items-center px-4 py-4 md:px-16 bg-emerald-800/40 backdrop-blur-xl border-b border-white/10">
-          <div className="flex items-center gap-3 text-white text-xl md:text-2xl font-semibold tracking-tight">
-            <img src="/backend/image/logo.png" alt="Yeobaek Logo" className="h-8" />
-            <span className="leading-none font-bold">
-              <SiteBrandMark suffix={labBrandSuffix} />
-            </span>
-          </div>
-          <button
-            onClick={() => navigate('/')}
-            className="ml-6 text-white text-sm no-underline opacity-90 hover:opacity-100 transition-opacity bg-transparent border-none cursor-pointer"
-          >
-            ← Back to Home
-          </button>
-        </nav>
+        <SiteHeader suffix={labBrandSuffix} />
 
         {/* Content */}
         <div className="flex items-center justify-center min-h-[calc(100vh-80px)] py-20 px-5">
@@ -103,21 +89,7 @@ const LabDetail = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="sticky top-0 z-20 flex items-center px-4 py-4 md:px-16 bg-emerald-800/40 backdrop-blur-xl border-b border-white/10">
-        <div className="flex items-center gap-3 text-white text-xl md:text-2xl font-semibold tracking-tight">
-          <img src="/backend/image/logo.png" alt="Yeobaek Logo" className="h-8" />
-          <span className="leading-none font-bold">
-            <SiteBrandMark suffix={labBrandSuffix} />
-          </span>
-        </div>
-        <button
-          onClick={() => navigate('/')}
-          className="ml-6 text-white text-sm no-underline opacity-90 hover:opacity-100 transition-opacity bg-transparent border-none cursor-pointer"
-        >
-          ← Back to Home
-        </button>
-      </nav>
+      <SiteHeader suffix={labBrandSuffix} />
 
       {/* Main Layout with Sidebar */}
       <div className="max-w-[1600px] mx-auto px-4 md:px-8 py-8 md:py-12">

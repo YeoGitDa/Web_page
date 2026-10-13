@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { SiteBrandMark } from './SiteBrandMark';
+import { SiteHeader, PageHead } from './SiteHeader';
 
 const About = () => {
   const teamMembers = [
@@ -60,28 +60,9 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-8 py-6 bg-emerald-800/40 backdrop-blur-xl border-b border-white/10">
-        <Link to="/" className="flex items-center gap-3 text-white text-xl md:text-2xl font-bold no-underline tracking-tight">
-          <img src="/backend/image/logo.png" alt="Yeobaek Logo" className="h-5" />
-          <span className="leading-none">
-            <SiteBrandMark suffix="About" />
-          </span>
-        </Link>
-        <div className="flex gap-6 text-white text-lg md:text-xl">
-          <Link to="/" className="text-white no-underline opacity-90 hover:opacity-100 transition-opacity">Home</Link>
-          <a href="/#service" className="text-white no-underline opacity-90 hover:opacity-100 transition-opacity">Service</a>
-          <Link to="/about" className="text-white no-underline opacity-100 font-semibold">About</Link>
-        </div>
-      </nav>
+      <SiteHeader suffix="About" />
 
-      {/* Hero Section */}
-      <section className="pt-40 pb-20 px-5 md:px-10 text-center relative">
-        <h1 className="text-6xl md:text-8xl font-bold mb-6 text-gray-800 tracking-tight">About Yeobaek</h1>
-        <p className="text-2xl md:text-3xl text-gray-600 font-light max-w-6xl mx-auto whitespace-nowrap">
-          문헌정보학을 기반으로 학과의 소통과 정보 공유를 위해 만들어진 동아리입니다
-        </p>
-      </section>
+      <PageHead eyebrow="ABOUT" title="동아리 여백을 소개합니다" desc="문헌정보학을 기반으로 학과의 소통과 정보 공유를 위해 만들어진 동아리입니다." />
 
       {/* Our History Section */}
       <section className="py-28 md:py-40 px-5 md:px-10 bg-gray-50/50 relative">
