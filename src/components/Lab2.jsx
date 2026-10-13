@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { SiteBrandMark } from './SiteBrandMark';
 
 const LabDetail = () => {
   const navigate = useNavigate();
@@ -64,6 +65,7 @@ const LabDetail = () => {
   };
 
   const currentLab = labData[labNumber];
+  const labBrandSuffix = labNumber ? `Lab ${labNumber}` : 'Lab';
 
   // LAB2가 아닌 경우 기본 화면 표시
   if (labNumber !== '2' || !currentLab) {
@@ -71,9 +73,11 @@ const LabDetail = () => {
       <div className="min-h-screen bg-white">
         {/* Navigation */}
         <nav className="sticky top-0 z-20 flex items-center px-4 py-4 md:px-16 bg-emerald-800/40 backdrop-blur-xl border-b border-white/10">
-          <div className="flex items-center gap-5 text-white text-xl md:text-2xl font-semibold">
+          <div className="flex items-center gap-3 text-white text-xl md:text-2xl font-semibold tracking-tight">
             <img src="/backend/image/logo.png" alt="Yeobaek Logo" className="h-8" />
-            Yeobaek
+            <span className="leading-none font-bold">
+              <SiteBrandMark suffix={labBrandSuffix} />
+            </span>
           </div>
           <button
             onClick={() => navigate('/')}
@@ -101,9 +105,11 @@ const LabDetail = () => {
     <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="sticky top-0 z-20 flex items-center px-4 py-4 md:px-16 bg-emerald-800/40 backdrop-blur-xl border-b border-white/10">
-        <div className="flex items-center gap-5 text-white text-xl md:text-2xl font-semibold">
+        <div className="flex items-center gap-3 text-white text-xl md:text-2xl font-semibold tracking-tight">
           <img src="/backend/image/logo.png" alt="Yeobaek Logo" className="h-8" />
-          Yeobaek
+          <span className="leading-none font-bold">
+            <SiteBrandMark suffix={labBrandSuffix} />
+          </span>
         </div>
         <button
           onClick={() => navigate('/')}

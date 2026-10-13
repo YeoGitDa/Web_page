@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { SiteBrandMark } from './SiteBrandMark';
 
 const About = () => {
   const teamMembers = [
@@ -61,9 +62,11 @@ const About = () => {
     <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-8 py-6 bg-emerald-800/40 backdrop-blur-xl border-b border-white/10">
-        <Link to="/" className="flex items-center gap-3 text-white text-xl md:text-2xl font-bold no-underline">
+        <Link to="/" className="flex items-center gap-3 text-white text-xl md:text-2xl font-bold no-underline tracking-tight">
           <img src="/backend/image/logo.png" alt="Yeobaek Logo" className="h-5" />
-          Yeobaek
+          <span className="leading-none">
+            <SiteBrandMark suffix="About" />
+          </span>
         </Link>
         <div className="flex gap-6 text-white text-lg md:text-xl">
           <Link to="/" className="text-white no-underline opacity-90 hover:opacity-100 transition-opacity">Home</Link>
