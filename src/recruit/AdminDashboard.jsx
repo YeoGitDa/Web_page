@@ -14,9 +14,9 @@ import { matchOpportunity } from './matchEngine.js';
 function StatCard({ label, value, sub, color = 'slate' }) {
   const bg = {
     emerald: 'bg-emerald-50 text-emerald-800',
-    sky: 'bg-sky-50 text-sky-800',
-    amber: 'bg-amber-50 text-amber-800',
-    violet: 'bg-violet-50 text-violet-800',
+    sky: 'bg-yb-leaf-6 text-yb-forest',
+    amber: 'bg-yb-leaf-6 text-yb-forest',
+    violet: 'bg-yb-leaf-6 text-yb-forest',
     slate: 'bg-slate-50 text-slate-800',
   };
   return (
@@ -158,7 +158,7 @@ export default function AdminDashboard() {
               <p className="mt-2 text-sm text-slate-400">기회와 인력풀을 등록하면 여기에 현황이 표시됩니다.</p>
               <div className="mt-6 flex justify-center gap-3">
                 <Link to="/recruit/opportunities/new" className="rounded-lg bg-emerald-800 px-4 py-2 text-sm font-bold text-white hover:bg-emerald-700">기회 등록</Link>
-                <Link to="/recruit/talent-pool" className="rounded-lg bg-sky-800 px-4 py-2 text-sm font-bold text-white hover:bg-sky-700">인력풀 등록</Link>
+                <Link to="/recruit/talent-pool" className="rounded-lg bg-yb-forest px-4 py-2 text-sm font-bold text-white hover:bg-yb-deep">인력풀 등록</Link>
               </div>
             </div>
           ) : (
@@ -188,14 +188,14 @@ export default function AdminDashboard() {
                           <div className="text-right">
                             <span className={`rounded-full px-2 py-0.5 text-xs font-bold ${
                               topMatch.score >= 80 ? 'bg-emerald-100 text-emerald-800'
-                              : topMatch.score >= 60 ? 'bg-sky-100 text-sky-800'
+                              : topMatch.score >= 60 ? 'bg-yb-leaf-6 text-yb-forest'
                               : 'bg-slate-100 text-slate-500'
                             }`}>
                               최고 {topMatch.score}점
                             </span>
                           </div>
                         )}
-                        <Link to="/recruit/match" className="text-xs font-medium text-violet-700 hover:underline">상세</Link>
+                        <Link to="/recruit/match" className="text-xs font-medium text-yb-forest hover:underline">상세</Link>
                       </div>
                     ))}
                   </div>
@@ -241,7 +241,7 @@ export default function AdminDashboard() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="이름, 학과, 기술 검색..."
-              className="flex-1 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
+              className="flex-1 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm placeholder:text-slate-400 focus:border-yb-leaf focus:outline-none focus:ring-1 focus:ring-yb-leaf"
             />
             <select value={filterDomain} onChange={(e) => setFilterDomain(e.target.value)} className={selectClass}>
               <option value="">전체 도메인</option>
@@ -272,7 +272,7 @@ export default function AdminDashboard() {
                     <div className="flex-1">
                       <div className="flex items-center gap-3">
                         <h3 className="text-lg font-bold text-slate-900">{p.name}</h3>
-                        <span className="rounded-full bg-sky-100 px-2 py-0.5 text-xs font-medium text-sky-800">{p.status || 'candidate'}</span>
+                        <span className="rounded-full bg-yb-leaf-12 px-2 py-0.5 text-xs font-medium text-yb-forest">{p.status || 'candidate'}</span>
                       </div>
                       <p className="mt-1 text-sm text-slate-500">
                         {p.department || ''}{p.student_id ? ` · ${p.student_id}` : ''}
@@ -303,7 +303,7 @@ export default function AdminDashboard() {
                           {p.project_history && <p>프로젝트: {p.project_history}</p>}
                           {p.awards && <p>수상: {p.awards}</p>}
                           {p.portfolio_url && (
-                            <p>포트폴리오: <a href={p.portfolio_url} target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">{p.portfolio_url}</a></p>
+                            <p>포트폴리오: <a href={p.portfolio_url} target="_blank" rel="noopener noreferrer" className="text-yb-forest hover:underline">{p.portfolio_url}</a></p>
                           )}
                         </div>
                       )}
@@ -352,7 +352,7 @@ export default function AdminDashboard() {
                           <h3 className="text-lg font-bold text-slate-900">{opp.title}</h3>
                           <span className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${
                             opp.status === '모집중' ? 'bg-emerald-100 text-emerald-800'
-                            : opp.status === '모집예정' ? 'bg-blue-100 text-blue-800'
+                            : opp.status === '모집예정' ? 'bg-yb-leaf-6 text-yb-forest'
                             : 'bg-slate-100 text-slate-500'
                           }`}>{opp.status}</span>
                         </div>
@@ -368,7 +368,7 @@ export default function AdminDashboard() {
                             <span key={s} className="rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-600">{s}</span>
                           ))}
                           {opp.matching_tags?.required_roles?.map((r) => (
-                            <span key={r} className="rounded-full bg-violet-50 px-2 py-0.5 text-xs text-violet-700">{r}</span>
+                            <span key={r} className="rounded-full bg-yb-leaf-6 px-2 py-0.5 text-xs text-yb-forest">{r}</span>
                           ))}
                         </div>
 
@@ -381,7 +381,7 @@ export default function AdminDashboard() {
                       </div>
 
                       <div className="ml-4 flex flex-col gap-2">
-                        <Link to="/recruit/match" className="rounded-lg border border-violet-200 px-3 py-1.5 text-center text-xs font-medium text-violet-700 hover:bg-violet-50">
+                        <Link to="/recruit/match" className="rounded-lg border border-yb-leaf-24 px-3 py-1.5 text-center text-xs font-medium text-yb-forest hover:bg-yb-leaf-6">
                           매칭
                         </Link>
                         <button

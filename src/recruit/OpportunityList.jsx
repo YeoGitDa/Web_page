@@ -9,9 +9,9 @@ import {
 /* 상태 뱃지 색상 */
 const statusColor = {
   '모집중': 'bg-emerald-100 text-emerald-800',
-  '모집예정': 'bg-blue-100 text-blue-800',
+  '모집예정': 'bg-yb-leaf-6 text-yb-forest',
   '마감': 'bg-slate-100 text-slate-500',
-  '진행중': 'bg-amber-100 text-amber-800',
+  '진행중': 'bg-slate-100 text-slate-700',
   '종료': 'bg-slate-100 text-slate-400',
 };
 
@@ -70,7 +70,7 @@ export default function OpportunityList() {
         </Link>
         <Link
           to="/recruit/match"
-          className="inline-flex items-center gap-2 rounded-xl border border-violet-200 bg-violet-50 px-5 py-2.5 text-sm font-bold text-violet-800 shadow-sm transition hover:bg-violet-100 hover:shadow-md"
+          className="inline-flex items-center gap-2 rounded-xl border border-yb-leaf-24 bg-yb-leaf-6 px-5 py-2.5 text-sm font-bold text-yb-forest shadow-sm transition hover:bg-yb-leaf-12 hover:shadow-md"
         >
           매칭 보기
         </Link>

@@ -24,8 +24,8 @@ export default function TagSelector({ label, options, selected, onChange, color 
       idle: 'border-slate-200 text-slate-600 hover:border-emerald-300 hover:text-emerald-700',
     },
     sky: {
-      active: 'bg-sky-600 text-white border-sky-600',
-      idle: 'border-slate-200 text-slate-600 hover:border-sky-300 hover:text-sky-700',
+      active: 'bg-yb-forest text-white border-yb-forest',
+      idle: 'border-slate-200 text-slate-600 hover:border-yb-leaf-24 hover:text-yb-forest',
     },
   };
 

@@ -7,9 +7,9 @@ import { matchOpportunity, matchProfile, getMatchGrade } from './matchEngine.js'
 function ScoreBar({ value, label, color = 'emerald' }) {
   const colors = {
     emerald: 'bg-emerald-500',
-    sky: 'bg-sky-500',
-    amber: 'bg-amber-500',
-    slate: 'bg-slate-400',
+    sky: 'bg-yb-leaf/60',
+    amber: 'bg-slate-400',
+    slate: 'bg-slate-300',
   };
   return (
     <div className="flex items-center gap-2">
@@ -30,8 +30,8 @@ function GradeBadge({ score }) {
   const { label, color } = getMatchGrade(score);
   const styles = {
     emerald: 'bg-emerald-100 text-emerald-800',
-    sky: 'bg-sky-100 text-sky-800',
-    amber: 'bg-amber-100 text-amber-800',
+    sky: 'bg-yb-leaf-6 text-yb-forest',
+    amber: 'bg-slate-100 text-slate-700',
     slate: 'bg-slate-100 text-slate-500',
   };
   return (
@@ -95,7 +95,7 @@ export default function MatchResults() {
               </Link>
             )}
             {profiles.length === 0 && (
-              <Link to="/recruit/talent-pool" className="rounded-lg bg-sky-800 px-4 py-2 text-sm font-bold text-white hover:bg-sky-700">
+              <Link to="/recruit/talent-pool" className="rounded-lg bg-yb-forest px-4 py-2 text-sm font-bold text-white hover:bg-yb-deep">
                 인력풀 등록
               </Link>
             )}
@@ -115,7 +115,7 @@ export default function MatchResults() {
               </button>
               <button
                 onClick={() => { setViewMode('by-profile'); setSelectedId(''); }}
-                className={`rounded-md px-3 py-1.5 text-sm font-medium transition ${viewMode === 'by-profile' ? 'bg-sky-600 text-white' : 'text-slate-600 hover:bg-slate-100'}`}
+                className={`rounded-md px-3 py-1.5 text-sm font-medium transition ${viewMode === 'by-profile' ? 'bg-yb-forest text-white' : 'text-slate-600 hover:bg-slate-100'}`}
               >
                 프로필 → 기회
               </button>

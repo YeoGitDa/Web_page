@@ -41,22 +41,22 @@ export default function AdminHome() {
 
         <Link
           to="/recruit/opportunities"
-          className="group flex flex-col rounded-2xl border border-amber-100 bg-amber-50/30 p-7 shadow-sm transition hover:border-amber-300 hover:shadow-md"
+          className="group flex flex-col rounded-2xl border border-yb-leaf-12 bg-yb-leaf-6/30 p-7 shadow-sm transition hover:border-yb-leaf-24 hover:shadow-md"
         >
-          <span className="text-xs font-bold uppercase tracking-wide text-amber-800">Opportunities</span>
+          <span className="text-xs font-bold uppercase tracking-wide text-yb-forest">Opportunities</span>
           <h2 className="mt-2 text-xl font-bold text-slate-900">기회 탐색 (공개)</h2>
           <p className="mt-2 flex-1 text-sm text-slate-600">등록된 대외 기회 목록입니다.</p>
-          <span className="mt-4 text-sm font-semibold text-amber-900 group-hover:underline">이동 →</span>
+          <span className="mt-4 text-sm font-semibold text-yb-night group-hover:underline">이동 →</span>
         </Link>
 
         <Link
           to="/recruit/match"
-          className="group flex flex-col rounded-2xl border border-violet-100 bg-violet-50/30 p-7 shadow-sm transition hover:border-violet-300 hover:shadow-md"
+          className="group flex flex-col rounded-2xl border border-yb-leaf-12 bg-yb-leaf-6/30 p-7 shadow-sm transition hover:border-yb-leaf-24 hover:shadow-md"
         >
-          <span className="text-xs font-bold uppercase tracking-wide text-violet-800">Matching</span>
+          <span className="text-xs font-bold uppercase tracking-wide text-yb-forest">Matching</span>
           <h2 className="mt-2 text-xl font-bold text-slate-900">매칭 (공개)</h2>
           <p className="mt-2 flex-1 text-sm text-slate-600">태그 기반 매칭 결과 화면입니다.</p>
-          <span className="mt-4 text-sm font-semibold text-violet-900 group-hover:underline">이동 →</span>
+          <span className="mt-4 text-sm font-semibold text-yb-night group-hover:underline">이동 →</span>
         </Link>
       </div>
     </div>
