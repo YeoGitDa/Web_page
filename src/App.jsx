@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
-import { useState, useRef } from 'react';
+import { useState, useRef, useMemo } from 'react';
 import SplitText from './SplitText';
 import SnowEffect from './SnowEffect';
 import ServiceSections from './components/ServiceSections';
@@ -27,10 +27,12 @@ import AdminShell from './admin/AdminShell';
 import AdminHome from './admin/AdminHome';
 import AdminLogin from './admin/AdminLogin';
 import { SiteHeader } from './components/SiteHeader';
+import { pickTheme } from './theme';
 
 function HomePage() {
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const audioRef = useRef(null);
+  const theme = useMemo(() => pickTheme(), []);
 
   const toggleMusic = () => {
     if (audioRef.current) {
@@ -45,16 +47,38 @@ function HomePage() {
     }
   };
 
+  const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  const buttons = (
+    <div className="flex flex-wrap gap-3 justify-center">
+      <button
+        onClick={() => scrollTo('service')}
+        className="w-52 rounded-full border-none bg-white px-8 py-4 text-base font-semibold text-slate-900 shadow-md cursor-pointer transition-transform hover:scale-105"
+      >
+        Service 구경하기
+      </button>
+      <button
+        onClick={() => scrollTo('club-news')}
+        className={`w-52 rounded-full border px-8 py-4 text-base font-semibold cursor-pointer backdrop-blur-xl transition-transform hover:scale-105 ${
+          theme.light ? 'border-white/60 bg-white/10 text-white' : 'border-slate-700 bg-white/40 text-slate-800'
+        }`}
+      >
+        소식 보기
+      </button>
+    </div>
+  );
+
   return (
     <div className="w-screen min-h-screen bg-gray-50 m-0 p-0 overflow-x-hidden">
-      {/* Background Music */}
-      <audio ref={audioRef} loop>
-        <source src="/backend/image/musicchristmas.mp3" type="audio/mpeg" />
-      </audio>
+      {/* Background Music — 테마에 음악이 있을 때만 */}
+      {theme.music && (
+        <audio ref={audioRef} loop>
+          <source src={theme.music} type="audio/mpeg" />
+        </audio>
+      )}
 
       <SiteHeader
         suffix="Web"
-        right={
+        right={theme.music && (
           <button
             type="button"
             onClick={toggleMusic}
@@ -63,52 +87,49 @@ function HomePage() {
           >
             {isMusicPlaying ? '🔊' : '🔇'}
           </button>
-        }
+        )}
       />
 
-      {/* Hero Section with Image Background */}
-      <div className="relative w-screen h-[calc(100svh-57px)] overflow-hidden">
-        {/* Background Image */}
+      {/* Hero — 배경·효과·글자는 src/theme.json 의 테마가 정한다 */}
+      <div className="relative w-screen h-[calc(100svh-57px)] overflow-hidden" data-theme-name={theme.name}>
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: 'url(/backend/image/summer_back2.png)',
-            filter: 'brightness(0.95)',
-          }}
+          className="absolute inset-0 bg-cover bg-no-repeat bg-[position:15%_100%] md:bg-center"
+          // 휴대폰에선 곰(그림 왼쪽 아래)이 잘리지 않게 왼쪽 아래 기준
+          style={{ backgroundImage: `url(${theme.background})` }}
         />
+        {/* 밝은 글자 테마는 오른쪽을 살짝 어둡게 해 글자를 읽히게 */}
+        {theme.light && theme.showText && <div className="absolute inset-0 bg-gradient-to-l from-black/50 via-black/20 to-transparent" />}
+        {theme.effect && <SnowEffect count={80} effect={theme.effect} />}
 
-        {/* Dark Overlay */}
-        <div className="absolute inset-0" /> 
-
-        {/* Snow Effect */}
-        <SnowEffect count={80} />
-        
-        {/* Hero Content */}
-        <div className="relative z-10 flex flex-col gap-7 items-center justify-end h-full text-gray-800 text-center px-4 pb-32">
-          <div className="flex flex-wrap gap-4 justify-center">
-            <button
-              onClick={() => document.getElementById('service')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-gray-200 w-60 text-black border-none px-8 py-4 md:px-12 md:py-5 rounded-full text-base md:text-lg font-semibold cursor-pointer transition-transform hover:scale-105"
-            >
-              Service 구경하기
-            </button>
-            <button
-              onClick={() => document.getElementById('club-news')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-transparent w-60 text-gray-800 border border-gray-700 px-8 py-4 md:px-12 md:py-5 rounded-full text-base md:text-lg font-semibold cursor-pointer backdrop-blur-xl transition-all hover:scale-105 hover:border-gray-600"
-            >
-              소식 보기
-            </button>
+        {theme.showText ? (
+          // v3 배치 — 곰이 왼쪽에 있으니 글자는 오른쪽 절반
+          <div className="relative z-10 flex h-full items-start px-5 pt-10 md:items-center md:pt-0">
+            <div className={`mx-auto max-w-xl text-center md:ml-[48%] md:mr-0 ${theme.light ? 'text-white' : 'text-slate-900'}`}>
+              <p className={`text-sm font-semibold tracking-wide ${theme.light ? 'text-white/80' : 'text-emerald-800'}`}>
+                문헌정보학 · 데이터 · AI
+              </p>
+              <h1 className="mt-3 text-5xl font-bold tracking-tight md:text-6xl">Yeobaek Web</h1>
+              <p className={`mt-5 text-base leading-relaxed md:text-lg ${theme.light ? 'text-white/85' : 'text-slate-600'}`}>
+                학과 소통과 전공 동아리 활성화를 위한 웹 공간입니다.
+                <br />
+                챗봇 · 아카이빙 · 전시 · LAB을 한곳에서 탐색해 보세요.
+              </p>
+              <div className="mt-8">{buttons}</div>
+            </div>
           </div>
+        ) : (
+          // 배경 그림에 글자(배너)가 들어 있는 테마 — 버튼만 아래에
+          <div className="relative z-10 flex h-full flex-col items-center justify-end px-4 pb-32">{buttons}</div>
+        )}
 
-          {/* Scroll Indicator */}
-          <div 
-            className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer"
-            onClick={() => document.getElementById('service')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-              <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
-            </svg>
-          </div>
+        {/* Scroll Indicator */}
+        <div
+          className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2 animate-bounce cursor-pointer"
+          onClick={() => scrollTo('service')}
+        >
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke={theme.light ? 'white' : '#334155'} strokeWidth="2">
+            <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+          </svg>
         </div>
       </div>
 
