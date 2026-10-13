@@ -62,6 +62,15 @@ export function isUserSession() {
   }
 }
 
+/** 일반 회원 아이디 (없으면 빈 문자열) */
+export function getUserId() {
+  try {
+    return JSON.parse(localStorage.getItem(USER_KEY) || '{}')?.id || '';
+  } catch {
+    return '';
+  }
+}
+
 export function setAdminSession() {
   localStorage.setItem(
     ADMIN_KEY,

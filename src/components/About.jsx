@@ -1,246 +1,86 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { SiteHeader, PageHead } from './SiteHeader';
+import { SiteHeader, PageHead, SectionHead } from './SiteHeader';
 
-const About = () => {
-  const teamMembers = [
-    {
-      name: "김미승",
-      role: [ "LAB 2"],
-      email: "yeobaek1@example.com",
-      image: "/backend/image/duzzonku.png"
-    },
-    {
-      name: "김서희",
-      role: ["LAB 2"],
-      email: "yeobaek2@example.com",
-      image: "/backend/image/duzzonku.png"
-    },
-    {
-      name: "김명주",
-      role: ["운영 지원" , "기획 지원"],
-      email: "yeobaek3@example.com",
-      image: "/backend/image/mj_logo.png"
+// 연혁 — 새 해는 아래에 추가
+const HISTORY = [
+  { year: '2022', text: 'DB 프로그래밍 소모임 창설 "0과 1사이의 여백을 채우다"라는 의미' },
+  { year: '2023', text: 'Python 기반 시각화, 데이터 분석 심화' },
+  { year: '2025', text: '데이터 기반 서비스 기획, LLM활용 마이크로 서비스 개발' },
+];
 
-    },
-    {
-      name: "김찬슬",
-      role: ["디자인"],
-      email: "yeobaek3@example.com",
-      image: "/backend/image/duzzonku.png"
+// 운영진 — v3 시안대로 이름 · 역할만 보인다 (메일은 화면에 안 냄)
+const TEAM = [
+  { name: '김미승', role: ['LAB 2'], image: '/backend/image/duzzonku.png' },
+  { name: '김서희', role: ['LAB 2'], image: '/backend/image/duzzonku.png' },
+  { name: '김명주', role: ['운영 지원', '기획 지원'], image: '/backend/image/mj_logo.png' },
+  { name: '김찬슬', role: ['디자인'], image: '/backend/image/duzzonku.png' },
+  { name: '박다정', role: ['운영', 'LAB 2'], image: '/backend/image/duzzonku.png' },
+  { name: '방규리', role: ['운영', '기획', 'LAB 1', 'LAB 3', 'Frontend'], image: '/backend/image/yuja.png' },
+  { name: '양승빈', role: ['회장', 'Backend', '운영'], image: '/backend/image/duzzonku.png' },
+  { name: 'Coming Soon', role: ['여백의 신입부원 당신을 기다립니다'], image: '/backend/image/duzzonku.png' },
+];
 
-    },
-    {
-      name: "박다정",
-      role: ["운영", "LAB 2"],
-      email: "whatkindof@inu.ac.kr",
-      image: "/backend/image/duzzonku.png"
+const card = 'rounded-2xl border border-slate-200 bg-white shadow-sm';
 
-    },{
-      name: "방규리",
-      role: ["운영" ,"기획", "LAB 1" , "LAB 3" , "Frontend"],
-      email: "minyul0804@gmail.com",
-      image: "/backend/image/yuja.png"
+const About = () => (
+  <div className="min-h-screen bg-slate-50">
+    <SiteHeader suffix="About" />
+    <PageHead eyebrow="ABOUT" title="동아리 여백을 소개합니다" desc="문헌정보학을 기반으로 학과의 소통과 정보 공유를 위해 만들어진 동아리입니다." />
 
-    },{
-      name: "양승빈",
-      role: ["회장" ,"Backend", "운영"],
-      email: "lisyeobaek@gmail.com",
-      image: "/backend/image/duzzonku.png"
-
-    },
-    
-    {
-      name: "Coming Soon",
-      role: ["여백의 신입부원 당신을 기다립니다"],
-      email: "많관부 많사부",
-      image: "/backend/image/duzzonku.png"
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-white">
-      <SiteHeader suffix="About" />
-
-      <PageHead eyebrow="ABOUT" title="동아리 여백을 소개합니다" desc="문헌정보학을 기반으로 학과의 소통과 정보 공유를 위해 만들어진 동아리입니다." />
-
-      {/* Our History Section */}
-      <section className="py-20 px-5 md:px-10 bg-gray-50/50 relative">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-20 md:mb-28">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-gray-800 tracking-tight">여백의 역사</h2>
-            <p className="text-base text-slate-500">여백의 시작부터 현재까지의 발전</p>
-          </div>
-
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-emerald-800/50 via-emerald-800 to-emerald-800/50 -translate-x-1/2 hidden md:block"></div>
-
-            {/* Timeline Items */}
-            <div className="space-y-20 md:space-y-28">
-              {/* 2022 */}
-              <div className="flex flex-col md:flex-row items-center gap-10">
-                <div className="flex-1 text-right pr-0 md:pr-16 p-8 rounded-3xl bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:bg-emerald-900/5 hover:border-emerald-800/50 relative overflow-hidden z-[5]">
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent"></div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-emerald-800 mb-5 tracking-tight relative z-10">2022</h3>
-                  <p className="text-gray-600 text-lg md:text-xl font-light relative z-10">
-                    DB 프로그래밍 소모임 창설 "0과 1사이의 여백을 채우다"라는 의미
-                  </p>
-                </div>
-                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-emerald-800 flex items-center justify-center shadow-lg shadow-emerald-800/50 ring-4 ring-white relative z-20 md:absolute md:left-1/2 md:-translate-x-1/2">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                    <line x1="16" y1="2" x2="16" y2="6"/>
-                    <line x1="8" y1="2" x2="8" y2="6"/>
-                    <line x1="3" y1="10" x2="21" y2="10"/>
-                  </svg>
-                </div>
-                <div className="flex-1 pl-0 md:pl-16"></div>
+    {/* 연혁 — 가운데 선 + 좌우 번갈아 카드 */}
+    <section className="px-5 py-20 sm:px-6">
+      <div className="mx-auto max-w-3xl">
+        <SectionHead eyebrow="History" title="연혁" desc="여백의 시작부터 현재까지" />
+        <div className="relative">
+          <div className="absolute bottom-0 left-1/2 top-0 hidden w-px -translate-x-1/2 bg-emerald-300 md:block" aria-hidden="true" />
+          <ol className="relative m-0 list-none space-y-6 p-0 md:space-y-0">
+          {HISTORY.map((h, i) => (
+            <li key={h.year} className={`md:flex ${i % 2 ? 'md:justify-end' : 'md:justify-start'} md:py-4`}>
+              <div className={`${card} p-5 md:w-[calc(50%-1.5rem)]`}>
+                <p className="text-xl font-bold text-emerald-800">{h.year}</p>
+                <p className="mt-1 text-sm leading-relaxed text-slate-600">{h.text}</p>
               </div>
+            </li>
+          ))}
+          </ol>
+        </div>
+      </div>
+    </section>
 
-              {/* 2023 */}
-              <div className="flex flex-col md:flex-row items-center gap-10">
-                <div className="flex-1 text-left md:text-right pr-0 md:pr-16 order-2 md:order-1"></div>
-                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-emerald-800 flex items-center justify-center shadow-lg shadow-emerald-800/50 ring-4 ring-white relative z-20 md:absolute md:left-1/2 md:-translate-x-1/2">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                    <line x1="16" y1="2" x2="16" y2="6"/>
-                    <line x1="8" y1="2" x2="8" y2="6"/>
-                    <line x1="3" y1="10" x2="21" y2="10"/>
-                  </svg>
-                </div>
-                <div className="flex-1 text-left pl-0 md:pl-16 order-3 p-8 rounded-3xl bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:bg-emerald-900/5 hover:border-emerald-800/50 relative overflow-hidden z-[5]">
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent"></div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-emerald-800 mb-5 tracking-tight relative z-10">2023</h3>
-                  <p className="text-gray-600 text-lg md:text-xl font-light relative z-10">
-                    Python 기반 시각화, 데이터 분석 심화
-                  </p>
-                </div>
-              </div>
-
-              {/* 2025 */}
-              <div className="flex flex-col md:flex-row items-center gap-10">
-                <div className="flex-1 text-right pr-0 md:pr-16 p-8 rounded-3xl bg-white/80 backdrop-blur-3xl border-2 border-emerald-700/40 shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-500 hover:bg-emerald-900/5 hover:border-emerald-800/50 relative overflow-hidden z-[5]">
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/15 to-transparent"></div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-emerald-800 mb-5 tracking-tight relative z-10">2025</h3>
-                  <p className="text-gray-600 text-lg md:text-xl font-light relative z-10">
-                    데이터 기반 서비스 기획, LLM활용 마이크로 서비스 개발
-                  </p>
-                </div>
-                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-emerald-800 flex items-center justify-center shadow-lg shadow-emerald-800/50 ring-4 ring-white relative z-20 md:absolute md:left-1/2 md:-translate-x-1/2">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                    <line x1="16" y1="2" x2="16" y2="6"/>
-                    <line x1="8" y1="2" x2="8" y2="6"/>
-                    <line x1="3" y1="10" x2="21" y2="10"/>
-                  </svg>
-                </div>
-                <div className="flex-1 pl-0 md:pl-16"></div>
-              </div>
+    {/* 운영진 */}
+    <section className="border-t border-slate-200 bg-white px-5 py-20 sm:px-6">
+      <div className="mx-auto max-w-5xl">
+        <SectionHead eyebrow="Team" title="운영진" desc="여백의 기획, 운영, 개발을 담당하는 구성원들" />
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+          {TEAM.map((m) => (
+            <div key={m.name} className={`${card} flex flex-col items-center p-5 text-center`}>
+              <img src={m.image} alt="" className="h-20 w-20 rounded-full object-cover ring-4 ring-emerald-50" />
+              <h3 className="mt-3 text-base font-bold text-slate-900">{m.name}</h3>
+              <p className="mt-1 text-xs leading-relaxed text-slate-500">{m.role.join(' · ')}</p>
             </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* 이야기 */}
+    <section className="border-t border-slate-200 px-5 py-20 sm:px-6">
+      <div className="mx-auto max-w-5xl">
+        <SectionHead eyebrow="Story" title="Our Story" />
+        <div className={`${card} space-y-4 p-6 text-base leading-relaxed text-slate-600`}>
+          <p className="m-0">여백은 2022년 "0과 1사이의 여백을 채우다"라는 의미로 시작된 DB 프로그래밍 소모임입니다.</p>
+          <p className="m-0">문헌정보학을 기반으로 데이터베이스 설계부터 웹 서비스 개발까지, 학과의 소통과 정보 공유를 위한 다양한 프로젝트를 진행하고 있습니다.</p>
+          <p className="m-0">AI 기반 챗봇, 디지털 아카이빙, 큐레이션 서비스 등을 통해 문헌정보학과 학생들의 학습과 성장을 돕고 있습니다.</p>
+        </div>
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-2xl bg-emerald-700 px-6 py-5 text-white">
+          <p className="m-0 font-semibold">여백과 함께 성장해 보세요!</p>
+          <div className="flex gap-2">
+            <a href="/recruit" className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-emerald-800 no-underline hover:bg-emerald-50">모집 보기</a>
+            <a href="mailto:lisyeobaek@gmail.com" className="rounded-full border border-white px-4 py-2 text-sm font-semibold text-white no-underline hover:bg-white/10">문의하기</a>
           </div>
         </div>
-      </section>
-
-      {/* Meet Our Team Section */}
-      <section className="py-20 px-5 md:px-10 bg-gray-50/50 relative">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20 md:mb-28">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-gray-800 tracking-tight">Team Yeobaek</h2>
-            <p className="text-base text-slate-500">여백 의 기획, 운영, 개발을 담당하는 구성원들</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
-            {teamMembers.map((member, index) => (
-              <div
-                key={index}
-                className="p-8 md:p-10 rounded-[2rem] relative bg-gray-100 backdrop-blur-3xl border-2 border-emerald-500/30 shadow-[0_8px_32px_rgba(0,0,0,0.08)] flex flex-col items-center text-center transition-all duration-500 hover:bg-emerald-50/30 hover:shadow-[0_8px_32px_rgba(16,185,129,0.15)] hover:-translate-y-3 hover:border-emerald-500/50 overflow-hidden group"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent"></div>
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#345441] to-emerald-500 scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></div>
-
-                {/* Member Image */}
-                <div className="w-32 h-32 rounded-full overflow-hidden mb-6 bg-white flex items-center justify-center relative z-10 ring-4 ring-[#587650] transition-all duration-500 group-hover:ring-emerald-500/40 group-hover:scale-105">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                {/* Member Info */}
-                <h3 className="text-3xl md:text-4xl font-bold mb-3 text-gray-800 tracking-tight relative z-10">{member.name}</h3>
-
-                <div className="mb-4 relative z-10">
-                  {member.role.map((r, idx) => (
-                    <span
-                      key={idx}
-                      className="inline-block bg-emerald-500/15 text-gray-900 px-4 py-1.5 rounded-full text-sm font-medium mx-1 mb-2"
-                    >
-                      {r}
-                    </span>
-                  ))}
-                </div>
-
-                <a
-                  href={`mailto:${member.email}`}
-                  className="text-gray-600 hover:text-emerald-600 transition-colors text-base relative z-10 no-underline flex items-center gap-2"
-                >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                    <polyline points="22,6 12,13 2,6"/>
-                  </svg>
-                  {member.email}
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Story Section */}
-      <section className="py-20 px-5 md:px-10 bg-white relative">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-10 text-gray-800 tracking-tight">Our Story</h2>
-          <p className="text-base md:text-lg leading-relaxed text-slate-600 mb-6">
-            여백은 2022년 "0과 1사이의 여백을 채우다"라는 의미로 시작된 DB 프로그래밍 소모임입니다.
-          </p>
-          <p className="text-base md:text-lg leading-relaxed text-slate-600 mb-6">
-            문헌정보학을 기반으로 데이터베이스 설계부터 웹 서비스 개발까지, 학과의 소통과 정보 공유를 위한 다양한 프로젝트를 진행하고 있습니다.
-          </p>
-          <p className="text-base md:text-lg leading-relaxed text-slate-600">
-            AI 기반 챗봇, 디지털 아카이빙, 큐레이션 서비스 등을 통해 문헌정보학과 학생들의 학습과 성장을 돕고 있습니다.
-          </p>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 px-5 md:px-10 bg-emerald-700 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/30 to-transparent"></div>
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-white tracking-tight">Join Us</h2>
-          <p className="text-base md:text-lg text-white/90 mb-10">
-            여백과 함께 성장 해 보세요!
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link
-              to="/"
-              className="bg-white text-emerald-600 border-none px-10 py-5 rounded-full text-lg font-semibold cursor-pointer transition-transform hover:scale-105 no-underline inline-block"
-            >
-              홈으로 돌아가기
-            </Link>
-            <a
-              href="mailto:lisyeobaek@egmail.com"
-              className="bg-transparent text-white border-2 border-white px-10 py-5 rounded-full text-lg font-semibold cursor-pointer transition-all hover:scale-105 hover:bg-white hover:text-emerald-600 no-underline inline-block"
-            >
-              문의하기
-            </a>
-          </div>
-        </div>
-      </section>
-
-    </div>
-  );
-};
+      </div>
+    </section>
+  </div>
+);
 
 export default About;

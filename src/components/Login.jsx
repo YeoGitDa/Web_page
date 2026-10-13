@@ -71,17 +71,17 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-emerald-50 to-slate-50">
       <SiteHeader suffix="Login" />
 
       <main className="flex-1 flex items-center justify-center px-4 py-12">
-        <div className="w-full max-w-2xl">
-          <div className="bg-white rounded-lg shadow-lg p-8 border border-gray-200">
-            <h2 className="text-3xl font-bold text-center mb-2 text-gray-900">로그인</h2>
-            <p className="mb-4 text-center text-sm text-gray-600">
+        <div className="w-full max-w-md">
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+            <h2 className="text-2xl font-bold text-center mb-2 text-slate-900">로그인</h2>
+            <p className="mb-4 text-center text-sm text-slate-600">
               운영진·일반 회원 모두 이 페이지에서 로그인합니다.
             </p>
-            <div className="mb-8 rounded-lg border border-emerald-100 bg-emerald-50/80 px-4 py-3 text-center text-sm text-gray-700">
+            <div className="mb-8 rounded-lg border border-emerald-100 bg-emerald-50/80 px-4 py-3 text-center text-sm text-slate-700">
               <p>
                 <strong>운영(관리자)</strong>으로 로그인한 뒤{' '}
                 <code className="rounded bg-white px-1.5 py-0.5 text-xs text-slate-800">/admin</code>으로
@@ -94,7 +94,7 @@ function Login() {
                 </Link>
                 를 눌러 주세요.
               </p>
-              <p className="mt-2 text-xs text-gray-600">
+              <p className="mt-2 text-xs text-slate-600">
                 북마크용 주소 <code className="rounded bg-white px-1 text-[11px]">/admin/login</code>도
                 동일하게 이 화면으로 연결됩니다. 주소만 바뀌고 폼은 같아서 체감상 반응이 없을 수 있습니다.
               </p>
@@ -108,9 +108,9 @@ function Login() {
               </p>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-8">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label htmlFor="id" className="block text-base font-medium text-gray-700 mb-2">
+                <label htmlFor="id" className="block text-sm font-semibold text-slate-700 mb-1.5">
                   ID
                 </label>
                 <input
@@ -120,14 +120,14 @@ function Login() {
                   value={formData.id}
                   onChange={handleChange}
                   autoComplete="username"
-                  className="w-full px-5 py-3 text-base border border-gray-300 rounded-md focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:outline-none transition-all"
+                  className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:outline-none transition-all"
                   placeholder="아이디"
                   required
                 />
               </div>
 
               <div>
-                <label htmlFor="password" className="block text-base font-medium text-gray-700 mb-2">
+                <label htmlFor="password" className="block text-sm font-semibold text-slate-700 mb-1.5">
                   비밀번호
                 </label>
                 <input
@@ -137,7 +137,7 @@ function Login() {
                   value={formData.password}
                   onChange={handleChange}
                   autoComplete="current-password"
-                  className="w-full px-5 py-3 text-base border border-gray-300 rounded-md focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:outline-none transition-all"
+                  className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:outline-none transition-all"
                   placeholder="비밀번호"
                   required
                 />
@@ -151,13 +151,13 @@ function Login() {
 
               <button
                 type="submit"
-                className="w-full bg-emerald-700 text-white py-4 rounded-md text-lg font-semibold hover:bg-emerald-800 transition-colors focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:outline-none"
+                className="w-full bg-emerald-700 text-white py-3 rounded-full text-base font-semibold hover:bg-emerald-800 transition-colors focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:outline-none"
               >
                 로그인
               </button>
             </form>
 
-            <div className="mt-6 text-center text-sm text-gray-600">
+            <div className="mt-6 text-center text-sm text-slate-600">
               계정이 없으신가요?{' '}
               <Link to="/signup" className="text-emerald-700 font-semibold hover:text-emerald-800 transition-colors">
                 가입하기
@@ -167,7 +167,7 @@ function Login() {
         </div>
       </main>
 
-      <footer className="border-t border-gray-200 bg-gray-900 text-gray-300 py-8 px-4">
+      <footer className="border-t border-slate-200 bg-slate-50 text-slate-500 py-8 px-4">
         <div className="max-w-7xl mx-auto text-center text-sm">
           <p>&copy; 2026 YeoBaek. All rights reserved.</p>
         </div>

@@ -44,7 +44,7 @@ const ChatBotDetail = () => {
       <PageHead eyebrow="CHATBOT" title="여불이와 대화하기" desc="여백 자료를 바탕으로 답하는 AI 챗봇입니다." />
 
       {/* ── Section 1: Hero (챗봇 데모) ── */}
-      <section className="px-6 md:px-16 py-16 bg-white">
+      <section className="px-5 py-16 sm:px-6 bg-slate-50">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10">
           {/* Left – mascot */}
           <div className="relative flex-shrink-0 flex flex-col items-center">
@@ -130,8 +130,8 @@ const ChatBotDetail = () => {
       </section>
 
       {/* ── Section 2: 챗봇은 이렇게 만들어졌어요 ── */}
-      <section className="px-6 md:px-16 py-16 bg-gray-50">
-        <h2 className="text-center text-xl font-bold text-gray-800 mb-14">챗봇은 이렇게 만들어졌어요</h2>
+      <section className="border-t border-slate-200 px-5 py-20 sm:px-6 bg-slate-50">
+        <h2 className="max-w-4xl mx-auto text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mb-10">챗봇은 이렇게 만들어졌어요</h2>
 
         <div className="max-w-4xl mx-auto flex flex-col gap-0">
 
@@ -269,7 +269,7 @@ const ChatBotDetail = () => {
       </section>
 
       {/* ── Section 3: CTA ── */}
-      <section className="px-6 md:px-16 py-16 bg-gray-100">
+      <section className="border-t border-slate-200 px-5 py-20 sm:px-6 bg-white">
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-lg font-bold text-gray-800 mb-8">
             챗봇과 자동화시스템, DB에 관심 있다면, 연락 주세요 !
