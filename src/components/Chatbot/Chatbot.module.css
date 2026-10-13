@@ -1,6 +1,7 @@
 /* src/components/Chatbot/Chatbot.module.css */
 
 .toggleButton {
+  font-family: inherit;
   position: fixed;
   right: 24px;
   bottom: 24px;
@@ -29,8 +30,7 @@
   flex-direction: column;
   overflow: hidden;
   z-index: 9999;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  font-family: inherit; /* 사이트 글꼴(Pretendard) 따름 */
 }
 
 /* 헤더 */
@@ -68,7 +68,7 @@
 .messages {
   flex: 1;
   padding: 10px 10px 6px 10px;
-  background: #f9fafb;
+  background: #f8fafc;
   overflow-y: auto;
   font-size: 13px;
 }
@@ -110,8 +110,8 @@
   align-items: flex-start;
 }
 .bot .bubble {
-  background: #e5e7eb;
-  color: #111827;
+  background: #e2e8f0;
+  color: #0f172a;
   border-bottom-left-radius: 4px;
 }
 /* chatbot mascot avatar (1119 신규) */
@@ -145,7 +145,7 @@
   border-radius: 999px;
   font-size: 10px;
   background: rgba(15, 23, 42, 0.16);
-  color: #e5e7eb;
+  color: #e2e8f0;
 }
 
 /* 추천 질문 영역 */
@@ -154,8 +154,8 @@
   flex-wrap: wrap;
   gap: 6px;
   padding: 4px 8px;
-  border-top: 1px solid #e5e7eb;
-  background: #f3f4f6;
+  border-top: 1px solid #e2e8f0;
+  background: #f1f5f9;
 }
 
 .suggestions button {
@@ -164,26 +164,26 @@
   padding: 4px 8px;
   font-size: 11px;
   cursor: pointer;
-  background: #e5e7eb;
-  color: #111827;
+  background: #e2e8f0;
+  color: #0f172a;
   white-space: nowrap;
 }
 
 .suggestions button:hover {
-  background: #d1d5db;
+  background: #cbd5e1;
 }
 
 /* 메타 텍스트 */
 .meta {
   font-size: 10px;
-  color: #9ca3af;
+  color: #94a3b8;
   margin-top: 2px;
 }
 
 /* 입력 영역 */
 .inputArea {
   display: flex;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid #e2e8f0;
   padding: 6px;
   background: #ffffff;
 }
@@ -191,7 +191,7 @@
 .input {
   flex: 1;
   border-radius: 999px;
-  border: 1px solid #d1d5db;
+  border: 1px solid #cbd5e1;
   padding: 6px 10px;
   font-size: 13px;
 }
