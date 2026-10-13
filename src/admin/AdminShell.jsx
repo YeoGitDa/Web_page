@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { clearAdminSession } from '../auth/session';
+import { SiteHeader, SiteFooter } from '../components/SiteHeader';
 
 const titles = {
   '/admin': '운영 · Yeobaek',
@@ -23,10 +24,10 @@ export default function AdminShell() {
     return (
       <Link
         to={to}
-        className={`rounded-md px-3 py-1.5 text-sm font-medium transition ${
+        className={`shrink-0 rounded-md px-3 py-1.5 text-sm font-medium no-underline transition ${
           active
-            ? 'bg-slate-900 text-white shadow-sm'
-            : 'text-slate-500 hover:bg-slate-100 hover:text-slate-800'
+            ? 'bg-yb-leaf-12 text-yb-forest'
+            : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900'
         }`}
       >
         {label}
@@ -41,51 +42,31 @@ export default function AdminShell() {
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
-      <header className="sticky top-0 z-40 border-b border-slate-200/90 bg-white/95 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-3 sm:px-6">
-          <Link to="/admin" className="flex items-center gap-2.5">
-            <img src="/backend/image/logo.png" alt="" className="h-7 w-auto" />
-            <span className="text-lg font-bold tracking-tight text-slate-900">
-              YEOBAEK<span className="ml-1.5 text-sm font-normal text-slate-500">| 운영</span>
-            </span>
-          </Link>
-
-          <nav className="flex flex-wrap items-center justify-end gap-1 sm:gap-2">
-            <Link
-              to="/"
-              className="mr-1 rounded-md px-3 py-1.5 text-sm font-medium text-slate-400 transition hover:text-slate-700"
-            >
-              메인 사이트
-            </Link>
-            {navLink('/admin', '운영 홈')}
-            {navLink('/admin/dashboard', '대시보드')}
-            <Link
-              to="/recruit"
-              className="rounded-md px-3 py-1.5 text-sm font-medium text-slate-500 transition hover:bg-slate-100 hover:text-slate-800"
-            >
-              모집
-            </Link>
-            <button
-              type="button"
-              onClick={onLogout}
-              className="rounded-md px-3 py-1.5 text-sm font-medium text-red-600 transition hover:bg-red-50"
-            >
-              로그아웃
-            </button>
-          </nav>
+      {/* 사이트 공용 헤더 + 운영 메뉴 줄 (모집 RecruitLayout 과 같은 틀) */}
+      <SiteHeader suffix="운영" />
+      <nav className="border-b border-slate-200 bg-white">
+        <div className="mx-auto flex max-w-5xl items-center gap-1 overflow-x-auto px-5 py-2 sm:gap-2 sm:px-6">
+          {navLink('/admin', '운영 홈')}
+          {navLink('/admin/dashboard', '대시보드')}
+          {navLink('/recruit', '모집')}
+          <button
+            type="button"
+            onClick={onLogout}
+            className="ml-auto shrink-0 rounded-md bg-transparent px-3 py-1.5 text-sm font-medium text-red-600 transition hover:bg-red-50"
+          >
+            로그아웃
+          </button>
         </div>
-      </header>
+      </nav>
 
-      <main className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-12">
+      <main className="mx-auto max-w-5xl px-5 py-10 sm:px-6 sm:py-12">
         <Outlet />
       </main>
 
-      <footer className="border-t border-slate-200 bg-white py-6">
-        <p className="text-center text-xs text-slate-400">
-          운영자 전용 영역입니다. 세션은 이 브라우저에만 저장됩니다.
-          <span className="mt-1 block text-slate-300">&copy; 2026 YEOBAEK Academic Club</span>
-        </p>
-      </footer>
+      <p className="px-4 pb-10 text-center text-xs text-slate-400">
+        운영자 전용 영역입니다. 세션은 이 브라우저에만 저장됩니다.
+      </p>
+      <SiteFooter />
     </div>
   );
 }
