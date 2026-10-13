@@ -167,7 +167,6 @@ export default function MatchResults() {
             <div className="space-y-4">
               {results.map((r, idx) => {
                 const item = viewMode === 'by-opportunity' ? r.profile : r.opportunity;
-                const { color } = getMatchGrade(r.score);
                 return (
                   <div
                     key={idx}

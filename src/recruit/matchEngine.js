@@ -15,17 +15,6 @@ import { getOpportunities, getTalentProfiles } from './submitRecruitment.js';
 
 /* ── 유틸 ── */
 
-/** 두 배열의 교집합 크기 / 합집합 크기 (Jaccard) */
-function jaccard(a, b) {
-  if (!a?.length || !b?.length) return 0;
-  const setA = new Set(a.map((s) => s.toLowerCase()));
-  const setB = new Set(b.map((s) => s.toLowerCase()));
-  let inter = 0;
-  for (const v of setA) if (setB.has(v)) inter++;
-  const union = new Set([...setA, ...setB]).size;
-  return union === 0 ? 0 : inter / union;
-}
-
 /** 두 배열의 교집합 크기 / 기준 배열 크기 (recall 관점) */
 function recall(required, available) {
   if (!required?.length) return 1; // 요구 없으면 만점

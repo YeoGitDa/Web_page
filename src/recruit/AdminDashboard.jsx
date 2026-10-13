@@ -8,7 +8,7 @@ import {
   DOMAIN_OPTIONS,
   ROLE_OPTIONS,
 } from './submitRecruitment.js';
-import { matchOpportunity, getMatchGrade } from './matchEngine.js';
+import { matchOpportunity } from './matchEngine.js';
 
 /* ── 통계 카드 ── */
 function StatCard({ label, value, sub, color = 'slate' }) {
